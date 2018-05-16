@@ -4216,20 +4216,20 @@ void convert_tree(TString sample, int iso_tau=0,
   TMVA::Reader* MVA_3l_TTV_reader = Book_3l_TTV_MVAReader("3lMVA_weights","/3l_ttV_BDTG.weights.xml");
   TMVA::Reader* MVA_3l_TT_reader = Book_3l_TT_MVAReader("3lMVA_weights","/3l_ttbar_BDTG.weights.xml");
 
-  TFile* f_fakerate = TFile::Open("fake_rate_weights/FR_data_ttH_mva_80X.root");
-  TH2F* h_fakerate_mu = (TH2F*)f_fakerate->Get("FR_mva075_mu_data_comb");
+  TFile* f_fakerate = TFile::Open("fake_rate_weights/FR_data_ttH_mva_94X.root");
+  TH2F* h_fakerate_mu = (TH2F*)f_fakerate->Get("FR_mva090_mu_data_comb");
   h_fakerate_mu->SetDirectory(0);
-  TH2F* h_fakerate_el = (TH2F*)f_fakerate->Get("FR_mva075_el_data_comb");
+  TH2F* h_fakerate_el = (TH2F*)f_fakerate->Get("FR_mva090_el_data_comb_NC");
   h_fakerate_el->SetDirectory(0);
 
-  TH2F* h_fakerate_mu_QCD = (TH2F*)f_fakerate->Get("FR_mva075_mu_QCD");
+  TH2F* h_fakerate_mu_QCD = (TH2F*)f_fakerate->Get("FR_mva090_mu_QCD");
   h_fakerate_mu_QCD->SetDirectory(0);
-  TH2F* h_fakerate_el_QCD = (TH2F*)f_fakerate->Get("FR_mva075_el_QCD");
+  TH2F* h_fakerate_el_QCD = (TH2F*)f_fakerate->Get("FR_mva090_el_QCD");
   h_fakerate_el_QCD->SetDirectory(0);
 
-  TH2F* h_fakerate_mu_TT = (TH2F*)f_fakerate->Get("FR_mva075_mu_TT");
+  TH2F* h_fakerate_mu_TT = (TH2F*)f_fakerate->Get("FR_mva090_mu_TT");
   h_fakerate_mu_TT->SetDirectory(0);
-  TH2F* h_fakerate_el_TT = (TH2F*)f_fakerate->Get("FR_mva075_el_TT");
+  TH2F* h_fakerate_el_TT = (TH2F*)f_fakerate->Get("FR_mva090_el_TT");
   h_fakerate_el_TT->SetDirectory(0);
 
   f_fakerate->Close();
@@ -4274,7 +4274,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
   for (int i=skip_entries;i<skip_entries+nentries;i++) {
 
-    if (i==7817) continue; //sync Htautau ntuple crashes with this event
+    //if (i==7817) continue; //sync Htautau ntuple crashes with this event
     if(i%10000==0) cout<<"i="<<i<<endl;
 
     _daughters_pt.clear();
