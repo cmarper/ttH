@@ -4553,6 +4553,7 @@ void convert_tree(TString sample, int iso_tau=0,
     //////////////////////////////////////////////
     ///              Electrons                 ///
     //////////////////////////////////////////////
+	  
     vector< pair<int,TLorentzVector> > reco_eles;
 
     for(unsigned int i_daughter=0; i_daughter<(*_daughters_e).size(); i_daughter++){
@@ -4566,17 +4567,17 @@ void convert_tree(TString sample, int iso_tau=0,
 	float miniRelIsoCharged = (*_daughters_miniRelIsoCharged)[i_daughter];
         float miniRelIsoNeutral = (*_daughters_miniRelIsoNeutral)[i_daughter];
         float miniRelIso = miniRelIsoCharged + miniRelIsoNeutral;
-        float miniRelIsoCharged_nanoAOD = (*_daughters_miniRelIsoCharged_nanoAOD)[i_daughter]; //rel
-        float miniRelIsoAll_nanoAOD = (*_daughters_miniRelIsoAll_nanoAOD)[i_daughter]; //rel
-        float miniRelIsoNeutral_nanoAOD = miniRelIsoAll_nanoAOD - miniRelIsoCharged_nanoAOD; // rel
-        float PFRelIsoAll04_nanoAOD = (*_daughters_PFRelIsoAll04_nanoAOD)[i_daughter]; //relative
-        float PFRelIsoAll_nanoAOD = (*_daughters_PFRelIsoAll_nanoAOD)[i_daughter]; //relative
+        float miniRelIsoCharged_nanoAOD = (*_daughters_miniRelIsoCharged_nanoAOD)[i_daughter]; 
+        float miniRelIsoAll_nanoAOD = (*_daughters_miniRelIsoAll_nanoAOD)[i_daughter]; 
+        float miniRelIsoNeutral_nanoAOD = miniRelIsoAll_nanoAOD - miniRelIsoCharged_nanoAOD; 
+        float PFRelIsoAll04_nanoAOD = (*_daughters_PFRelIsoAll04_nanoAOD)[i_daughter]; 
+        float PFRelIsoAll_nanoAOD = (*_daughters_PFRelIsoAll_nanoAOD)[i_daughter]; 
         float sip = (*_SIP)[i_daughter];
 	float eleMVA = (*_daughters_eleMVAntNoIso)[i_daughter];
-        //new 2017 working point: taken directly from mvaEleID-Fall17-noIso-V1-wpLoose
         bool LooseIdWP = (*_daughters_iseleNoIsoWPLoose)[i_daughter]; 
 	int eleMissingHits = (*_daughters_eleMissingHits)[i_daughter];
         int eleMissingLostHits = (*_daughters_eleMissingLostHits)[i_daughter];
+	
 	if(daughter.Pt()>7 && fabs(daughter.Eta())<2.5 && fabs(dxy)<=0.05 && fabs(dz)<0.1 && miniRelIsoAll_nanoAOD<0.4 && sip < 8 && LooseIdWP && eleMissingLostHits<=1){
 	  
           bool dR_veto=false;
@@ -4624,14 +4625,12 @@ void convert_tree(TString sample, int iso_tau=0,
 	  float conept = daughter.Pt();
 	  if(leptonMVA<0.90)
 	    conept = 0.90*daughter.Pt()/lepMVA_jetPtRatio;
-          //cout <<"conept = "<<conept<<",recopt="<<daughter.Pt()<<endl;
           
 	  if(conept_sorting)
 	    daughter.SetPtEtaPhiM(conept,daughter.Eta(),daughter.Phi(),daughter.M());	  
 	 
           pair<int,TLorentzVector> daughter_pair = make_pair(i_daughter,daughter);
 	  reco_eles.push_back(daughter_pair);
-	  //reco_leptons.push_back(daughter_pair);
 
 	}
 
@@ -4708,8 +4707,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
       bool eleIDcut=false;
       float SCeta = (*_daughters_SCeta)[i_daughter];
-      //float sigma_IetaIeta = (*_daughters_IetaIeta)[i_daughter]; 
-      float sigma_IetaIeta = (*_daughters_full5x5_IetaIeta)[i_daughter]; //Change wrt v4
+      float sigma_IetaIeta = (*_daughters_full5x5_IetaIeta)[i_daughter]; 
       float hOverE = (*_daughters_hOverE)[i_daughter];
       float deltaEta_in = (*_daughters_deltaEtaSuperClusterTrackAtVtx)[i_daughter]; 
       float deltaPhi_in = (*_daughters_deltaPhiSuperClusterTrackAtVtx)[i_daughter];
@@ -4733,13 +4731,13 @@ void convert_tree(TString sample, int iso_tau=0,
       int eleMissingHits = (*_daughters_eleMissingHits)[i_daughter];
       int eleMissingLostHits = (*_daughters_eleMissingLostHits)[i_daughter];
       bool passConversionVeto = (*_daughters_passConversionVeto)[i_daughter];
+	    
       _recoele_nMissingHits.push_back(eleMissingLostHits);
       _recoele_passConversionVeto.push_back(passConversionVeto);
       float conept;
       float leptonMVA_ = ele_reader->EvaluateMVA("BDTG method");
       if (leptonMVA_ > 0.9 ) { conept = elec.Pt(); }
       else { conept = 0.90*elec.Pt()/lepMVA_jetPtRatio; }
-     // cout << "Here fill:conept="<<conept<<"recopt="<<elec.Pt()<<endl;
 
       _recoele_conept.push_back( conept );
 
@@ -4747,7 +4745,6 @@ void convert_tree(TString sample, int iso_tau=0,
       bool isfakeable=false;
       if(conept>10 && eleIDcut && eleMissingLostHits==0 && passConversionVeto){
 	if(_recoele_leptonMVA[i_ele]>0.9 && lepMVA_jetBTagDeepCSV<0.4941)
-
 	  isfakeable=true;	
 	else if(_recoele_leptonMVA[i_ele]<=0.9 && lepMVA_jetBTagDeepCSV<0.07 && lepMVA_jetPtRatio>0.6 && lepMVA_mvaId>0.5)
 	  isfakeable=true;
@@ -4777,7 +4774,7 @@ void convert_tree(TString sample, int iso_tau=0,
       if(iscutsel)
 	_n_recoele_cutsel++;
       	
-      //MVA-based selection - to be updated for 2017
+      //MVA-based selection
       bool ismvasel=false;
       if(conept>10 && eleIDcut && eleMissingLostHits==0 && _recoele_leptonMVA[i_ele]>0.9 && lepMVA_jetBTagDeepCSV<0.4941 && passConversionVeto) 
 	ismvasel=true;
