@@ -4409,7 +4409,7 @@ void convert_tree(TString sample, int iso_tau=0,
           } 
 	
           lepMVA_jetBTagCSV = std::max((*_daughters_jetBTagCSV)[i_daughter],float(0.)); //old CSV for now  
-	  lepMVA_jetBTagDeepCSV = std::max((*_daughters_jetBTagDeepCSV)[i_daughter],float(0.)); //old CSV for now  
+	  lepMVA_jetBTagDeepCSV = std::max((*_daughters_jetBTagDeepCSV)[i_daughter],float(0.)); 
           lepMVA_sip3d = (*_SIP)[i_daughter];
 	  lepMVA_dxy = log(fabs((*_dxy_innerTrack)[i_daughter]));
 	  lepMVA_dz = log(fabs((*_dz_innerTrack)[i_daughter]));
@@ -4532,9 +4532,9 @@ void convert_tree(TString sample, int iso_tau=0,
       if(iscutsel)
 	_n_recomu_cutsel++;
 
-      //MVA-based selection - to be updated for 2017!
+      //MVA-based selection 
       bool ismvasel=false;
-      if(conept>10 && _recomu_leptonMVA[i_mu]>=0.9 && lepMVA_jetBTagDeepCSV<0.4941 && mediumID) //New medium WP for Moriond17
+      if(conept>10 && _recomu_leptonMVA[i_mu]>=0.9 && lepMVA_jetBTagDeepCSV<0.4941 && mediumID) \
 	ismvasel=true;
 	
       _recomu_ismvasel.push_back(ismvasel);
