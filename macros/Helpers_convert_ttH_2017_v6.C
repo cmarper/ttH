@@ -93,7 +93,6 @@ pair<int,float> find_i_dRmin_closest(TLorentzVector obj1_tlv,
 }
 
 
-
 float lepMVA_pt;
 float lepMVA_eta;
 float lepMVA_miniRelIsoCharged;
@@ -107,7 +106,6 @@ float lepMVA_dxy;
 float lepMVA_dz;
 float lepMVA_mvaId;
 float lepMVA_jetNDauChargedMVASel;
-
 
 
 TMVA::Reader* BookLeptonMVAReader2017(std::string basePath, std::string weightFileName, std::string type)
@@ -288,8 +286,6 @@ float fakerate_from_TGraph(TGraphAsymmErrors* graph, float pt){
 
 
 
-
-
 void convert_tree(TString sample, int iso_tau=0,
 		  TString iso_type="byVLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017", bool conept_sorting=true,
 		  int split=0, int i_split=0,
@@ -306,7 +302,6 @@ void convert_tree(TString sample, int iso_tau=0,
   if(sample=="test"){
 
     file="ntuple_test";
-   // dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
     dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
@@ -322,7 +317,6 @@ void convert_tree(TString sample, int iso_tau=0,
 
     dir_out+="ttH/";
 
-   // list.push_back("~/CMSSW_8_0_25_ttHprod_012017_Moriond17/CMSSW_8_0_25/src/LLRHiggsTauTau/NtupleProducer/test/HTauTauAnalysis.root");
     list.push_back("~/ttH/CMSSW_8_0_26_patch1/src/LLRHiggsTauTau/NtupleProducer/test/HTauTauAnalysis.root");
 
   }
