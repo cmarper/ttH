@@ -307,7 +307,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
     file="ntuple_test";
    // dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
-    dir_out="/data_CMS/cms/mperez/ttH_test/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -327,13 +327,13 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-  /*
+  
 
 
-  if(sample=="ttH_Hnonbb_Moriond17"){
+  if(sample=="ttH_Hnonbb_ICHEP18"){
 
     file="ntuple_ttH_Hnonbb";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -348,7 +348,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
     dir_out+="ttH/";
 
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/ttHToNonbb_M125_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8/ttH_25_01_16/170124_235258/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/MC2017/ttHJetToNonbb_M125_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8_180514/ttHJetToNonbb_M125_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8/ttHJetToNonbb_M125_TuneCP5_13TeV_amcatnloFXFX_madspin_pythia8_180514/180514_193059/";
 
     int i_dir=i_split/10;
     dir_in+=Form("000%i/",i_dir);
@@ -367,48 +367,11 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
-  if(sample=="ttHJet_Hnonbb_Moriond17"){
-
-    file="ntuple_ttHJet_Hnonbb";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
-
-    if(JEC>0)
-      dir_out+="JECup/";
-    else if(JEC<0)
-      dir_out+="JECdown/";
-    else if(TES>0)
-      dir_out+="TESup/";
-    else if(TES<0)
-      dir_out+="TESdown/";
-    else
-      dir_out+="nominal/";
-
-    dir_out+="ttH/";
-
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/ttHJetToNonbb_M125_13TeV_amcatnloFXFX_madspin_pythia8_mWCutfix/ttHJet_03_02_16/170203_135957/";
-
-    int i_dir=i_split/10;
-    dir_in+=Form("000%i/",i_dir);
-
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==10) i_max=1021;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
-  else if(sample=="THQ_Moriond17"){
+/*
+  else if(sample=="THQ_ICHEP18"){
 
     file="ntuple_THQ";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -519,8 +482,7 @@ void convert_tree(TString sample, int iso_tau=0,
     }
 
   }
-
-
+	
   else if(sample=="ttZ_Moriond17"){
 
     file="ntuple_ttZ";
@@ -594,11 +556,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-
-  else if(sample=="ttZ_lowmass_Moriond17"){
+  */
+  else if(sample=="ttZ_lowmass_ICHEP18"){
 
     file="ntuple_ttZ_lowmass";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -613,7 +575,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
     dir_out+="ttV/";
 
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/TTZToLL_M-1to10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/ttZ_lowM_03_03_17/170303_110657/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/MC2017/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8_180515/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8/TTZToLL_M-1to10_TuneCP5_13TeV-amcatnlo-pythia8_180515/180515_185251/";
 
     int i_dir=i_split/10;
     dir_in+=Form("000%i/",i_dir);
@@ -633,10 +595,10 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
-  else if(sample=="ttW_Moriond17"){
+  else if(sample=="ttW_ICHEP18"){
 
     file="ntuple_ttW";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -651,7 +613,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
     dir_out+="ttV/";
 
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8/ttW_25_01_16/170124_235405/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/MC2017/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8_180515/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8/TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8_180515/180515_185552/";
 
     int i_dir=i_split/10;
     dir_in+=Form("000%i/",i_dir);
@@ -670,7 +632,7 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
-
+/*
 
   else if(sample=="ttW_ext_Moriond17"){
 
@@ -708,11 +670,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-
-  else if(sample=="ttWW_gpetrucc"){
+*/
+  else if(sample=="ttWW_ICHEP2018"){
 
     file="ntuple_ttWW";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
 
     if(JEC>0)
       dir_out+="JECup/";
@@ -727,7 +689,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
     dir_out+="ttV/";
 
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/TTWW_gpetrucc/ttWW_04_05_17/170503_153147/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/MC2017/TTWW_TuneCP5_13TeV-madgraph-pythia8_180515/TTWW_TuneCP5_13TeV-madgraph-pythia8/TTWW_TuneCP5_13TeV-madgraph-pythia8_180515/180515_190012/";
 
     int i_dir=i_split/10;
     dir_in+=Form("000%i/",i_dir);
@@ -745,7 +707,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-
+/*
 
   else if(sample=="ttbar_DL_Moriond17"){
 
