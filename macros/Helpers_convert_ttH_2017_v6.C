@@ -1406,7 +1406,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
  */
  
-  else if(sample=="TTTT_Moriond17"){
+  else if(sample=="TTTT_ICHEP18"){
 
     file="ntuple_TTTT";
     dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
@@ -1485,11 +1485,11 @@ void convert_tree(TString sample, int iso_tau=0,
 */
 
 
- else if(sample=="DoubleEG_2016B_Moriond17"){
+ else if(sample=="DoubleEG_2017B_ICHEP18"){
 
-    file="ntuple_DoubleEG_2016B";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016B_04_02_17/170204_210303/";
+    file="ntuple_DoubleEG_2017B";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleEG_2017B_180514/DoubleEG/DoubleEG_2017B_180514/180514_091635/";
 
     int i_dir=i_split/10;
 
@@ -1511,11 +1511,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleEG_2016C_Moriond17"){
+ else if(sample=="DoubleEG_2017C_ICHEP18"){
 
-    file="ntuple_DoubleEG_2016C";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016C_04_02_17/170204_211348/";
+    file="ntuple_DoubleEG_2017C";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleEG_2017C_180514/DoubleEG/DoubleEG_2017C_180514/180514_092143/";
 
     int i_dir=i_split/10;
 
@@ -1536,11 +1536,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleEG_2016D_Moriond17"){
+ else if(sample=="DoubleEG_2017D_ICHEP18"){
 
-    file="ntuple_DoubleEG_2016D";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016D_04_02_17/170204_211634/";
+    file="ntuple_DoubleEG_2017D";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleEG_2017D_180514/DoubleEG/DoubleEG_2017D_180514/180514_092331/";
 
     int i_dir=i_split/10;
 
@@ -1560,11 +1560,11 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
- else if(sample=="DoubleEG_2016E_Moriond17"){
+ else if(sample=="DoubleEG_2017E_ICHEP18"){
 
-    file="ntuple_DoubleEG_2016E";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016E_04_02_17/170204_211951/";
+    file="ntuple_DoubleEG_2017E";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleEG_2017E_180514/DoubleEG/DoubleEG_2017E_180514/180514_092617/";
 
     int i_dir=i_split/10;
 
@@ -1585,11 +1585,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleEG_2016F_Moriond17"){
+ else if(sample=="DoubleEG_2017F_ICHEP18"){
 
-    file="ntuple_DoubleEG_2016F";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016F_04_02_17/170204_212242/";
+    file="ntuple_DoubleEG_2017F";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleEG_2017F_180514/DoubleEG/DoubleEG_2017F_180514/180514_092739/";
 
     int i_dir=i_split/10;
 
@@ -1609,85 +1609,11 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
+ else if(sample=="DoubleMu_2017B_ICHEP18"){
 
- else if(sample=="DoubleEG_2016G_Moriond17"){
-
-    file="ntuple_DoubleEG_2016G";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016G_08_02_17/170208_070339/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==82) i_max=8273;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
- else if(sample=="DoubleEG_2016Hv2_Moriond17"){
-
-    file="ntuple_DoubleEG_2016Hv2";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016Hv2_12_02_17/170212_200934/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==88) i_max=8839;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
- else if(sample=="DoubleEG_2016Hv3_Moriond17"){
-
-    file="ntuple_DoubleEG_2016Hv3";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleEG/DoubleEG_2016Hv3_12_02_17/170212_201058/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==2) i_max=229;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
- else if(sample=="DoubleMu_2016B_Moriond17"){
-
-    file="ntuple_DoubleMu_2016B";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016B_04_02_17/170204_210418/";
+    file="ntuple_DoubleMu_2017B";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleMuon_2017B_180514/DoubleMuon/DoubleMuon_2017B_180514/180514_093703/";
 
     int i_dir=i_split/10;
 
@@ -1707,11 +1633,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleMu_2016C_Moriond17"){
+ else if(sample=="DoubleMu_2017C_ICHEP18"){
 
-    file="ntuple_DoubleMu_2016C";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016C_04_02_17/170204_211303/";
+    file="ntuple_DoubleMu_2017C";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleMuon_2017C_180514/DoubleMuon/DoubleMuon_2017C_180514/180514_093930/";
 
     int i_dir=i_split/10;
 
@@ -1733,11 +1659,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleMu_2016D_Moriond17"){
+ else if(sample=="DoubleMu_2017D_ICHEP18"){
 
-    file="ntuple_DoubleMu_2016D";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016D_04_02_17/170204_211615/";
+    file="ntuple_DoubleMu_2017D";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleMuon_2017D_180514/DoubleMuon/DoubleMuon_2017D_180514/180514_094034/";
 
     int i_dir=i_split/10;
 
@@ -1758,11 +1684,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleMu_2016E_Moriond17"){
+ else if(sample=="DoubleMu_2017E_ICHEP18"){
 
-    file="ntuple_DoubleMu_2016E";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016E_04_02_17/170204_211924/";
+    file="ntuple_DoubleMu_2017E";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleMuon_2017E_180514/DoubleMuon/DoubleMuon_2017E_180514/180514_094154/";
 
     int i_dir=i_split/10;
 
@@ -1783,11 +1709,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleMu_2016F_Moriond17"){
+ else if(sample=="DoubleMu_2017F_ICHEP18"){
 
-    file="ntuple_DoubleMu_2016F";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016F_04_02_17/170204_212219/";
+    file="ntuple_DoubleMu_2017F";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/DoubleMuon_2017F_180514/DoubleMuon/DoubleMuon_2017F_180514/180514_094305/";
 
     int i_dir=i_split/10;
 
@@ -1808,87 +1734,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="DoubleMu_2016G_Moriond17"){
+ else if(sample=="MuonEG_2017B_ICHEP18"){
 
-    file="ntuple_DoubleMu_2016G";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016G_04_02_17/170204_212458/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==45) i_max=4558;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
- else if(sample=="DoubleMu_2016Hv2_Moriond17"){
-
-    file="ntuple_DoubleMu_2016Hv2";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016Hv2_12_02_17/170212_201221/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==48) i_max=4867;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
- else if(sample=="DoubleMu_2016Hv3_Moriond17"){
-
-    file="ntuple_DoubleMu_2016Hv3";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/DoubleMuon/DoubleMu_2016Hv3_12_02_17/170212_201345/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==1) i_max=127;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
-
- else if(sample=="MuonEG_2016B_Moriond17"){
-
-    file="ntuple_MuonEG_2016B";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016B_04_02_17/170204_210926/";
+    file="ntuple_MuonEG_2017B";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/MuonEG_2017B_180514/MuonEG/MuonEG_2017B_180514/180514_094812/";
 
     int i_dir=i_split/10;
 
@@ -1910,11 +1760,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="MuonEG_2016C_Moriond17"){
+ else if(sample=="MuonEG_2017C_ICHEP18"){
 
-    file="ntuple_MuonEG_2016C";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016C_04_02_17/170204_211416/";
+    file="ntuple_MuonEG_2017C";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/MuonEG_2017C_180514/MuonEG/MuonEG_2017C_180514/180514_095825/";
 
     int i_dir=i_split/10;
 
@@ -1937,11 +1787,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="MuonEG_2016D_Moriond17"){
+ else if(sample=="MuonEG_2017D_ICHEP18"){
 
-    file="ntuple_MuonEG_2016D";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016D_04_02_17/170204_211745/";
+    file="ntuple_MuonEG_2017D";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/MuonEG_2017D_180514/MuonEG/MuonEG_2017D_180514/180514_100046/";
 
     int i_dir=i_split/10;
 
@@ -1964,11 +1814,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="MuonEG_2016E_Moriond17"){
+ else if(sample=="MuonEG_2017E_ICHEP18"){
 
-    file="ntuple_MuonEG_2016E";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016E_04_02_17/170204_212015/";
+    file="ntuple_MuonEG_2017E";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/MuonEG_2017E_180514/MuonEG/MuonEG_2017E_180514/180514_100152/";
 
     int i_dir=i_split/10;
 
@@ -1988,12 +1838,11 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
- else if(sample=="MuonEG_2016F_Moriond17"){
+ else if(sample=="MuonEG_2017F_ICHEP18"){
 
-    file="ntuple_MuonEG_2016F";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016F_04_02_17/170204_212302/";
-
+    file="ntuple_MuonEG_2017F";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/MuonEG_2017F_180514/MuonEG/MuonEG_2017F_180514/180514_100348/";
     int i_dir=i_split/10;
 
     dir_in+=Form("000%i/",i_dir);
@@ -2011,85 +1860,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
+ else if(sample=="SingleMu_2017B_ICHEP18"){
 
- else if(sample=="MuonEG_2016G_Moriond17"){
-
-    file="ntuple_MuonEG_2016G";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016G_04_02_17/170204_212535/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==33) i_max=3389;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-  
-
- else if(sample=="MuonEG_2016Hv2_Moriond17"){
-
-    file="ntuple_MuonEG_2016Hv2";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016Hv2_12_02_17/170212_201547/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==28) i_max=2826;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
- else if(sample=="MuonEG_2016Hv3_Moriond17"){
-
-    file="ntuple_MuonEG_2016Hv3";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/MuonEG/MuonEG_2016Hv3_12_02_17/170212_201539/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==0) i_max=80;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
- else if(sample=="SingleMu_2016B_Moriond17"){
-
-    file="ntuple_SingleMu_2016B";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016B_04_02_17/170204_211044/";
+    file="ntuple_SingleMu_2017B";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleMuon_2017B_180513/SingleMuon/SingleMuon_2017B_180513/180513_182918/";
 
     int i_dir=i_split/10;
 
@@ -2110,11 +1885,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
   
- else if(sample=="SingleMu_2016C_Moriond17"){
+ else if(sample=="SingleMu_2017C_ICHEP18"){
 
-    file="ntuple_SingleMu_2016C";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016C_04_02_17/170204_211524/";
+    file="ntuple_SingleMu_2017C";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//sstore/user/cmartinp/ttH/data2017/SingleMuon_2017C_180513/SingleMuon/SingleMuon_2017C_180513/180513_183359/";
 
     int i_dir=i_split/10;
 
@@ -2135,11 +1910,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="SingleMu_2016D_Moriond17"){
+ else if(sample=="SingleMu_2017D_ICHEP18"){
 
-    file="ntuple_SingleMu_2016D";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016D_04_02_17/170204_211822/";
+    file="ntuple_SingleMu_2017D";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleMuon_2017D_180513/SingleMuon/SingleMuon_2017D_180513/180513_181510/";
 
     int i_dir=i_split/10;
 
@@ -2160,11 +1935,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="SingleMu_2016E_Moriond17"){
+ else if(sample=="SingleMu_2017E_ICHEP18"){
 
-    file="ntuple_SingleMu_2016E";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016E_08_02_17/170208_071719/";
+    file="ntuple_SingleMu_2017E";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleMuon_2017E_180513/SingleMuon/SingleMuon_2017E_180513/180513_183605/";
 
     int i_dir=i_split/10;
 
@@ -2186,11 +1961,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="SingleMu_2016F_Moriond17"){
+ else if(sample=="SingleMu_2017F_ICHEP18"){
 
-    file="ntuple_SingleMu_2016F";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016F_04_02_17/170204_212353/";
+    file="ntuple_SingleMu_2017F";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleMuon_2017F_180513/SingleMuon/SingleMuon_2017F_180513/180513_184059/";
 
     int i_dir=i_split/10;
 
@@ -2209,88 +1984,12 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-
-
- else if(sample=="SingleMu_2016G_Moriond17"){
-
-    file="ntuple_SingleMu_2016G";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016G_04_02_17/170204_212635/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==79) i_max=7932;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
- else if(sample=="SingleMu_2016Hv2_Moriond17"){
-
-    file="ntuple_SingleMu_2016Hv2";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016Hv2_12_02_17/170212_201951/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==91) i_max=9198;
-
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
- else if(sample=="SingleMu_2016Hv3_Moriond17"){
-
-    file="ntuple_SingleMu_2016Hv3";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleMuon/SingleMu_2016Hv3_12_02_17/170212_201953/";
-
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==2) i_max=243;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
   
- else if(sample=="SingleEle_2016B_Moriond17"){
+ else if(sample=="SingleEle_2017B_ICHEP18"){
 
-    file="ntuple_SingleEle_2016B";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016B_04_02_17/170204_211207/";
+    file="ntuple_SingleEle_2017B";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleElectron_2017B_180513_v2/SingleElectron/SingleEle_2017B_180513_v2/180513_154223/";
 
     int i_dir=i_split/10;
 
@@ -2312,11 +2011,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
   
- else if(sample=="SingleEle_2016C_Moriond17"){
+ else if(sample=="SingleEle_2017C_ICHEP18"){
 
-    file="ntuple_SingleEle_2016C";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016C_04_02_17/170204_211502/";
+    file="ntuple_SingleEle_2017C";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleElectron_2017C_180513/SingleElectron/SingleEle_2017C_180513/180513_162556/";
 
     int i_dir=i_split/10;
 
@@ -2339,11 +2038,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
   
- else if(sample=="SingleEle_2016D_Moriond17"){
+ else if(sample=="SingleEle_2017D_ICHEP18"){
 
-    file="ntuple_SingleEle_2016D";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016D_04_02_17/170204_211900/";
+    file="ntuple_SingleEle_2017D";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleElectron_2017D_180513/SingleElectron/SingleEle_2017D_180513/180513_162853/";
 
     int i_dir=i_split/10;
 
@@ -2364,11 +2063,11 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
 
- else if(sample=="SingleEle_2016E_Moriond17"){
+ else if(sample=="SingleEle_2017E_ICHEP18"){
 
-    file="ntuple_SingleEle_2016E";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016E_08_02_17/170208_071113/";
+    file="ntuple_SingleEle_2017E";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr//store/user/cmartinp/ttH/data2017/SingleElectron_2017E_180513/SingleElectron/SingleEle_2017E_180513/180513_163152/";
 
     int i_dir=i_split/10;
 
@@ -2388,11 +2087,11 @@ void convert_tree(TString sample, int iso_tau=0,
   }
 
 
- else if(sample=="SingleEle_2016F_Moriond17"){
+ else if(sample=="SingleEle_2017F_ICHEP18"){
 
-    file="ntuple_SingleEle_2016F";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016F_04_02_17/170204_212332/";
+    file="ntuple_SingleEle_2017F";
+    dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Data/";
+    dir_in="root://polgrid4.in2p3.fr/store/user/cmartinp/ttH/data2017/SingleElectron_2017F_180513/SingleElectron/SingleEle_2017F_180513/180513_163345/";
 
     int i_dir=i_split/10;
 
@@ -2411,108 +2110,6 @@ void convert_tree(TString sample, int iso_tau=0,
 
   }
 
-
-
- else if(sample=="SingleEle_2016G_Moriond17"){
-
-    file="ntuple_SingleEle_2016G";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016G_08_02_17/170208_071403/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==83) i_max=8309;
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-
-
- else if(sample=="SingleEle_2016Hv2_Moriond17"){
-
-    file="ntuple_SingleEle_2016Hv2";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016Hv2_12_02_17/170212_201734/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==65) i_max=6594;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
- else if(sample=="SingleEle_2016Hv3_Moriond17"){
-
-    file="ntuple_SingleEle_2016Hv3";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/nominal/Data/";
-    dir_in="root://polgrid4.in2p3.fr//store/user/tstreble/ttH_prod_80X_Moriond17_2/SingleElectron/SingleEle_2016Hv3_12_02_17/170212_201948/";
-
-    int i_dir=i_split/10;
-
-    dir_in+=Form("000%i/",i_dir);
-    
-    int i_min=i_split*100;
-    if(i_split==0) i_min++;
-    int i_max=(i_split+1)*100;
-    if(i_split==1) i_max=171;
-
-
-    for(int i=i_min;i<i_max;i++){
-      cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
-      list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
-    }
-
-  }
-
-
-  else if(sample=="sync_ttH"){
-    file="syncNtuple_ttH";
-    dir_in="/data_CMS/cms/strebler/ttH_Samples/Htautau_framework_files/MiniAODv2_prod_06_2016/";
-    dir_out="/data_CMS/cms/strebler/ttH_Samples/ntuples_converted/MiniAODv2_prod_06_2016/";
-    list.push_back(dir_in+"HTauTauAnalysis_sync.root");
-  }
-
-  else if(sample=="sync_ttH_80X"){
-    file="syncNtuple_ttH_multilep";
-    dir_in="/data_CMS/cms/mperez/ttH_test_2016/ntuples_LLRHiggsTauTau/";
-    dir_out="/data_CMS/cms/mperez/ttH_test_2016/ntuples_converted/";
-
-    if(JEC>0)
-      dir_out+="JECup/";
-    else if(JEC<0)
-      dir_out+="JECdown/";
-    else if(TES>0)
-      dir_out+="TESup/";
-    else if(TES<0)
-      dir_out+="TESdown/";
-    else
-      dir_out+="nominal/";
-
-    dir_out+="ttH/";
-    list.push_back(dir_in+"synchNtuple_HTauTauAnalysis.root");
-  }
-  */
 
   else if(sample=="sync_ttH_94X"){
    file="syncNtuple_94X_v24_newfmw";
@@ -2537,82 +2134,7 @@ void convert_tree(TString sample, int iso_tau=0,
    list.push_back(dir_in+"HTauTauAnalysis_sync_v24_newfmw.root");
   }
 
-/*
-  else if(sample=="sync_ttH_80X_ttHtautau"){
-    file="syncNtuple_ttH_tautau";
-    dir_in="/data_CMS/cms/strebler/ttH_prod_80X_10_2016/Htautau_framework_files/ttH/";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_11_2016/ntuples_converted/";
-
-    if(JEC>0)
-      dir_out+="JECup/";
-    else if(JEC<0)
-      dir_out+="JECdown/";
-    else if(TES>0)
-      dir_out+="TESup/";
-    else if(TES<0)
-      dir_out+="TESdown/";
-    else
-      dir_out+="nominal/";
-
-    dir_out+="ttH/";
-    list.push_back(dir_in+"HTauTauAnalysis_ttH_Hnonbb_sync_ttHtautau.root");
-  }
-
-
-  else if(sample=="sync_ttH_80X_ttHtautau_prod122016"){
-    file="syncNtuple_ttH_tautau_prod122016";
-    dir_in="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/Htautau_framework_files/";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
-
-    if(JEC>0)
-      dir_out+="JECup/";
-    else if(JEC<0)
-      dir_out+="JECdown/";
-    else if(TES>0)
-      dir_out+="TESup/";
-    else if(TES<0)
-      dir_out+="TESdown/";
-    else
-      dir_out+="nominal/";
-
-    dir_out+="ttH/";
-    list.push_back(dir_in+"HTauTauAnalysis_ttH_Hnonbb_tautau.root");
-  }
-
-
-  else if(sample=="sync_ttH_80X_ttHtautau_prod012017"){
-    file="syncNtuple_ttH_tautau_prod012017";
-    dir_in="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/Htautau_framework_files/";
-    dir_out="/data_CMS/cms/strebler/ttH_prod_80X_01_2017/ntuples_converted/";
-
-    if(JEC>0)
-      dir_out+="JECup/";
-    else if(JEC<0)
-      dir_out+="JECdown/";
-    else if(TES>0)
-      dir_out+="TESup/";
-    else if(TES<0)
-      dir_out+="TESdown/";
-    else
-      dir_out+="nominal/";
-
-    dir_out+="ttH/";
-    list.push_back(dir_in+"HTauTauAnalysis_ttH_Hnonbb_tautau.root");
-  }
-
-
-
-  else if(sample=="sync_ttjets"){
-    file="syncNtuple_ttjets";
-    dir_in="/home/llr/cms/strebler/CMSSW_7_6_3/src/LLRHiggsTauTau/NtupleProducer/test/";
-    dir_out="/home/llr/cms/strebler/CMSSW_7_6_3/src/LLRHiggsTauTau/NtupleProducer/test/";
-    list.push_back(dir_in+"HTauTauAnalysis.root");
-  }
-
-  */
-
-
-
+	
   file+=Form("_%i",i_split);
 
   if(iso_type=="")
