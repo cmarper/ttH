@@ -3652,23 +3652,29 @@ void convert_tree(TString sample, int iso_tau=0,
   f_fakerate->Close();
 
 
-  TFile* f_fakerate_tau = TFile::Open("fake_rate_weights/FR_tau_2016.root");
+  TFile* f_fakerate_tau = TFile::Open("fake_rate_weights/FR_tau_2017_v1.root");
 
+  TGraphAsymmErrors* gr_fakerate_tau_loose_barrel = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaLoose/absEtaLt1_5/jetToTauFakeRate_mc_hadTaus_pt");
+  TGraphAsymmErrors* gr_fakerate_tau_loose_endcaps = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaLoose/absEta1_5to9_9/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_medium_barrel = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaMedium/absEtaLt1_5/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_medium_endcaps = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaMedium/absEta1_5to9_9/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_tight_barrel = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaTight/absEtaLt1_5/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_tight_endcaps = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaTight/absEta1_5to9_9/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_Vtight_barrel = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVTight/absEtaLt1_5/jetToTauFakeRate_mc_hadTaus_pt");
   TGraphAsymmErrors* gr_fakerate_tau_Vtight_endcaps = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVTight/absEta1_5to9_9/jetToTauFakeRate_mc_hadTaus_pt");
-
-
+  TGraphAsymmErrors* gr_fakerate_tau_VVtight_barrel = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEtaLt1_5/jetToTauFakeRate_mc_hadTaus_pt");
+  TGraphAsymmErrors* gr_fakerate_tau_VVtight_endcaps = (TGraphAsymmErrors*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEta1_5to9_9/jetToTauFakeRate_mc_hadTaus_pt");
+	
+  TF1* f_dataMC_fakerate_tau_loose_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaLoose/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
+  TF1* f_dataMC_fakerate_tau_loose_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaLoose/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_medium_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaMedium/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_medium_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaMedium/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_tight_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaTight/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_tight_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaTight/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");  
   TF1* f_dataMC_fakerate_tau_Vtight_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVTight/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_Vtight_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVTight/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");  
-
+  TF1* f_dataMC_fakerate_tau_VVtight_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
+  TF1* f_dataMC_fakerate_tau_VVtight_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");  
   
   TFile* f_QFrate = TFile::Open("charge_flip_weights/QF_data_el_80X.root");
   TH2F* h_QFrate_el = (TH2F*)f_QFrate->Get("chargeMisId");
