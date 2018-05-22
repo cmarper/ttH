@@ -615,7 +615,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==3) i_max=253;
+    if(i_split==2) i_max=253;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1019,7 +1019,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==4) i_max=236;
+    if(i_split==2) i_max=236;
 
     for(int i=i_min;i<i_max;i++){
       cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
@@ -1274,7 +1274,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==11) i_max=555;
+    if(i_split==5) i_max=555;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1311,7 +1311,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==1) i_max=94;
+    if(i_split==0) i_max=94;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1349,7 +1349,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==10) i_max=352;
+    if(i_split==3) i_max=352;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1426,7 +1426,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==2) i_max=53;
+    if(i_split==0) i_max=53;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1492,7 +1492,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==70) i_max=1861;
+    if(i_split==18) i_max=1861;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1518,7 +1518,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==51) i_max=3055;
+    if(i_split==30) i_max=3055;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1543,7 +1543,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==57) i_max=1290;
+    if(i_split==12) i_max=1290;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1567,7 +1567,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==51) i_max=2793;
+    if(i_split==27) i_max=2793;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1592,7 +1592,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==36) i_max=3722;
+    if(i_split==37) i_max=3722;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1616,7 +1616,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==82) i_max=670;
+    if(i_split==6) i_max=670;
 
     for(int i=i_min;i<i_max;i++){
       cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
@@ -1640,7 +1640,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==28) i_max=2317;
+    if(i_split==23) i_max=2317;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1666,7 +1666,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==35) i_max=1139;
+    if(i_split==11) i_max=1139;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1691,7 +1691,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==27) i_max=2555;
+    if(i_split==25) i_max=2555;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1716,7 +1716,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==20) i_max=3974;
+    if(i_split==39) i_max=3974;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1741,7 +1741,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==31) i_max=205;
+    if(i_split==2) i_max=205;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1767,7 +1767,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==14) i_max=715;
+    if(i_split==7) i_max=715;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1794,7 +1794,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==23) i_max=447;
+    if(i_split==4) i_max=447;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1821,7 +1821,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==21) i_max=926;
+    if(i_split==9) i_max=926;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1867,7 +1867,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==80) i_max=7386;
+    if(i_split==73) i_max=7386;
 
     for(int i=i_min;i<i_max;i++){
       cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
@@ -1892,7 +1892,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==78) i_max=8237;
+    if(i_split==82) i_max=8237;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1917,7 +1917,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==52) i_max=3645;
+    if(i_split==36) i_max=3645;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1942,7 +1942,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==47) i_max=8216;
+    if(i_split==82) i_max=8216;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1968,7 +1968,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==35) i_max=8495;
+    if(i_split==84) i_max=8495;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -1992,7 +1992,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==83) i_max=2988;
+    if(i_split==29) i_max=2988;
 
 
 
@@ -2018,7 +2018,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==54) i_max=6691;
+    if(i_split==66) i_max=6691;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -2045,7 +2045,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==83) i_max=2631;
+    if(i_split==26) i_max=2631;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -2070,7 +2070,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==64) i_max=5241;
+    if(i_split==52) i_max=5241;
 
 
     for(int i=i_min;i<i_max;i++){
@@ -2094,7 +2094,7 @@ void convert_tree(TString sample, int iso_tau=0,
     int i_min=i_split*100;
     if(i_split==0) i_min++;
     int i_max=(i_split+1)*100;
-    if(i_split==38) i_max=6618;
+    if(i_split==66) i_max=6618;
 
 
     for(int i=i_min;i<i_max;i++){
