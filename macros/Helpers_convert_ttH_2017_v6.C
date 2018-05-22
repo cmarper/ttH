@@ -324,7 +324,7 @@ void convert_tree(TString sample, int iso_tau=0,
   
 
 
-  if(sample=="ttH_Hnonbb_ICHEP18"){
+  if(sample=="tHJet_Hnonbb_ICHEP18"){
 
     file="ntuple_ttH_Hnonbb";
     dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
