@@ -3544,7 +3544,7 @@ void convert_tree(TString sample, int iso_tau=0,
   TF1* f_dataMC_fakerate_tau_VVtight_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_VVtight_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");  
   
-  TFile* f_QFrate = TFile::Open("charge_flip_weights/QF_data_el_80X.root");
+  TFile* f_QFrate = TFile::Open("charge_flip_weights/QF_data_el_80X.root"); //NEEDS UPDATE
   TH2F* h_QFrate_el = (TH2F*)f_QFrate->Get("chargeMisId");
   h_QFrate_el->SetDirectory(0);
   f_QFrate->Close();
