@@ -324,7 +324,7 @@ void convert_tree(TString sample, int iso_tau=0,
   
 
 
-  if(sample=="tHJet_Hnonbb_ICHEP18"){
+  if(sample=="ttHJet_Hnonbb_ICHEP18"){
 
     file="ntuple_ttH_Hnonbb";
     dir_out="/data_CMS/cms/mperez/ttH_2017/ntuples_converted/";
@@ -354,6 +354,7 @@ void convert_tree(TString sample, int iso_tau=0,
 
 
     for(int i=i_min;i<i_max;i++){
+   // for(int i=0;i<1;i++){
       cout<<dir_in+Form("HTauTauAnalysis_%i.root",i)<<endl;
       list.push_back(dir_in+Form("HTauTauAnalysis_%i.root",i));
     }
@@ -2623,10 +2624,10 @@ void convert_tree(TString sample, int iso_tau=0,
   float _bTagSF_CSVshape_weight_CFErr2Up;
   float _bTagSF_CSVshape_weight_CFErr2Down;
   
-  float _PU_weight;
-  float _PU_weight_ICHEP;
-  float _PU_weight_2016;
-  float _PU_weight_MCSummer2016;
+ // float _PU_weight;
+ // float _PU_weight_ICHEP;
+ // float _PU_weight_2016;
+ // float _PU_weight_MCSummer2016;
   
 
   //Gen information
@@ -3143,10 +3144,10 @@ void convert_tree(TString sample, int iso_tau=0,
   tree_new->Branch("bTagSF_CSVshape_weight_CFErr2Up",&_bTagSF_CSVshape_weight_CFErr2Up);
   tree_new->Branch("bTagSF_CSVshape_weight_CFErr2Down",&_bTagSF_CSVshape_weight_CFErr2Down);
 
-  tree_new->Branch("PU_weight",&_PU_weight,"PU_weight/F");
-  tree_new->Branch("PU_weight_ICHEP",&_PU_weight_ICHEP,"PU_weight_ICHEP/F");
-  tree_new->Branch("PU_weight_2016",&_PU_weight_2016,"PU_weight_2016/F");
-  tree_new->Branch("PU_weight_MCSummer2016",&_PU_weight_MCSummer2016,"PU_weight_MCSummer2016/F");
+  //tree_new->Branch("PU_weight",&_PU_weight,"PU_weight/F");
+  //tree_new->Branch("PU_weight_ICHEP",&_PU_weight_ICHEP,"PU_weight_ICHEP/F");
+  //tree_new->Branch("PU_weight_2016",&_PU_weight_2016,"PU_weight_2016/F");
+  //tree_new->Branch("PU_weight_MCSummer2016",&_PU_weight_MCSummer2016,"PU_weight_MCSummer2016/F");
 
   tree_new->Branch("genH_decayMode",&_genH_decayMode);
   tree_new->Branch("n_genW",&_n_genW,"n_genW/I");
@@ -3544,7 +3545,7 @@ void convert_tree(TString sample, int iso_tau=0,
   TF1* f_dataMC_fakerate_tau_VVtight_barrel = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEtaLt1_5/fitFunction_data_div_mc_hadTaus_pt");
   TF1* f_dataMC_fakerate_tau_VVtight_endcaps = (TF1*)f_fakerate_tau->Get("jetToTauFakeRate/dR03mvaVVTight/absEta1_5to9_9/fitFunction_data_div_mc_hadTaus_pt");  
   
-  TFile* f_QFrate = TFile::Open("charge_flip_weights/QF_data_el_80X.root"); //NEEDS UPDATE
+  TFile* f_QFrate = TFile::Open("charge_flip_weights/QF_data_el_80X.root");
   TH2F* h_QFrate_el = (TH2F*)f_QFrate->Get("chargeMisId");
   h_QFrate_el->SetDirectory(0);
   f_QFrate->Close();
@@ -3913,10 +3914,10 @@ void convert_tree(TString sample, int iso_tau=0,
     _bTagSF_CSVshape_weight_CFErr2Up = 0;
     _bTagSF_CSVshape_weight_CFErr2Down = 0;
 
-    _PU_weight = 0;
-    _PU_weight_ICHEP = 0;
-    _PU_weight_2016 = 0;
-    _PU_weight_MCSummer2016 = 0;
+    //_PU_weight = 0;
+    //_PU_weight_ICHEP = 0;
+    //_PU_weight_2016 = 0;
+    //_PU_weight_MCSummer2016 = 0;
 
     _genpart_pt.clear();
     _genpart_eta.clear();
@@ -4200,10 +4201,10 @@ void convert_tree(TString sample, int iso_tau=0,
     int entry_ok = tree->GetEntry(i);
     if(entry_ok<0) continue;
 
-    _PU_weight = puw2016_nTrueInt_13fb(abs(_npu));
-    _PU_weight_ICHEP = _PU_weight;
-    _PU_weight_2016 = puw2016_nTrueInt_36fb(abs(_npu));
-    _PU_weight_MCSummer2016 = puw2016_MCSummer16_nTrueInt_36fb(abs(_npu));
+    //_PU_weight = puw2016_nTrueInt_13fb(abs(_npu));
+    //_PU_weight_ICHEP = _PU_weight;
+    //_PU_weight_2016 = puw2016_nTrueInt_36fb(abs(_npu));
+    //_PU_weight_MCSummer2016 = puw2016_MCSummer16_nTrueInt_36fb(abs(_npu));
 
     _isTrig = pass_trigger(_triggerbit);
     _isTrig_3l = pass_trigger_3l(_triggerbit);
