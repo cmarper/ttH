@@ -1067,7 +1067,7 @@ void split_tree(TString filename_in, TString filename_out,
 	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
 	bool metLD = (abs(_recolep_sel_pdg[0])==13 || abs(_recolep_sel_pdg[1])==13 || _ETmissLD>0.2);
 	bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
-	bool jetmult_CR_jets = _n_recoPFJet==2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
+	bool jetmult_CR_jets = _n_recoPFJet==3;
 	bool jetmult_ttbar_OF = _n_recoPFJet>=2 && _n_recoPFJet_btag_medium>=1;
 	if(isMC && tau_fake)
 	  _isGenMatched = _recolep_sel_isGenMatched[0] && _recolep_sel_isGenMatched[1] && _recotauh_sel_isGenMatched[0];
