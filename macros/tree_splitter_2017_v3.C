@@ -634,6 +634,7 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recotauh_sel_pt.push_back(tau_tlv.Pt());
 	    _recotauh_sel_eta.push_back(tau_tlv.Eta());
 	    _recotauh_sel_phi.push_back(tau_tlv.Phi());
+	    _recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
             _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byMediumIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	    _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byTightIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	    _recotauh_sel_againstMuonLoose3.push_back((*_recotauh_againstMuonLoose3)[i_tau]);
@@ -668,6 +669,7 @@ void split_tree(TString filename_in, TString filename_out,
 	_recotauh_sel_pt.clear();
 	_recotauh_sel_eta.clear();
 	_recotauh_sel_phi.clear();
+	_recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
 	_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
 	_recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
 	_recotauh_sel_againstMuonLoose3.clear();
@@ -696,6 +698,7 @@ void split_tree(TString filename_in, TString filename_out,
 	  _recotauh_sel_pt.push_back(tau_tlv.Pt());
 	  _recotauh_sel_eta.push_back(tau_tlv.Eta());
 	  _recotauh_sel_phi.push_back(tau_tlv.Phi());
+	  _recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	  _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byMediumIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	  _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byTightIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	  _recotauh_sel_againstMuonLoose3.push_back((*_recotauh_againstMuonLoose3)[i_tau]);
@@ -894,6 +897,7 @@ void split_tree(TString filename_in, TString filename_out,
     _recotauh_sel_pt.clear();
     _recotauh_sel_eta.clear();
     _recotauh_sel_phi.clear();
+    _recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
     _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
     _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017.clear();
     _recotauh_sel_againstMuonLoose3.clear();
@@ -959,7 +963,7 @@ void split_tree(TString filename_in, TString filename_out,
 	
 	for(unsigned int i_tau=0; i_tau<(*_recotauh_charge).size(); i_tau++){
 	  
-	  if((*_recotauh_byMediumIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]>0.5){
+	  if((*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]>0.5){
 	    
 	    _recotauh_sel_charge.push_back((*_recotauh_charge)[i_tau]);
 	    _recotauh_sel_decayMode.push_back((*_recotauh_decayMode)[i_tau]);
@@ -973,6 +977,7 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recotauh_sel_pt.push_back(tau_tlv.Pt());
 	    _recotauh_sel_eta.push_back(tau_tlv.Eta());
 	    _recotauh_sel_phi.push_back(tau_tlv.Phi());
+	    _recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	    _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byMediumIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	    _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017.push_back((*_recotauh_byTightIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]);
 	    _recotauh_sel_againstMuonLoose3.push_back((*_recotauh_againstMuonLoose3)[i_tau]);
