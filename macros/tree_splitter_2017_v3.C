@@ -1070,6 +1070,8 @@ void split_tree(TString filename_in, TString filename_out,
 	bool pt_lep = ((_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==11));
 	bool SS_lep = _recolep_sel_charge[0]*_recolep_sel_charge[1]>0;
 	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
+	bool OS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]<0;
+	bool OS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0;
 	bool metLD = (abs(_recolep_sel_pdg[0])==13 || abs(_recolep_sel_pdg[1])==13 || _ETmissLD>0.2);
 	bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
 	bool jetmult_CR_jets = _n_recoPFJet==3;
