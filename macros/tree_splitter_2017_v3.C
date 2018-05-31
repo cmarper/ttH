@@ -730,9 +730,7 @@ void split_tree(TString filename_in, TString filename_out,
       bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
       bool jetmult_2jet_CR = _n_recoPFJet>=2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
 
-      bool sig_1l2tau;
-      if(isMC){ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && _isGenMatched;}
-      else{ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge;}
+      bool sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge;
       //bool sig_1l2tau = tight_mvasel && pt_lep && taus && jetmult_sig && tau_charge;
       bool fake_CR = (!tight_mvasel || taus2<2) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge;
       bool CR_2jet_tight_lep = tight_mvasel && taus && pt_lep && jetmult_2jet_CR && tau_charge; //FIXME
