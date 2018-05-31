@@ -730,16 +730,13 @@ void split_tree(TString filename_in, TString filename_out,
       bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
       bool jetmult_2jet_CR = _n_recoPFJet>=2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
 
-      cout << "tight_mvasel"<<tight_mvasel<<", pt_lep"<<pt_lep<<", eta_lep"<<eta_lep<<", pt_taus"<<pt_taus<< ",taus"<<taus<<", taus2"<<taus2<< ", jetmult_sig" << jetmult_sig<< ", tau_charge"<<tau_charge<<", jetmult_2jet_CR"<<jetmult_2jet_CR<<endl;
-     // bool sig_1l2tau;
-     // if(isMC){ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && _isGenMatched && inv_mass_lep_pairs;}
-     // else{ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs;}
-      bool sig_1l2tau = tight_mvasel && pt_lep && taus && jetmult_sig && tau_charge;
-      if(sig_1l2tau) cout << "pass"<< endl;
-      bool fake_CR = (!tight_mvasel || taus2==1) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge;
+      bool sig_1l2tau;
+      if(isMC){ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && _isGenMatched;}
+      else{ sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge;}
+      //bool sig_1l2tau = tight_mvasel && pt_lep && taus && jetmult_sig && tau_charge;
+      bool fake_CR = (!tight_mvasel || taus2<2) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge;
       bool CR_2jet_tight_lep = tight_mvasel && taus && pt_lep && jetmult_2jet_CR && tau_charge; //FIXME
       bool CR_2jet_fake_lep = !(tight_mvasel && taus) && pt_lep && jetmult_2jet_CR && tau_charge; //FIXME
-
 
       /*cout<<"tight_mvasel="<<tight_mvasel<<endl;
       cout<<"taus="<<taus<<endl;
