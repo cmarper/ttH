@@ -1070,8 +1070,7 @@ void split_tree(TString filename_in, TString filename_out,
 	bool pt_lep = ((_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==11));
 	bool SS_lep = _recolep_sel_charge[0]*_recolep_sel_charge[1]>0;
 	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
-	bool OS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]<0;
-	bool OS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0;
+	bool SS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]<0;
 	bool metLD = (abs(_recolep_sel_pdg[0])==13 || abs(_recolep_sel_pdg[1])==13 || _ETmissLD>0.2);
 	bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
 	bool jetmult_CR_jets = _n_recoPFJet==3;
@@ -1082,13 +1081,13 @@ void split_tree(TString filename_in, TString filename_out,
 	bool sig_2lSS = tight_mvasel && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
 	bool sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau;
 	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
-	bool tau_fake_CR = tau_fake && !tau && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
-	bool sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep && !SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
+	bool tau_fake_CR = tau_fake && !tau && lep_quality && pt_lep && SS_lep && !SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
+	bool sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep && !SS_lep && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
 	bool jetmult_CR = tight_mvasel && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_CR_jets;
 	bool ttbarOF_CR = tight_mvasel && lep_quality && pt_lep && !SS_lep && !SF_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_ttbar_OF;
-	
 	bool CR_2jets_tau = tau_fake && lep_quality && pt_lep && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_CR_jets;
-
+	//bool sig_2l2tau //FIXME
+	      
 	/*cout<<"tight_mvasel="<<tight_mvasel<<endl;
 	cout<<"lep_quality="<<lep_quality<<endl;
 	cout<<"pt_lep="<<pt_lep<<endl;
