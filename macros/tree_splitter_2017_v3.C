@@ -723,7 +723,7 @@ void split_tree(TString filename_in, TString filename_out,
       bool pt_lep = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>30 && abs(_recolep_sel_pdg[0])==11));      
       bool eta_lep = abs(_recolep_sel_eta[0])<2.1; //to match the lepton-tau cross triggers
       bool pt_taus = _recotauh_sel_pt[0]>30 && _recotauh_sel_pt[1]>20;
-      bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] && _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017[1];
+      bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] && _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1];
       int  taus2 = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] + _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1];
       bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
       if(isMC)
@@ -731,13 +731,15 @@ void split_tree(TString filename_in, TString filename_out,
       bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
       bool jetmult_2jet_CR = _n_recoPFJet>=2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
      
-       //****1l+2taus****
+      //****1l+2taus****
       //1l+2tau signal region
+      
       bool sig_1l2tau;
       if(isMC) sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs && _isGenMatched;
       else sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs;
+      
       //1l+2tau fake extrapolation region
-      bool fake_CR = (!tight_mvasel || taus2<2) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge && inv_mass_lep_pairs;
+      bool fake_CR = !(tight_mvasel && taus) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge && inv_mass_lep_pairs;
 
       bool CR_2jet_tight_lep = tight_mvasel && taus && pt_lep && jetmult_2jet_CR && tau_charge; //FIXME
       bool CR_2jet_fake_lep = !(tight_mvasel && taus) && pt_lep && jetmult_2jet_CR && tau_charge; //FIXME
@@ -1078,31 +1080,32 @@ void split_tree(TString filename_in, TString filename_out,
 
 	// 2lSS signal region
 	bool sig_2lSS;
-        if(isMC) sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau && _isGenMatched;
-        else sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
+        if(isMC) sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && _isGenMatched;
+        else sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
 
 	// 2lSS fake extrapolation region
-	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
+	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig;
 
 	// 2lSS charge flip extrapolation region
 	bool sig_2lOS_CR;
-        if(isMC) sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau && _isGenMatched;
-        else sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
+        if(isMC) sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && ele && _isGenMatched; //!tau
+        else sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && ele; //!tau
+
 	
 	//*******//
 	
 	// 2lSS+1tau signal region
 	bool sig_2lSS_1tau;
         if(isMC) sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && _isGenMatched;// -->correct one taus,SS_taulep
-        else sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && !SS_taulep;
+        else sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau;
 	
 	// 2lSS+1tau fake extrapolation region
-	bool tau_fake_CR =  lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && !SS_taulep;
+	bool tau_fake_CR =  lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau;
 
 	// 2lSS+1tau fake charge flip extrapolation region
-	bool tau_2lOS_CR;
-        if(isMC) tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && _isGenMatched && SS_taulep;
-        else tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && SS_taulep;
+	//bool tau_2lOS_CR;
+        //if(isMC) tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && _isGenMatched;
+        //else tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau;
 
 	//*******//
 	
