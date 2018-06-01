@@ -720,7 +720,7 @@ void split_tree(TString filename_in, TString filename_out,
       }
 
       bool tight_mvasel = _recolep_sel_ismvasel[0];
-      bool pt_lep = ((_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_pt[0]>30 && abs(_recolep_sel_pdg[0])==11));      
+      bool pt_lep = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>30 && abs(_recolep_sel_pdg[0])==11));      
       bool eta_lep = abs(_recolep_sel_eta[0])<2.1; //to match the lepton-tau cross triggers
       bool pt_taus = _recotauh_sel_pt[0]>30 && _recotauh_sel_pt[1]>20;
       bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] && _recotauh_sel_byTightIsolationMVArun2v2DBdR03oldDMwLT2017[1];
@@ -730,9 +730,12 @@ void split_tree(TString filename_in, TString filename_out,
 	_isGenMatched = _recolep_sel_isGenMatched[0] && _recotauh_sel_isGenMatched[0] && _recotauh_sel_isGenMatched[1];
       bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
       bool jetmult_2jet_CR = _n_recoPFJet>=2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
-      //****1l+2taus****
+     
+       //****1l+2taus****
       //1l+2tau signal region
-      bool sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs;  //&& isGenMatched
+      bool sig_1l2tau;
+      if(isMC) sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs && _isGenMatched;
+      else sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs;
       //1l+2tau fake extrapolation region
       bool fake_CR = (!tight_mvasel || taus2<2) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge && inv_mass_lep_pairs;
 
@@ -1059,14 +1062,14 @@ void split_tree(TString filename_in, TString filename_out,
 
 	bool tight_mvasel = _recolep_sel_ismvasel[0]==1 && _recolep_sel_ismvasel[1]==1;
 	bool lep_quality = _recolep_sel_tightcharge[0] && _recolep_sel_tightcharge[1];
-	bool pt_lep_2l = ((_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==11));
-	bool pt_lep_2l1tau = ((_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_pt[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_pt[1]>10 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_pt[1]>15 && abs(_recolep_sel_pdg[1])==11));
+	bool pt_lep_2l = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11));
+	bool pt_lep_2l1tau = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_conept[1]>10 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11));
 	bool SS_lep = _recolep_sel_charge[0]*_recolep_sel_charge[1]>0;
 	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
         bool ele = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11);
 	bool SS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0;
 	bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0]+_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1]<2;
-	bool metLD = (abs(_recolep_sel_pdg[0])==11 && abs(_recolep_sel_pdg[1])==11 && _ETmissLD>0.2);
+	bool metLD = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11 || _ETmissLD>0.2); //&&
 	bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
 	bool jetmult_CR_jets = _n_recoPFJet==3;
 	bool jetmult_ttbar_OF = _n_recoPFJet>=2 && _n_recoPFJet_btag_medium>=1;
@@ -1074,24 +1077,32 @@ void split_tree(TString filename_in, TString filename_out,
 	  _isGenMatched = _recolep_sel_isGenMatched[0] && _recolep_sel_isGenMatched[1] && _recotauh_sel_isGenMatched[0];
 
 	// 2lSS signal region
-	bool sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;  //&& isGenMatched
+	bool sig_2lSS;
+        if(isMC) sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau && _isGenMatched;
+        else sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
 
 	// 2lSS fake extrapolation region
 	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
 
 	// 2lSS charge flip extrapolation region
-	bool sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
+	bool sig_2lOS_CR;
+        if(isMC) sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau && _isGenMatched;
+        else sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && !tau;
 	
 	//*******//
 	
 	// 2lSS+1tau signal region
-	bool sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && !SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus;  //&& isGenMatched
+	bool sig_2lSS_1tau;
+        if(isMC) sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && _isGenMatched;// -->correct one taus,SS_taulep
+        else sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && !SS_taulep;
 	
 	// 2lSS+1tau fake extrapolation region
-	bool tau_fake_CR =  lep_quality && pt_lep_2l1tau && SS_lep && !SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus;
+	bool tau_fake_CR =  lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && !SS_taulep;
 
 	// 2lSS+1tau fake charge flip extrapolation region
-	bool tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && SS_taulep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus;
+	bool tau_2lOS_CR;
+        if(isMC) tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && _isGenMatched && SS_taulep;
+        else tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && taus && SS_taulep;
 
 	//*******//
 	
@@ -1378,7 +1389,6 @@ void split_tree(TString filename_in, TString filename_out,
 	}
 	
 	
-	//FIXME!!
 	if(sig_2lSS_1tau)
 	  tree_2lSS->Fill();
 	else if(lepMVA_CR || tau_fake_CR)
@@ -1599,8 +1609,8 @@ void split_tree(TString filename_in, TString filename_out,
 	
 	bool tight_mvasel = _recolep_sel_ismvasel[0]==1 && _recolep_sel_ismvasel[1]==1 && _recolep_sel_ismvasel[2]==1;
 	bool tight_mvasel2 = _recolep_sel_ismvasel[0]==1+ _recolep_sel_ismvasel[1]==1+ _recolep_sel_ismvasel[2]==1+ _recolep_sel_ismvasel[3]==1+_recolep_sel_ismvasel[4]==1 <=3;
-	bool pt_lep_3l = _recolep_sel_pt[0]>25 && _recolep_sel_pt[1]>15 && _recolep_sel_pt[2]>10;
-	bool pt_lep_3l1tau = _recolep_sel_pt[0]>25 && _recolep_sel_pt[1]>10 && _recolep_sel_pt[2]>10;
+	bool pt_lep_3l = _recolep_sel_conept[0]>25 && _recolep_sel_conept[1]>15 && _recolep_sel_conept[2]>10;
+	bool pt_lep_3l1tau = _recolep_sel_conept[0]>25 && _recolep_sel_conept[1]>10 && _recolep_sel_conept[2]>10;
 	bool metLD = _ETmissLD>0.2 || _n_recoPFJet>=4;
 	if(SFOS_pair)
 	  metLD = _ETmissLD>0.3 || _n_recoPFJet>=4;
@@ -1614,7 +1624,9 @@ void split_tree(TString filename_in, TString filename_out,
 
 	// **** 3l ****
         //3l signal region
-	bool sig_3l = tight_mvasel && tight_mvasel2 && pt_lep_3l && inv_mass_lep_pairs && inv_mass_Z && metLD && three_charge && jetmult_sig && !tau; //&& isGenMatched;//&& m_4l < 140 GeV veto
+	bool sig_3l;
+        if(isMC) sig_3l = tight_mvasel && tight_mvasel2 && pt_lep_3l && inv_mass_lep_pairs && inv_mass_Z && metLD && three_charge && jetmult_sig && !tau && _isGenMatched;//&& m_4l < 140 GeV veto
+        else sig_3l = tight_mvasel && tight_mvasel2 && pt_lep_3l && inv_mass_lep_pairs && inv_mass_Z && metLD && three_charge && jetmult_sig && !tau;
 
 	//3l fake extrapolation region
 	bool lepMVA_CR = !tight_mvasel && tight_mvasel2 && pt_lep_3l && inv_mass_lep_pairs && inv_mass_Z && metLD && three_charge && jetmult_sig && !tau; //&& m_4l < 140 GeV veto
@@ -1622,7 +1634,9 @@ void split_tree(TString filename_in, TString filename_out,
 	
 	// **** 3l+1tau ****
         //3l+1tau signal region
-	bool sig_3l_1tau = tight_mvasel && pt_lep_3l1tau && inv_mass_lep_pairs && inv_mass_Z && metLD && four_charge && jetmult_sig && tau; //&& isGenMatched; //&& m_4l < 140 GeV veto
+	bool sig_3l_1tau;
+        if(isMC) sig_3l_1tau = tight_mvasel && pt_lep_3l1tau && inv_mass_lep_pairs && inv_mass_Z && metLD && four_charge && jetmult_sig && tau && _isGenMatched; //&& m_4l < 140 GeV veto
+        else sig_3l_1tau = tight_mvasel && pt_lep_3l1tau && inv_mass_lep_pairs && inv_mass_Z && metLD && four_charge && jetmult_sig && tau;
 
 	//3l+1tau fake extrapolation region
 	bool tau_fake_CR = !tight_mvasel && pt_lep_3l1tau && inv_mass_lep_pairs && inv_mass_Z && metLD && four_charge && jetmult_sig && tau;//&& m_4l < 140 GeV veto
@@ -1631,7 +1645,8 @@ void split_tree(TString filename_in, TString filename_out,
 
 	//ttZ control region
 	bool ttZ_CR = tight_mvasel && pt_lep_3l && inv_mass_lep_pairs && !inv_mass_Z && metLD && three_charge && jetmult_sig && !tau; //&& m_4l < 140 GeV veto
-	bool ttZ_lepMVA_CR = !tight_mvasel && pt_lep_3l && inv_mass_lep_pairs && !inv_mass_Z && metLD && three_charge && jetmult_ttZ;
+	bool ttZ_lepMVA_CR = !tight_mvasel && pt_lep_3l && inv_mass_lep_pairs && !inv_mass_Z && metLD && three_charge && jetmult_ttZ && !tau;
+
 	_event_weight_ttH = 1;
 	_event_weight_ttH_FR_QCD_MC = 1;
 	_event_weight_ttH_FR_TT_MC = 1;
