@@ -18,6 +18,7 @@
 #include <TVector3.h>
 
 #include "leptonSF.cc"
+#include "triggerSF.cc"
 
 using namespace std;
 
@@ -561,7 +562,7 @@ void split_tree(TString filename_in, TString filename_out,
     tree->GetEntry(i);
     //cout <<"here"<<endl;  
   
-    bool inv_mass_lep_pairs;
+    bool inv_mass_lep_pairs = true;
     
     if(_n_recolep_fakeable>=2){
  
@@ -753,9 +754,14 @@ void split_tree(TString filename_in, TString filename_out,
       _leptonSF_ttH_weight = 1;
       _tauSF_weight = 1;
 
-      _triggerSF_weight = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0]);
-      _triggerSF_weight_up = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], +1.);
-      _triggerSF_weight_down = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], -1.);
+      _triggerSF_weight = triggerSF_ttH_1l(_recolep_sel_pt[0],_recolep_sel_eta[0],_recolep_sel_pdg[0],
+					  _recotauh_sel_pt[0],_recotauh_sel_eta[0],_recotauh_sel_phi[0],
+					  _recotauh_sel_pt[1],_recotauh_sel_eta[1],_recotauh_sel_phi[1],
+					  true, true );
+      close_triggerSF_ttH_1l();
+     //cout << "_triggerSF_weight" << _triggerSF_weight<<endl;
+     // _triggerSF_weight_up = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], +1.);
+     // _triggerSF_weight_down = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], -1.);
      
       if(tight_mvasel)
 	_leptonSF_ttH_weight = leptonSF_ttH(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0],3); //No tight-charge criteria for 1l2tau	      
@@ -763,7 +769,7 @@ void split_tree(TString filename_in, TString filename_out,
 	_leptonSF_ttH_weight = _get_recoToLoose_leptonSF_ttH(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0],3,0);
 
       if(isMC)
-	_tauSF_weight = (1-0.1*_recotauh_sel_isGenMatched[0])*(1-0.1*_recotauh_sel_isGenMatched[1]);
+	_tauSF_weight = (1-0.11*_recotauh_sel_isGenMatched[0])*(1-0.11*_recotauh_sel_isGenMatched[1]);
       
       int n_fake = 0;
 
@@ -1225,7 +1231,7 @@ void split_tree(TString filename_in, TString filename_out,
 	
 
 	if(isMC && tau_fake)
-	  _tauSF_weight = (1-0.1*_recotauh_sel_isGenMatched[0]);
+	  _tauSF_weight = (1-0.11*_recotauh_sel_isGenMatched[0]);
 
 	
 	if(tau_fake){
@@ -1620,7 +1626,6 @@ void split_tree(TString filename_in, TString filename_out,
 
 	//3l+1tau fake extrapolation region
 	bool tau_fake_CR = !tight_mvasel && pt_lep_3l1tau && inv_mass_lep_pairs && inv_mass_Z && metLD && four_charge && jetmult_sig && tau;//&& m_4l < 140 GeV veto
-
 	bool WZ_CR = tight_mvasel && pt_lep_3l && inv_mass_lep_pairs && !inv_mass_Z && metLD && three_charge && jetmult_WZ;
 
 	//ttZ control region
@@ -1760,7 +1765,7 @@ void split_tree(TString filename_in, TString filename_out,
 
 		
 	if(isMC && tau_fake)
-	  _tauSF_weight = (1-0.1*_recotauh_sel_isGenMatched[0]);
+	  _tauSF_weight = (1-0.11*_recotauh_sel_isGenMatched[0]);
       
       
 

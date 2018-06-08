@@ -9,30 +9,41 @@ TFile *_file_recoToLoose_leptonSF_mu1 = NULL;
 TFile *_file_recoToLoose_leptonSF_mu2 = NULL;
 TFile *_file_recoToLoose_leptonSF_mu3 = NULL;
 TFile *_file_recoToLoose_leptonSF_mu4 = NULL;
+TFile *_file_recoToLoose_leptonSF_mu5 = NULL;
 TH2F *_histo_recoToLoose_leptonSF_mu1 = NULL;
 TH2F *_histo_recoToLoose_leptonSF_mu2 = NULL;
-TH2F *_histo_recoToLoose_leptonSF_mu3 = NULL;
-TGraphAsymmErrors *_histo_recoToLoose_leptonSF_mu4 = NULL;
+TH2F *_histo_recoToLoose_leptonSF_mu5 = NULL;
+TGraphAsymmErrors *_histo_recoToLoose_leptonSF_mu3_eta = NULL;
+TGraphAsymmErrors *_histo_recoToLoose_leptonSF_mu3_pt = NULL;
+TGraphAsymmErrors *_histo_recoToLoose_leptonSF_mu4_eta = NULL;
+TGraphAsymmErrors *_histo_recoToLoose_leptonSF_mu4_pt = NULL;
+
 TFile *_file_recoToLoose_leptonSF_el = NULL;
 TH2F *_histo_recoToLoose_leptonSF_el1 = NULL;
 TH2F *_histo_recoToLoose_leptonSF_el2 = NULL;
 TH2F *_histo_recoToLoose_leptonSF_el3 = NULL;
-TFile *_file_recoToLoose_leptonSF_gsf = NULL;
-TH2F *_histo_recoToLoose_leptonSF_gsf = NULL;
+TFile *_file_recoToLoose_leptonSF_gsf1 = NULL;
+TFile *_file_recoToLoose_leptonSF_gsf2 = NULL;
+TH2F *_histo_recoToLoose_leptonSF_gsf1 = NULL;
+TH2F *_histo_recoToLoose_leptonSF_gsf2 = NULL;
 
 float _get_recoToLoose_leptonSF_ttH(int pdgid, float pt, float eta, int nlep, float var){
 
   // nlep is ignored for the loose selection
 
   if (!_histo_recoToLoose_leptonSF_mu1) {
-    _file_recoToLoose_leptonSF_mu1 = new TFile("lepSF/RunBCDEF_SF_ID.root","read");
-    _file_recoToLoose_leptonSF_mu2 = new TFile("lepSF/scaleFactors_mu_DxyDzSip8mIso04_over_LooseID.root","read");
-    //    _file_recoToLoose_leptonSF_mu3 = new TFile("lepSF/TnP_NUM_TightIP2D_DENOM_MediumID_VAR_map_pt_eta.root","read");
-    _file_recoToLoose_leptonSF_mu4 = new TFile("lepSF/fits_mu_trkEffSF_2017_allTracks.root","read");
+    _file_recoToLoose_leptonSF_mu1 = new TFile("lepSF/mu_scaleFactors_ptGt30.root","read");
+    _file_recoToLoose_leptonSF_mu2 = new TFile("lepSF/mu_scaleFactors_ptLt30.root","read");
+    _file_recoToLoose_leptonSF_mu3 = new TFile("lepSF/mu_scaleFactors_trkEff_ptGt10.root","read");
+    _file_recoToLoose_leptonSF_mu4 = new TFile("lepSF/mu_scaleFactors_trkEff_ptLt10.root","read");
+    _file_recoToLoose_leptonSF_mu5 = new TFile("lepSF/mu_scaleFactors_trkVtxCut_and_isoEff.root","read");
     _histo_recoToLoose_leptonSF_mu1 = (TH2F*)(_file_recoToLoose_leptonSF_mu1->Get("NUM_LooseID_DEN_genTracks_pt_abseta"));
-    _histo_recoToLoose_leptonSF_mu2 = (TH2F*)(_file_recoToLoose_leptonSF_mu2->Get("NUM_ttHLoo_DEN_LooseID"));
-    //    _histo_recoToLoose_leptonSF_mu3 = (TH2F*)(_file_recoToLoose_leptonSF_mu3->Get("SF")); # SCOMMENTARE SOTTO
-    _histo_recoToLoose_leptonSF_mu4 = (TGraphAsymmErrors*)(_file_recoToLoose_leptonSF_mu4->Get("ratio_eff_eta3_dr030e030_corr"));
+    _histo_recoToLoose_leptonSF_mu2 = (TH2F*)(_file_recoToLoose_leptonSF_mu2->Get("NUM_LooseID_DEN_genTracks_pt_abseta"));
+    _histo_recoToLoose_leptonSF_mu3_eta = (TGraphAsymmErrors*)(_file_recoToLoose_leptonSF_mu3->Get("ratio_eff_eta3_dr030e030_corr"));
+    _histo_recoToLoose_leptonSF_mu4_eta = (TGraphAsymmErrors*)(_file_recoToLoose_leptonSF_mu4->Get("ratio_eff_eta3_dr030e030_corr"));
+    _histo_recoToLoose_leptonSF_mu3_pt = (TGraphAsymmErrors*)(_file_recoToLoose_leptonSF_mu3->Get("ratio_eff_pt_dr030e030_corr"));
+    _histo_recoToLoose_leptonSF_mu4_pt = (TGraphAsymmErrors*)(_file_recoToLoose_leptonSF_mu4->Get("ratio_eff_pt_dr030e030_corr"));
+    _histo_recoToLoose_leptonSF_mu5 = (TH2F*)(_file_recoToLoose_leptonSF_mu5->Get("NUM_ttHLoo_DEN_LooseID"));
   }
   if (!_histo_recoToLoose_leptonSF_el1) {
 //    _file_recoToLoose_leptonSF_el = new TFile("lepSF/el_scaleFactors_Moriond17.root","read");
@@ -40,79 +51,49 @@ float _get_recoToLoose_leptonSF_ttH(int pdgid, float pt, float eta, int nlep, fl
 //    _histo_recoToLoose_leptonSF_el2 = (TH2F*)(_file_recoToLoose_leptonSF_el->Get("MVAVLooseElectronToMini4"));
 //    _histo_recoToLoose_leptonSF_el3 = (TH2F*)(_file_recoToLoose_leptonSF_el->Get("MVAVLooseElectronToConvVetoIHit1"));
   }
-  if (!_histo_recoToLoose_leptonSF_gsf) {
-//    _file_recoToLoose_leptonSF_gsf = new TFile("lepSF/egammaEffi.txt_EGM2D.root","read");
-//    _histo_recoToLoose_leptonSF_gsf = (TH2F*)(_file_recoToLoose_leptonSF_gsf->Get("EGamma_SF2D"));
+  if (!_histo_recoToLoose_leptonSF_gsf1) {
+    _file_recoToLoose_leptonSF_gsf1 = new TFile("lepSF/el_scaleFactors_gsf_ptGt20.root","read");
+    _file_recoToLoose_leptonSF_gsf2 = new TFile("lepSF/el_scaleFactors_gsf_ptLt20.root","read");
+    _histo_recoToLoose_leptonSF_gsf1 = (TH2F*)(_file_recoToLoose_leptonSF_gsf1->Get("EGamma_SF2D"));
+    _histo_recoToLoose_leptonSF_gsf2 = (TH2F*)(_file_recoToLoose_leptonSF_gsf2->Get("EGamma_SF2D"));
   }
 
   if (abs(pdgid)==13){
 
-    // var is ignored for muons (handled in systsEnv.txt)
+    TH2F *hist1 = (pt>30) ? _histo_recoToLoose_leptonSF_mu1 : _histo_recoToLoose_leptonSF_mu2;
+    int ptbin1  = std::max(1, std::min(hist1->GetNbinsX(), hist1->GetXaxis()->FindBin(pt)));
+    int etabin1 = std::max(1, std::min(hist1->GetNbinsY(), hist1->GetYaxis()->FindBin(fabs(eta))));
+    float out = hist1->GetBinContent(ptbin1,etabin1);
 
-    float out = 1;
+    TGraphAsymmErrors *hist2 = (pt>10) ? _histo_recoToLoose_leptonSF_mu3_eta : _histo_recoToLoose_leptonSF_mu4_eta;
+    float eta1 = std::max(float(hist2->GetXaxis()->GetXmin()+1e-5), std::min(float(hist2->GetXaxis()->GetXmax()-1e-5), eta));
+    out *= hist2->Eval(eta1);
+ 
+    TGraphAsymmErrors *hist3 = (pt>10) ? _histo_recoToLoose_leptonSF_mu3_pt : _histo_recoToLoose_leptonSF_mu4_pt;
+    float pt1 = std::max(float(hist3->GetXaxis()->GetXmin()+1e-5), std::min(float(hist3->GetXaxis()->GetXmax()-1e-5), pt));
+    out *= hist3->Eval(pt1);
 
-    TH2F *hist = _histo_recoToLoose_leptonSF_mu1;
-    int ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    int etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(fabs(eta))));
-    out *= hist->GetBinContent(ptbin,etabin);
-
-    if (_histo_recoToLoose_leptonSF_mu2){
-    hist = _histo_recoToLoose_leptonSF_mu2;
-    ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(fabs(eta))));
-    out *= hist->GetBinContent(ptbin,etabin);
-    }
-
-    if (_histo_recoToLoose_leptonSF_mu3){
-    hist = _histo_recoToLoose_leptonSF_mu3;
-    ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(fabs(eta))));
-    out *= hist->GetBinContent(ptbin,etabin);
-    }
-
-    TGraphAsymmErrors *hist1 = _histo_recoToLoose_leptonSF_mu4;
-    float eta1 = std::max(float(hist1->GetXaxis()->GetXmin()+1e-5), std::min(float(hist1->GetXaxis()->GetXmax()-1e-5), eta));
-    out *= hist1->Eval(eta1);
-
+    TH2F *hist4 = _histo_recoToLoose_leptonSF_mu5;
+    int ptbin4  = std::max(1, std::min(hist4->GetNbinsX(), hist4->GetXaxis()->FindBin(pt)));
+    int etabin4 = std::max(1, std::min(hist4->GetNbinsY(), hist4->GetYaxis()->FindBin(fabs(eta))));
+    out *= hist4->GetBinContent(ptbin4,etabin4);
+    
     return out;
 
   }
 
   if (abs(pdgid)==11){
-    TH2F *hist = NULL;
-    float out = 1;
-    int ptbin, etabin;
-    if (_histo_recoToLoose_leptonSF_el1){
-    hist = _histo_recoToLoose_leptonSF_el1;
-    ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(eta)));
-    out *= hist->GetBinContent(ptbin,etabin)+var*hist->GetBinError(ptbin,etabin);
-    }
-    if (_histo_recoToLoose_leptonSF_el2){
-    hist = _histo_recoToLoose_leptonSF_el2;
-    ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(eta)));
-    out *= hist->GetBinContent(ptbin,etabin)+var*hist->GetBinError(ptbin,etabin);
-    }
-    if (_histo_recoToLoose_leptonSF_el3){
-    hist = _histo_recoToLoose_leptonSF_el3;
-    ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
-    etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(eta)));
-    out *= hist->GetBinContent(ptbin,etabin)+var*hist->GetBinError(ptbin,etabin);
-    }
-    if (_histo_recoToLoose_leptonSF_gsf){
-    hist = _histo_recoToLoose_leptonSF_gsf;
-    etabin = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(eta))); // careful, different convention
-    ptbin  = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(pt)));
-    out *= (hist->GetBinContent(etabin,ptbin)+var*(hist->GetBinError(ptbin,etabin) + 0.01*((pt<20) || (pt>80))));
-    }
-
+    
+    TH2F *hist = (pt>20) ? _histo_recoToLoose_leptonSF_gsf1 : _histo_recoToLoose_leptonSF_gsf2;
+    int etabin = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(eta))); // careful, different convention
+    int ptbin  = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(pt)));
+    float out = hist->GetBinContent(etabin,ptbin);
+    
     return out;
   }
 
-  std::cout << "ERROR" << std::endl;
-  std::abort();
-  return 1;
+  assert(0);
+  return -999;
 
 }
 
@@ -149,23 +130,26 @@ float _get_looseToTight_leptonSF_ttH(int pdgid, float pt, float eta, int nlep, f
   TH2F *hist = 0;
   if (abs(pdgid)==13) hist = (nlep>2) ? _histo_looseToTight_leptonSF_mu_3l : _histo_looseToTight_leptonSF_mu_2lss;
   else if (abs(pdgid)==11) hist = (nlep>2) ? _histo_looseToTight_leptonSF_el_3l : _histo_looseToTight_leptonSF_el_2lss;
-  if (!hist) {std::cout << "ERROR" << std::endl; std::abort();}
+  assert(hist);
   int ptbin  = std::max(1, std::min(hist->GetNbinsX(), hist->GetXaxis()->FindBin(pt)));
   int etabin = std::max(1, std::min(hist->GetNbinsY(), hist->GetYaxis()->FindBin(fabs(eta))));
   return hist->GetBinContent(ptbin,etabin);
 
 }
 
+
 float leptonSF_ttH(int pdgid, float pt, float eta, int nlep, float var=0){
 
-  float recoToLoose = _get_recoToLoose_leptonSF_ttH(pdgid,pt,eta,nlep,var=0);
+  float recoToLoose = _get_recoToLoose_leptonSF_ttH(pdgid,pt,eta,nlep,var);
   float looseToTight = _get_looseToTight_leptonSF_ttH(pdgid,pt,eta,nlep,var);
   float res = recoToLoose*looseToTight;
-  if (!(res>0)) {std::cout << "ERROR" << std::endl; std::abort();}
+  assert (res>0);
   return res;
 
 }
 
+
+/*
 //TFile *file_triggerSF_ttH = NULL;
 //TH2Poly* t2poly_triggerSF_ttH_mm = NULL;
 //TH2Poly* t2poly_triggerSF_ttH_ee = NULL;
@@ -227,4 +211,4 @@ float triggerSF_ttH_1l(int pdgid, float pt, float eta, float var=0){
   float SF = nomval + var*error;
   return SF;
 
-}
+}*/
