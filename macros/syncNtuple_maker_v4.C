@@ -1866,12 +1866,12 @@ void create_syncNtuple_eventbased_ttH_tautau(){
   TString dir_in="/data_CMS/cms/mperez/ttH_2017_sync/ntuples_splitted/nominal/ttH/";
   TString dir_out="/data_CMS/cms/mperez/ttH_2017_sync/syncNtuples/";
 
-  TString file="syncNtuple_event_ttH_tautau_v26_newfmw_testv5_090618.root";    
+  TString file="syncNtuple_event_ttH_tautau_v26_newfmw_testv6_100618.root";    
 
   vector<TString> list;
   //list.push_back(dir_in+"syncNtuple_ttH_tautau_prod012017_split_BDT_1l2tau_btagSF_trig_lepTauSF_new_massveto_be_leptauSF3_BDT_3l1tau.root");
   //list.push_back(dir_in+"syncNtuple_splitted.root");
-  list.push_back(dir_in+"syncNtuple_v24_newfmw_splitted_testv5_090618.root");
+  list.push_back(dir_in+"syncNtuple_v24_newfmw_splitted_testv6_100618.root");
 
   TChain * tree_1l_2tau = new TChain("HTauTauTree_1l_2tau");
   TChain * tree_1l_2tau_fake_CR = new TChain("HTauTauTree_1l_2tau_fake_CR");
@@ -1880,6 +1880,8 @@ void create_syncNtuple_eventbased_ttH_tautau(){
   TChain * tree_2lSS_lepMVA_CR = new TChain("HTauTauTree_2lSS_lepMVA_CR");
   TChain * tree_3l = new TChain("HTauTauTree_3l");
   TChain * tree_3l_lepMVA_CR = new TChain("HTauTauTree_3l_lepMVA_CR");
+  TChain * tree_2l_2tau = new TChain("HTauTauTree_2l_2tau");
+  TChain * tree_2l_2tau_fake_CR = new TChain("HTauTauTree_2l_2tau_fake_CR");
 
   vector<TChain*> tree;
   tree.push_back(tree_1l_2tau);
@@ -1889,7 +1891,8 @@ void create_syncNtuple_eventbased_ttH_tautau(){
   tree.push_back(tree_2lSS_lepMVA_CR);
   tree.push_back(tree_3l);
   tree.push_back(tree_3l_lepMVA_CR);
-
+  tree.push_back(tree_2l_2tau);
+  tree.push_back(tree_2l_2tau_fake_CR);
 
   int nFiles = list.size();
 
@@ -1902,6 +1905,8 @@ void create_syncNtuple_eventbased_ttH_tautau(){
       tree_2lSS_lepMVA_CR->Add(list[i]);
       tree_3l->Add(list[i]);
       tree_3l_lepMVA_CR->Add(list[i]);
+      tree_2l_2tau->Add(list[i]);
+      tree_2l_2tau_fake_CR->Add(list[i]);
     }
 
 
@@ -1922,6 +1927,8 @@ void create_syncNtuple_eventbased_ttH_tautau(){
   TTree* tree_new_2lSS_lepMVA_CR_tau=new TTree("syncTree_2lSS1tau_Fake","syncTree_2lSS1tau_Fake");
   TTree* tree_new_3l_tau=new TTree("syncTree_3l1tau_SR","syncTree_3l1tau_SR");
   TTree* tree_new_3l_lepMVA_CR_tau=new TTree("syncTree_3l1tau_Fake","syncTree_3l1tau_Fake");
+  TTree* tree_new_2l_2tau=new TTree("syncTree_2l2tau_SR","syncTree_2l2tau_SR");
+  TTree* tree_new_2l_2tau_fake_CR=new TTree("syncTree_2l2tau_Fake","syncTree_2l2tau_Fake");
 
   vector<TTree*> tree_new;
   tree_new.push_back(tree_new_1l_2tau);
@@ -1931,7 +1938,8 @@ void create_syncNtuple_eventbased_ttH_tautau(){
   tree_new.push_back(tree_new_2lSS_lepMVA_CR_tau);
   tree_new.push_back(tree_new_3l_tau);
   tree_new.push_back(tree_new_3l_lepMVA_CR_tau);
-
+  tree_new.push_back(tree_new_2l_2tau);
+  tree_new.push_back(tree_new_2l_2tau_fake_CR);
 
   //New branches
   ULong64_t _nEvent;
@@ -3125,7 +3133,7 @@ void create_syncNtuple_eventbased_ttH_tautau(){
       _mu2_jetPtRatio           = (*_recomu_jetPtRatio_nanoAOD)[1];
       _mu2_jetCSV               = (*_recomu_jetCSV)[1];
       _mu2_sip3D                = (*_recomu_sip3D)[1];
-      _mu2_dxyAbs                  = abs((*_recomu_dxy)[1]);
+      _mu2_dxyAbs               = abs((*_recomu_dxy)[1]);
       _mu2_dz                   = (*_recomu_dz)[1];
       _mu2_segmentCompatibility = (*_recomu_lepMVA_mvaId)[1];
       _mu2_leptonMVA            = (*_recomu_leptonMVA)[1];
@@ -3300,32 +3308,34 @@ void create_syncNtuple_eventbased_ttH_tautau(){
       medium_tau = (*_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017)[0];
     
 
-    if(_category==20 && _isGenMatched && !_low_mass_lep){
-      if((*_recotauh_sel_pt)[0]>30 && abs((*_recolep_sel_eta)[0])<2.1)
-         tree_new_1l_2tau->Fill();
+   // if(_category==20 && _isGenMatched && !_low_mass_lep){
+     // if((*_recotauh_sel_pt)[0]>30 && abs((*_recolep_sel_eta)[0])<2.1)
+    if(_category==20){  
+       tree_new_1l_2tau->Fill();
     }
-    else if(_category==50 && !_low_mass_lep){
-      if((*_recotauh_sel_pt)[0]>30 && abs((*_recolep_sel_eta)[0])<2.1)
-         tree_new_1l_2tau_fake_CR->Fill();
+    //else if(_category==50 && !_low_mass_lep){
+    //  if((*_recotauh_sel_pt)[0]>30 && abs((*_recolep_sel_eta)[0])<2.1)
+    if(_category==50){  
+       tree_new_1l_2tau_fake_CR->Fill();
     }
     else if(_category==11){
-      if(((*_recolep_sel_charge)[0]+(*_recotauh_sel_charge)[0])==0)
+    //  if(((*_recolep_sel_charge)[0]+(*_recotauh_sel_charge)[0])==0)
 	tree_new_2lSS_tau->Fill();
     }
-    else if(_category==41 && medium_tau){
-      if(((*_recolep_sel_charge)[0]+(*_recotauh_sel_charge)[0])==0)
+    else if(_category==41){
+    //  if(((*_recolep_sel_charge)[0]+(*_recotauh_sel_charge)[0])==0)
 	tree_new_2lSS_lepMVA_CR_tau->Fill();
     }
     else if(_category==-11){
-      if( (abs((*_recolep_sel_pdg)[0])==11 && (*_recolep_sel_charge)[0]*(*_recotauh_sel_charge)[0]>0) || (abs((*_recolep_sel_pdg)[1])==11 && (*_recolep_sel_charge)[1]*(*_recotauh_sel_charge)[0]>0)   )
+     // if( (abs((*_recolep_sel_pdg)[0])==11 && (*_recolep_sel_charge)[0]*(*_recotauh_sel_charge)[0]>0) || (abs((*_recolep_sel_pdg)[1])==11 && (*_recolep_sel_charge)[1]*(*_recotauh_sel_charge)[0]>0)   )
 	tree_new_2lOS_CR_tau->Fill();
     }
     else if(_category==16){
-      if(((*_recolep_sel_charge)[0]+(*_recolep_sel_charge)[1]+(*_recolep_sel_charge)[2]+(*_recotauh_sel_charge)[0])==0)
+      //if(((*_recolep_sel_charge)[0]+(*_recolep_sel_charge)[1]+(*_recolep_sel_charge)[2]+(*_recotauh_sel_charge)[0])==0)
 	tree_new_3l_tau->Fill();
     }
     else if(_category==46 && medium_tau){
-      if(((*_recolep_sel_charge)[0]+(*_recolep_sel_charge)[1]+(*_recolep_sel_charge)[2]+(*_recotauh_sel_charge)[0])==0)
+      //if(((*_recolep_sel_charge)[0]+(*_recolep_sel_charge)[1]+(*_recolep_sel_charge)[2]+(*_recotauh_sel_charge)[0])==0)
 	tree_new_3l_lepMVA_CR_tau->Fill();
     }
 

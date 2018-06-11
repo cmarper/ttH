@@ -7,7 +7,6 @@
 #include <TH2F.h>
 #include <TProfile.h>
 
-
 #include <iostream>
 #include <TLegend.h>
 #include <TBranch.h>
@@ -23,7 +22,6 @@
 #include "metFilter.cc"
 
 using namespace std;
-
 
 
 void split_tree(TString filename_in, TString filename_out,
@@ -221,6 +219,7 @@ void split_tree(TString filename_in, TString filename_out,
   tree_2l_2tau_fake_CR->SetNameTitle("HTauTauTree_2l_2tau_fake_CR","HTauTauTree_2l_2tau_fake_CR");
 
   vector<TTree*> tree_new;
+
   tree_new.push_back(tree_2lSS);
   tree_new.push_back(tree_2lOS_CR);
   tree_new.push_back(tree_2lSS_lepMVA_CR);
@@ -240,8 +239,6 @@ void split_tree(TString filename_in, TString filename_out,
 
   tree_new.push_back(tree_2l_2tau);
   tree_new.push_back(tree_2l_2tau_fake_CR);
-
-
 
   //New branches
 
@@ -267,7 +264,6 @@ void split_tree(TString filename_in, TString filename_out,
     20: 1l + 2tauh
     21: 2l + 2tauh
     
-
     -1: mumu OS, btight
     -3: mumu OS, bloose
     -5: emu OS, mu+ btight
@@ -296,8 +292,7 @@ void split_tree(TString filename_in, TString filename_out,
     46: 3l- + tauh, lepMVA + tau CR
     50: 1l + 2tauh, lepMVA + tau CR
     51: 2l + 2tauh, lepMVA + tau CR
-
-   */
+  */
 
   vector<int> _recolep_sel_charge;
   vector<int> _recolep_sel_pdg;
@@ -359,6 +354,7 @@ void split_tree(TString filename_in, TString filename_out,
   float _triggerSF_weight_down;
 
   float _leptonSF_ttH_weight;
+
   float _tauSF_weight;
 
   bool _isGenMatched;
@@ -433,8 +429,6 @@ void split_tree(TString filename_in, TString filename_out,
 
   }
 
-
-
   cout<<"nentries="<<nentries<<endl;
 
   int skip_entries=0;
@@ -443,9 +437,6 @@ void split_tree(TString filename_in, TString filename_out,
     nentries = nentries/i_split1 * (i_split2+1);
   }
 
-
-  //skip_entries=44583;
-  //nentries = 1;
 
   for (int i=skip_entries;i<skip_entries+nentries;i++) {
 
@@ -513,8 +504,11 @@ void split_tree(TString filename_in, TString filename_out,
     _triggerSF_weight = 0;
     _triggerSF_weight_up = 0;
     _triggerSF_weight_down = 0;
+
     _leptonSF_ttH_weight = 0;
+
     _tauSF_weight = 0;
+
     _isGenMatched = 0;
 
     _n_recolep_mvasel = 0;
@@ -550,6 +544,7 @@ void split_tree(TString filename_in, TString filename_out,
     _recoele_pz = 0;
 
     _ETmissLD = 0;
+
     _n_recoPFJet = 0;
     _n_recoPFJet_btag_medium = 0;
     _n_recoPFJet_btag_loose = 0;
@@ -577,9 +572,8 @@ void split_tree(TString filename_in, TString filename_out,
     _recotauh_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT = 0;
 
     tree->GetEntry(i);
-    //cout <<"here"<<endl;  
-    //if (_metfilterbit != 511) cout << _metfilterbit << endl;
- 
+
+    //Trigger matching
     bool pass_e = pass_SingleEle_trigger(_triggerbit);
     bool pass_m = pass_SingleMu_trigger(_triggerbit);
     bool pass_2e = pass_DoubleEle_trigger(_triggerbit); 
@@ -592,8 +586,8 @@ void split_tree(TString filename_in, TString filename_out,
     bool pass_2me = pass_DiMuEle_trigger(_triggerbit);
     bool pass_3m = pass_TripleMu_trigger(_triggerbit);
 
+    //MET filters
     bool pass_met_filter = pass_met_filters(_metfilterbit, isMC);
-    //cout << "pass_met"<<pass_met_filter<<endl;
     if (!pass_met_filter) continue;
 
     bool inv_mass_lep_pairs = true;
@@ -617,18 +611,17 @@ void split_tree(TString filename_in, TString filename_out,
 	for(unsigned int i_lep2=i_lep+1; i_lep2<loose_leptons.size(); i_lep2++){
 	  TLorentzVector lep2 = loose_leptons[i_lep2];
 	  if((lep1+lep2).M()<12){
-	    //lep1.Print();
-	    //lep2.Print();
 	    inv_mass_lep_pairs=false;
 	   }
 	  else inv_mass_lep_pairs=true;
 	 }
       }
     }
+
+    // ***************** //
+    // **** 1l+2tau **** //
+    // ***************** //
     
-    //int n_ele = 0;
-    //int n_mu = 0; 
-    // ****1l+2tau****
     if(_n_recolep_fakeable>=1 && _n_recolep_mvasel<=1 && _n_recotauh>=2){     
      
       TLorentzVector lep1((*_recolep_px)[0],(*_recolep_py)[0],(*_recolep_pz)[0],(*_recolep_e)[0]);
@@ -657,7 +650,9 @@ void split_tree(TString filename_in, TString filename_out,
 
 
       for(unsigned int i_tau=0; i_tau<(*_recotauh_charge).size(); i_tau++){
+
 	if((*_recotauh_byMediumIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[i_tau]>0.5){
+
 	    _recotauh_sel_charge.push_back((*_recotauh_charge)[i_tau]);
 	    _recotauh_sel_decayMode.push_back((*_recotauh_decayMode)[i_tau]);
 	    
@@ -680,10 +675,12 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recotauh_sel_againstElectronMediumMVA6.push_back((*_recotauh_againstElectronMediumMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronTightMVA6.push_back((*_recotauh_againstElectronTightMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronVTightMVA6.push_back((*_recotauh_againstElectronVTightMVA6)[i_tau]);
+
 	    if(isMC){
 	      _recotauh_sel_isGenMatched.push_back((*_recotauh_isGenMatched)[i_tau]);	    
 	      _recotauh_sel_genMatchInd.push_back((*_recotauh_genMatchInd)[i_tau]);	    
 	    }
+
 	    _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	    _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 
@@ -719,6 +716,7 @@ void split_tree(TString filename_in, TString filename_out,
 	_recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.clear();
 	
 	for(unsigned int i_tau=0; i_tau<2; i_tau++){
+
 	  _recotauh_sel_charge.push_back((*_recotauh_charge)[i_tau]);
 	  _recotauh_sel_decayMode.push_back((*_recotauh_decayMode)[i_tau]);
 	  
@@ -741,26 +739,30 @@ void split_tree(TString filename_in, TString filename_out,
 	  _recotauh_sel_againstElectronMediumMVA6.push_back((*_recotauh_againstElectronMediumMVA6)[i_tau]);
 	  _recotauh_sel_againstElectronTightMVA6.push_back((*_recotauh_againstElectronTightMVA6)[i_tau]);
 	  _recotauh_sel_againstElectronVTightMVA6.push_back((*_recotauh_againstElectronVTightMVA6)[i_tau]);
+
 	  if(isMC){
 	    _recotauh_sel_isGenMatched.push_back((*_recotauh_isGenMatched)[i_tau]);
 	    _recotauh_sel_genMatchInd.push_back((*_recotauh_genMatchInd)[i_tau]);
 	  }
+
 	  _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	  _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	    	
 	}	
       }
 
-      bool tight_mvasel = _recolep_sel_ismvasel[0];
       bool pt_lep = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>30 && abs(_recolep_sel_pdg[0])==11));      
-      bool eta_lep = abs(_recolep_sel_eta[0])<2.1; //to match the lepton-tau cross triggers
+      bool eta_lep = abs(_recolep_sel_eta[0])<2.1;
       bool pt_taus = _recotauh_sel_pt[0]>30 && _recotauh_sel_pt[1]>20;
-      bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] && _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1];
-      int  taus2 = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] + _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1];
       bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
+
+      bool tight_mvasel = _recolep_sel_ismvasel[0];
+      bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0] && _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1];
+      bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
+      
       if(isMC)
 	_isGenMatched = _recolep_sel_isGenMatched[0] && _recotauh_sel_isGenMatched[0] && _recotauh_sel_isGenMatched[1];
-      bool tau_charge = _recotauh_sel_charge[0]*_recotauh_sel_charge[1]<0;
+
       bool jetmult_2jet_CR = _n_recoPFJet>=2 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
      
       bool is1Ele = ( abs(_recolep_sel_pdg[0]) == 11 );
@@ -768,20 +770,17 @@ void split_tree(TString filename_in, TString filename_out,
 
       bool passTriggerMatch = ( ((pass_e || pass_etau) && is1Ele) || ((pass_m || pass_mtau) && is1Mu) );
 
-      //****1l+2taus****
-      
-      //1l+2tau signal region
-      bool sig_1l2tau;
-      if(isMC) sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs && _isGenMatched && passTriggerMatch;
-      else sig_1l2tau = tight_mvasel && pt_lep && pt_taus && eta_lep && taus && jetmult_sig && tau_charge && inv_mass_lep_pairs && passTriggerMatch;
-      //cout <<"sig_1l2tau"<<sig_1l2tau<<endl;    
- 
+      //1l+2tau SR
+      bool sig_1l2tau = false;
+      if(isMC) sig_1l2tau = pt_lep && eta_lep && pt_taus && jetmult_sig && inv_mass_lep_pairs && tight_mvasel && taus && tau_charge && _isGenMatched && passTriggerMatch;
+      else sig_1l2tau = pt_lep && eta_lep && pt_taus && jetmult_sig && inv_mass_lep_pairs && tight_mvasel && taus && tau_charge && passTriggerMatch;
+   
       //1l+2tau fake extrapolation region
-      bool fake_CR = !(tight_mvasel && taus) && pt_lep && pt_taus && eta_lep && jetmult_sig && tau_charge && inv_mass_lep_pairs && passTriggerMatch;
+      bool fake_CR =  pt_lep && eta_lep && pt_taus && jetmult_sig && inv_mass_lep_pairs && !(tight_mvasel && taus) && tau_charge && passTriggerMatch;
 
-      bool CR_2jet_tight_lep = tight_mvasel && taus && pt_lep && jetmult_2jet_CR && tau_charge && passTriggerMatch; //FIXME multilepton CRs
-      bool CR_2jet_fake_lep = !(tight_mvasel && taus) && pt_lep && jetmult_2jet_CR && tau_charge && passTriggerMatch; //FIXME multilepton CRs
-
+      bool CR_2jet_tight_lep = tight_mvasel && taus && pt_lep && jetmult_2jet_CR && tau_charge && passTriggerMatch; 
+      bool CR_2jet_fake_lep = !(tight_mvasel && taus) && pt_lep && jetmult_2jet_CR && tau_charge && passTriggerMatch;
+      
       _event_weight_ttH = 1;
       _event_weight_ttH_FR_QCD_MC = 1;
       _event_weight_ttH_FR_TT_MC = 1;
@@ -796,14 +795,14 @@ void split_tree(TString filename_in, TString filename_out,
       _leptonSF_ttH_weight = 1;
       _tauSF_weight = 1;
 
+      bool passHLT1l = pass_SingleMu_trigger(_triggerbit) || pass_SingleEle_trigger(_triggerbit);
+      bool passHLT1l1tau = pass_EleTau_trigger(_triggerbit) || pass_MuTau_trigger(_triggerbit);
+
       _triggerSF_weight = triggerSF_ttH_1l(_recolep_sel_pt[0],_recolep_sel_eta[0],_recolep_sel_pdg[0],
 					  _recotauh_sel_pt[0],_recotauh_sel_eta[0],_recotauh_sel_phi[0],
 					  _recotauh_sel_pt[1],_recotauh_sel_eta[1],_recotauh_sel_phi[1],
-					  true, true );
+					  passHLT1l, passHLT1l1tau );
       close_triggerSF_ttH_1l();
-     //cout << "_triggerSF_weight" << _triggerSF_weight<<endl;
-     // _triggerSF_weight_up = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], +1.);
-     // _triggerSF_weight_down = triggerSF_ttH_1l(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0], -1.);
      
       if(tight_mvasel)
 	_leptonSF_ttH_weight = leptonSF_ttH(_recolep_sel_pdg[0],_recolep_sel_pt[0],_recolep_sel_eta[0],3); //No tight-charge criteria for 1l2tau	      
@@ -833,15 +832,16 @@ void split_tree(TString filename_in, TString filename_out,
 	  _event_weight_ttH_mu_FR_QCD_MC *= _recolep_sel_fakerate_QCD_MC[0]/(1-_recolep_sel_fakerate_QCD_MC[0]);
 	  _event_weight_ttH_mu_FR_TT_MC *= _recolep_sel_fakerate_ttbar_MC[0]/(1-_recolep_sel_fakerate_ttbar_MC[0]);
 	}
-
-
+	
 	n_fake++;
 	_n_fake_lep++;
+
       }
 
       if(!_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0]){
 	
         float weight_tau = _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT[0]/(1-_recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT[0]);
+
 	_event_weight_ttH *= weight_tau;
 	_event_weight_ttH_FR_QCD_MC *= weight_tau;
 	_event_weight_ttH_FR_TT_MC *= weight_tau;
@@ -855,7 +855,9 @@ void split_tree(TString filename_in, TString filename_out,
       }
 
       if(!_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[1]){
+
 	float weight_tau = _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT[1]/(1-_recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT[1]);
+
 	_event_weight_ttH *= weight_tau;
 	_event_weight_ttH_FR_QCD_MC *= weight_tau;
 	_event_weight_ttH_FR_TT_MC *= weight_tau;
@@ -869,14 +871,17 @@ void split_tree(TString filename_in, TString filename_out,
       }
 
       if(n_fake>0 && n_fake%2==0){
+
 	_event_weight_ttH *=-1;
 	_event_weight_ttH_FR_QCD_MC *=-1;
 	_event_weight_ttH_FR_TT_MC *=-1;
 	_event_weight_ttH_ele_FR_QCD_MC *= -1;
 	_event_weight_ttH_ele_FR_TT_MC *= -1;
 	_event_weight_ttH_mu_FR_TT_MC *= -1;
+
 	_event_weight_ttH_mu_FR_TT_MC *= -1;
       }
+
       if(sig_1l2tau){
 
 	_category = 20;
@@ -905,7 +910,6 @@ void split_tree(TString filename_in, TString filename_out,
 
       }
 
-
     }
 
     _recolep_sel_charge.clear();
@@ -926,7 +930,6 @@ void split_tree(TString filename_in, TString filename_out,
     _recolep_sel_tightcharge.clear();
     _recolep_sel_isGenMatched.clear();      
     _recolep_sel_genMatchInd.clear();      
-
 
     _recotauh_sel_charge.clear();
     _recotauh_sel_decayMode.clear();    
@@ -949,15 +952,18 @@ void split_tree(TString filename_in, TString filename_out,
     _recotauh_sel_againstElectronVTightMVA6.clear();
     _recotauh_sel_isGenMatched.clear();
     _recotauh_sel_genMatchInd.clear();
-    //_recotauh_sel_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT.clear();
     _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.clear();
     _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.clear();
 
     _n_fake_lep = 0;
     _n_fake_tau = 0;
 
-    //****2lSS and 2lSS+1tau****
+    // ****************************
+    // **** 2lSS and 2lSS+1tau ****
+    // ****************************
+    
     if(_n_recolep_fakeable>=2){
+
       if(_n_recolep_mvasel<=2){
 	
 	bool inv_mass_Zee=true;
@@ -984,16 +990,20 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recolep_sel_QFrate.push_back((*_recolep_QFrate)[i_lep]);
 	    _recolep_sel_ismvasel.push_back((*_recolep_ismvasel)[i_lep]);
 	    _recolep_sel_tightcharge.push_back((*_recolep_tightcharge)[i_lep]);
+
 	    if(isMC){
 	      _recolep_sel_isGenMatched.push_back((*_recolep_isGenMatched)[i_lep]);
 	      _recolep_sel_genMatchInd.push_back((*_recolep_genMatchInd)[i_lep]);
+
 	    }
 
 	  }
 	  
 	  for(unsigned int i_lep2=i_lep+1; i_lep2<(*_recolep_charge).size();i_lep2++){
+
 	    TLorentzVector lep2((*_recolep_px)[i_lep2],(*_recolep_py)[i_lep2],(*_recolep_pz)[i_lep2],(*_recolep_e)[i_lep2]);
 	    float m_ll = (lep1 + lep2).M();
+
 	    if(abs((*_recolep_pdg)[i_lep])==11 && abs((*_recolep_pdg)[i_lep2])==11 && fabs(m_ll-91.2)<10) inv_mass_Zee=false;
 	    
 	  }
@@ -1027,11 +1037,12 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recotauh_sel_againstElectronMediumMVA6.push_back((*_recotauh_againstElectronMediumMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronTightMVA6.push_back((*_recotauh_againstElectronTightMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronVTightMVA6.push_back((*_recotauh_againstElectronVTightMVA6)[i_tau]);
+
 	    if(isMC){
 	      _recotauh_sel_isGenMatched.push_back((*_recotauh_isGenMatched)[i_tau]);	  	  
 	      _recotauh_sel_genMatchInd.push_back((*_recotauh_genMatchInd)[i_tau]);	  	  
 	    }
-	    //_recotauh_sel_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
+
 	    _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	    _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 
@@ -1041,6 +1052,7 @@ void split_tree(TString filename_in, TString filename_out,
 
 	bool tau = _recotauh_sel_e.size()>0;
 
+	int n_tau_Med = 0;
   
 	if(!tau){
 
@@ -1065,10 +1077,9 @@ void split_tree(TString filename_in, TString filename_out,
 	  _recotauh_sel_againstElectronVTightMVA6.clear();
 	  _recotauh_sel_isGenMatched.clear();
 	  _recotauh_sel_genMatchInd.clear();
-	  //_recotauh_sel_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT.clear();
 	  _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.clear();
 	  _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.clear();
-	  
+
 	  for(unsigned int i_tau=0; i_tau<(*_recotauh_charge).size(); i_tau++){
 	  	    
 	    _recotauh_sel_charge.push_back((*_recotauh_charge)[i_tau]);
@@ -1093,11 +1104,13 @@ void split_tree(TString filename_in, TString filename_out,
 	    _recotauh_sel_againstElectronMediumMVA6.push_back((*_recotauh_againstElectronMediumMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronTightMVA6.push_back((*_recotauh_againstElectronTightMVA6)[i_tau]);
 	    _recotauh_sel_againstElectronVTightMVA6.push_back((*_recotauh_againstElectronVTightMVA6)[i_tau]);
+
+	    if (_recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[i_tau]==1) n_tau_Med += 1;
 	    if(isMC){
 	      _recotauh_sel_isGenMatched.push_back((*_recotauh_isGenMatched)[i_tau]);
 	      _recotauh_sel_genMatchInd.push_back((*_recotauh_genMatchInd)[i_tau]);
 	    }
-	   // _recotauh_sel_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byLooseIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
+
 	    _recotauh_sel_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byMediumIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	    _recotauh_sel_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT.push_back((*_recotauh_fakerate_byTightIsolationMVArun2v1DBdR03oldDMwLT)[i_tau]);
 	    
@@ -1107,23 +1120,29 @@ void split_tree(TString filename_in, TString filename_out,
 	}
 
 	bool tau_fake = _recotauh_sel_e.size()>0;
-	
+	if (_recotauh_sel_e.size()>2) cout <<"_recotauh_sel_e.size()"<<_recotauh_sel_e.size()<<endl;
 
-	bool tight_mvasel = _recolep_sel_ismvasel[0]==1 && _recolep_sel_ismvasel[1]==1;
-	bool lep_quality = _recolep_sel_tightcharge[0] && _recolep_sel_tightcharge[1];
-	bool pt_lep_2l = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11));
+        bool pt_lep_2l = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11));
 	bool pt_lep_2l1tau = ((_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==13) || (_recolep_sel_conept[0]>25 && abs(_recolep_sel_pdg[0])==11)) && ((_recolep_sel_conept[1]>10 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11));
-	bool SS_lep = _recolep_sel_charge[0]*_recolep_sel_charge[1]>0;
-	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
-        bool ele = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11);
-	bool SS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0;
-	bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0];
-	bool metLD = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11 || _ETmissLD>0.2); //&&
+	bool lep_quality = _recolep_sel_tightcharge[0] && _recolep_sel_tightcharge[1];
+        bool taus_overlap = (n_tau_Med <= 1);
+        bool metLD = true;
+	if(abs(_recolep_sel_pdg[0])==11 && abs(_recolep_sel_pdg[1])==11) metLD = (_ETmissLD>0.2); //&&
 	bool jetmult_sig = _n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2);
+	
+	bool tight_mvasel = _recolep_sel_ismvasel[0]==1 && _recolep_sel_ismvasel[1]==1;
+	bool SS_lep = _recolep_sel_charge[0]*_recolep_sel_charge[1]>0;
+        bool SS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0;
+	bool SS_taulep2 = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0 || _recolep_sel_charge[1]*_recotauh_sel_charge[0]>0 ;
+	bool SF_lep = abs(_recolep_sel_pdg[0])==abs(_recolep_sel_pdg[1]);
+	
+        bool ele = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11);
+	bool taus = _recotauh_sel_byMediumIsolationMVArun2v2DBdR03oldDMwLT2017[0];
+	
 	bool jetmult_CR_jets = _n_recoPFJet==3;
 	bool jetmult_ttbar_OF = _n_recoPFJet>=2 && _n_recoPFJet_btag_medium>=1;
-	if(isMC && tau_fake)
-	  _isGenMatched = _recolep_sel_isGenMatched[0] && _recolep_sel_isGenMatched[1] && _recotauh_sel_isGenMatched[0];
+	if(isMC)
+	  _isGenMatched = _recolep_sel_isGenMatched[0] && _recolep_sel_isGenMatched[1];
 
         bool is1Ele = ( abs(_recolep_sel_pdg[0]) == 11 );
         bool is2Ele = ( (abs(_recolep_sel_pdg[0])+abs(_recolep_sel_pdg[1])) == 22 );
@@ -1136,34 +1155,30 @@ void split_tree(TString filename_in, TString filename_out,
 			(pass_em && is1Ele1Mu);
 
 	// 2lSS signal region
-	bool sig_2lSS;
+	bool sig_2lSS = false;
         if(isMC) sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && _isGenMatched && passTriggerMatch;
         else sig_2lSS = tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && passTriggerMatch;
 
 	// 2lSS fake extrapolation region
-	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && passTriggerMatch;;
+	bool lepMVA_CR = !tight_mvasel && lep_quality && pt_lep_2l && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && passTriggerMatch;
 
 	// 2lSS charge flip extrapolation region
-	bool sig_2lOS_CR;
-        if(isMC) sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && ele && _isGenMatched && passTriggerMatch; //!tau
-        else sig_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && ele && passTriggerMatch;; //!tau
-
+	bool sig_2lOS_CR = false;
+        if(isMC) sig_2lOS_CR = pt_lep_2l1tau && inv_mass_Zee && inv_mass_lep_pairs && lep_quality && taus_overlap && metLD && jetmult_sig && tight_mvasel && !SS_lep && _isGenMatched && SS_taulep2 && passTriggerMatch && ele; //tau && tau_fake 
+        else sig_2lOS_CR =  pt_lep_2l1tau && inv_mass_Zee && inv_mass_lep_pairs && lep_quality && taus_overlap && metLD && jetmult_sig && tight_mvasel && !SS_lep && SS_taulep2 && passTriggerMatch && ele; //!tau
 	
 	//*******//
 	
 	// 2lSS+1tau signal region
-	bool sig_2lSS_1tau;
-        if(isMC) sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && taus && _isGenMatched && passTriggerMatch;// -->correct one taus,SS_taulep
-        else sig_2lSS_1tau = tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && taus && passTriggerMatch;
+	bool sig_2lSS_1tau = false;
+        if(isMC) sig_2lSS_1tau =  pt_lep_2l1tau && inv_mass_Zee && inv_mass_lep_pairs && lep_quality && taus_overlap && metLD && jetmult_sig && tight_mvasel && SS_lep && !SS_taulep  && tau_fake && _isGenMatched && passTriggerMatch && tau; 
+        else sig_2lSS_1tau = pt_lep_2l1tau && inv_mass_Zee && inv_mass_lep_pairs && lep_quality && taus_overlap && metLD && jetmult_sig && tight_mvasel && SS_lep && !SS_taulep  && tau_fake && passTriggerMatch && tau; 
 	
 	// 2lSS+1tau fake extrapolation region
-	bool tau_fake_CR =  !tight_mvasel && lep_quality && pt_lep_2l1tau && SS_lep && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && passTriggerMatch;
-
-	// 2lSS+1tau fake charge flip extrapolation region
-	//bool tau_2lOS_CR;
-        //if(isMC) tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau && _isGenMatched;
-        //else tau_2lOS_CR = tight_mvasel && lep_quality && pt_lep_2l1tau && !SS_lep && ele && inv_mass_lep_pairs && inv_mass_Zee && metLD && jetmult_sig && tau;
-
+	bool tau_fake_CR = pt_lep_2l1tau && inv_mass_lep_pairs && inv_mass_Zee && lep_quality && metLD && jetmult_sig && SS_lep && !SS_taulep && !tight_mvasel && passTriggerMatch && tau_fake && tau;
+        //tau--->pass loose
+	//tau fake---> fakeable (Vloose)
+	
 	//*******//
 	
 	//ttW control region
