@@ -1,7 +1,4 @@
-###BDTs for tau categories
+BDTs for tau categories
 
-###Producing ntuples
-```
 sh Make.sh add_BDT.cc
 ./add_BDT.exe
-```
