@@ -29,8 +29,7 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
 		int i_split1=0, int i_split2=0,
 		bool isMC=true, bool isReHLT=true){
 
-  produce_triggerlist_singletriggers();
-
+  produce_triggerlist();
 
   vector<TString> list;
   list.push_back(filename_in);
@@ -426,7 +425,7 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
   for (int i=skip_entries;i<skip_entries+nentries;i++) {
 
     if(i%10000==0) 
-      //cout<<"i="<<i<<endl;
+      cout<<"i="<<i<<endl;
 
     _category = -1;
 
@@ -577,12 +576,15 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
     bool pass_2me = pass_trigger_list_e2m(_triggerbit);
     bool pass_3m  = pass_trigger_list_3m(_triggerbit);
 
+    //cout<<"pass_e"<<pass_e<<", pass_m "<<pass_m<<endl;
+
     //MET filters
     bool pass_met_filter = pass_met_filters(_metfilterbit, isMC);
+    //if (_metfilterbit==509) cout<<"metfilter"<<endl;
     if (!pass_met_filter) continue;
 
     // ****************************
-    // *********** 2lSS ***********
+    // ******** 2lSS+1tau *********
     // **************************** 
 
     if(_n_recolep_fakeable>=2 && _n_recotauh>0 && _n_recolep_mvasel<=2){
@@ -794,7 +796,15 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
 
       bool passTriggerMatch = (pass_e && n_fakeable_ele>0) || (pass_2e && n_fakeable_ele>1) ||
           (pass_m && n_fakeable_mu>0) || (pass_2m && n_fakeable_mu>1) ||
-          (pass_em && n_fakeable_ele>0 && n_fakeable_mu>0) || (pass_et && n_fakeable_ele>0) || (pass_em && n_fakeable_mu>0);
+          (pass_em && n_fakeable_ele>0 && n_fakeable_mu>0);
+
+      /*cout<<"passTriggerMatch "<<passTriggerMatch<<endl;
+      cout<<"pass_e "<<pass_e<<", n_fakeable_ele "<<n_fakeable_ele<<endl;
+      cout<<"pass_2e "<<pass_2e<<", n_fakeable_ele "<<n_fakeable_ele<<endl;
+      cout<<"pass_m "<<pass_m<<", n_fakeable_mu "<<n_fakeable_mu<<endl;
+      cout<<"pass_2m "<<pass_2m<<", n_fakeable_mu "<<n_fakeable_mu<<endl;
+      cout<<"pass_em "<<pass_em<<", n_fakeable_ele "<<n_fakeable_ele<<", n_fakeable_mu "<<n_fakeable_mu<<endl;*/
+
   
       bool antiEle = true;
       if (antiEleWP=="None") antiEle = true;
@@ -804,7 +814,7 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
       else if (antiEleWP=="Tight") antiEle = _recotauh_sel_againstElectronTightMVA6[0];
       else if (antiEleWP=="VTight") antiEle = _recotauh_sel_againstElectronVTightMVA6[0];
     
-      bool sig_2lSS1tau_base = //passTriggerMatch &&
+      bool sig_2lSS1tau_base = passTriggerMatch &&
         (_n_recolep_fakeable>=2) &&
         ((_recolep_sel_conept[0]>25) && ((_recolep_sel_conept[1]>10 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11))) &&
         (inv_mass_lep_pairs) &&
@@ -832,7 +842,7 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
         (tau) &&
         (_recolep_sel_charge[0]*_recotauh_sel_charge[0]<0);
 
-      bool sig_2lSS1tau_flips = 
+      bool sig_2lSS1tau_flips = passTriggerMatch &&
         (*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[0]>0.5 && 
         pt_lep_2l1tau && 
         inv_mass_Zee && 
@@ -848,6 +858,8 @@ void split_tree_2lSS1tau(TString filename_in, TString filename_out, TString anti
         elecharge && 
         tau &&
         ((_recolep_sel_isGenMatched[0]) && (_recolep_sel_isGenMatched[1])); 
+
+      passTriggerMatch = false;
 
 
       if (sig_2lSS1tau_base) n_sig_2lSS1tau_base += 1;

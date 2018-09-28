@@ -22,9 +22,9 @@ vector<TString> triggerlist_3e;
 vector<TString> triggerlist_3m;
 
 
-
-
 void produce_triggerlist(){
+
+  triggerlist.clear();
 
   TString filename="/data_CMS/cms/mperez/ttH_2017/sync_ntuples/syncNtuple_LLRHTauTau.root";
 
@@ -36,23 +36,24 @@ void produce_triggerlist(){
     if(binlabel.BeginsWith("HLT"))triggerlist.push_back(hCounter->GetXaxis()->GetBinLabel(itr));
     //cout<<itr<<" "<<hCounter->GetXaxis()->GetBinLabel(itr)<<endl;
   }
-}
 
-void produce_triggerlist_singletriggers(){
+  triggerlist_1e.clear();
+  triggerlist_1m.clear();
+  triggerlist_2e.clear();
+  triggerlist_2m.clear();
+  triggerlist_em.clear();
+  triggerlist_3e.clear();
+  triggerlist_m2e.clear();
+  triggerlist_e2m.clear();
+  triggerlist_3m.clear();
+  triggerlist_et.clear();
+  triggerlist_mt.clear();
 
   triggerlist_1e.push_back("HLT_Ele32_WPTight_Gsf_v");
   triggerlist_1e.push_back("HLT_Ele35_WPTight_Gsf_v");
 
-  triggerlist_1m.push_back("HLT_IsoMu27_v");
   triggerlist_1m.push_back("HLT_IsoMu24_v");
-
-  triggerlist_em.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
-  triggerlist_em.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
-  triggerlist_em.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
-
-  triggerlist_et.push_back("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_v");
-
-  triggerlist_mt.push_back("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_v");
+  triggerlist_1m.push_back("HLT_IsoMu27_v");
 
   triggerlist_2e.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_v");
   triggerlist_2e.push_back("HLT_Ele23_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
@@ -60,14 +61,23 @@ void produce_triggerlist_singletriggers(){
   triggerlist_2m.push_back("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_v");
   triggerlist_2m.push_back("HLT_Mu17_TrkIsoVVL_Mu8_TrkIsoVVL_DZ_Mass3p8_v");
 
-  triggerlist_e2m.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_v");
-
-  triggerlist_m2e.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
+  triggerlist_em.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_v");
+  triggerlist_em.push_back("HLT_Mu23_TrkIsoVVL_Ele12_CaloIdL_TrackIdL_IsoVL_DZ_v");
+  triggerlist_em.push_back("HLT_Mu12_TrkIsoVVL_Ele23_CaloIdL_TrackIdL_IsoVL_DZ_v");
 
   triggerlist_3e.push_back("HLT_Ele16_Ele12_Ele8_CaloIdL_TrackIdL_v");
 
-  triggerlist_2m.push_back("HLT_TripleMu_12_10_5_v");
+  triggerlist_m2e.push_back("HLT_Mu8_DiEle12_CaloIdL_TrackIdL_v");
 
+  triggerlist_e2m.push_back("HLT_DiMu9_Ele9_CaloIdL_TrackIdL_DZ_v");
+
+  triggerlist_3m.push_back("HLT_TripleMu_12_10_5_v");
+
+  triggerlist_et.push_back("HLT_Ele24_eta2p1_WPTight_Gsf_LooseChargedIsoPFTau30_eta2p1_CrossL1_v");
+
+  triggerlist_mt.push_back("HLT_IsoMu20_eta2p1_LooseChargedIsoPFTau27_eta2p1_CrossL1_v");
+
+  //cout<<"produced list"<<endl;
 
 }
 
@@ -88,8 +98,9 @@ int FindTriggerNumber(TString triggername){
 }
 
 bool IsTriggerFired(Long64_t triggerbit, int triggernumber){ 
-  if(triggernumber>=0) return triggerbit & (long(1) << triggernumber);
-  return false;
+  if(triggernumber>=0) { 
+  	return triggerbit & (long(1) << triggernumber);
+  }
 }
 
 
@@ -102,123 +113,145 @@ bool pass_trigger_list(Long64_t triggerbit){
   produce_triggerlist();
   for(unsigned int i=0;i<triggerlist.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist[i])){
-      cout<< "all: "<<triggerlist[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_1e(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_1e.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_1e[i])){
-      cout<< triggerlist_1e[i] << endl;
-      return true;
+     return true;
+    }
+    else{
+    	return false;
     }
   }
+  return false;
 }
 
-bool pass_trigger_list_1m(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
+bool pass_trigger_list_1m(Long64_t triggerbit){ //FIXME
   for(unsigned int i=0;i<triggerlist_1m.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_1m[i])){
-      cout<< triggerlist_1m[i] << endl;
-      return true;
+    	return true;
+    }
+    else{
+    	return false;
     }
   }
+  return false;
 }
 
 bool pass_trigger_list_2e(Long64_t triggerbit){
-  //cout<<"entering"<<endl;
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_2e.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_2e[i])){
-      cout<< triggerlist_2e[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_2m(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_2m.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_2m[i])){
-      cout<< triggerlist_2m[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_em(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_em.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_em[i])){
-      cout<< triggerlist_em[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_et(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_et.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_et[i])){
-      cout<< triggerlist_em[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 
 bool pass_trigger_list_mt(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_mt.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_mt[i])){
-      cout<< triggerlist_em[i] << endl;
-      return true;
+    }
+    else{
+    	return false;
     }
   }
+  return false;
 }
 
-
 bool pass_trigger_list_3e(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_3e.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_3e[i])){
-      cout<< triggerlist_3e[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_3m(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_3m.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_3m[i])){
-      cout<< triggerlist_3m[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_e2m(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_e2m.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_e2m[i])){
-      cout<< triggerlist_e2m[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 bool pass_trigger_list_m2e(Long64_t triggerbit){
-  //produce_triggerlist_singletriggers();
   for(unsigned int i=0;i<triggerlist_m2e.size();i++){  
     if(IsTriggerFired(triggerbit,triggerlist_m2e[i])){
-      cout<< triggerlist_m2e[i] << endl;
       return true;
     }
+    else{
+    	return false;
+    }
   }
+  return false;
 }
 
 
