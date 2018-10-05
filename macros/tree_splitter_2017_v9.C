@@ -1308,14 +1308,14 @@ void split_tree(TString filename_in, TString filename_out,
 
       //2lSS+1tau
 
-      /*bool sig_2lSS1tau_base = false;
+      bool sig_2lSS1tau_base = false;
       bool sig_2lSS1tau_SR = false;
       bool sig_2lSS1tau_fake = false;
-      bool sig_2lSS1tau_flip = false;*/
+      bool sig_2lSS1tau_flip = false;
 
-      //if (_n_recotauh>0){
+      if (_n_recotauh>0){
 
-        bool sig_2lSS1tau_base = (_n_recotauh>0) && passTriggerMatch &&
+        sig_2lSS1tau_base = passTriggerMatch &&
           (_n_recolep_fakeable>=2) &&
           ((_recolep_sel_conept[0]>25) && ((_recolep_sel_conept[1]>10 && abs(_recolep_sel_pdg[1])==13) || (_recolep_sel_conept[1]>15 && abs(_recolep_sel_pdg[1])==11))) &&
           (inv_mass_lep_pairs) &&
@@ -1328,7 +1328,7 @@ void split_tree(TString filename_in, TString filename_out,
           (_n_recoPFJet>=3 && (_n_recoPFJet_btag_medium>=1 || _n_recoPFJet_btag_loose>=2) ) &&
           (_recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0]);
 
-        bool sig_2lSS1tau_SR = 
+        sig_2lSS1tau_SR = 
           sig_2lSS1tau_base &&
           (_recolep_sel_charge[0]*_recolep_sel_charge[1]>0) && 
           (_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1]) &&
@@ -1337,7 +1337,7 @@ void split_tree(TString filename_in, TString filename_out,
 
         if (sig_2lSS1tau_SR) n_2lSS_1tau_SR = n_2lSS_1tau_SR + 1;
 
-        bool sig_2lSS1tau_fake = 
+        sig_2lSS1tau_fake = 
           sig_2lSS1tau_base &&
           (_recolep_sel_charge[0]*_recolep_sel_charge[1]>0) && 
           !(_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1]) &&
@@ -1355,7 +1355,7 @@ void split_tree(TString filename_in, TString filename_out,
         bool SS_taulep = _recolep_sel_charge[0]*_recotauh_sel_charge[0]>0 || _recolep_sel_charge[1]*_recotauh_sel_charge[0]>0 ;
         bool ele = (abs(_recolep_sel_pdg[0])==11 || abs(_recolep_sel_pdg[1])==11);
 
-        bool sig_2lSS1tau_flip = (_n_recotauh>0) && passTriggerMatch &&
+        sig_2lSS1tau_flip = passTriggerMatch &&
           (*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[0]>0.5 && 
           pt_lep_2l1tau && 
           inv_mass_Zee && 
@@ -1373,7 +1373,7 @@ void split_tree(TString filename_in, TString filename_out,
 
         if (sig_2lSS1tau_flip) n_2lSS_1tau_flip = n_2lSS_1tau_flip + 1;
 
-      //}
+      }
 
       passTriggerMatch = false;
 
@@ -2393,29 +2393,37 @@ void split_tree(TString filename_in, TString filename_out,
 
       if (sig_3l_fake) n_3l_fake = n_3l_fake + 1;
 
+      bool sig_3l1tau_base = false;
+      bool sig_3l1tau_SR = false;
+      bool sig_3l1tau_fake = false;
+
       // 3l+1tau
-      bool sig_3l1tau_base = _n_recotauh>0 && passTriggerMatch &&
-        (_n_recolep_fakeable>=3) &&
-        (_recolep_sel_conept[0]>25 && _recolep_sel_conept[1]>10 && _recolep_sel_conept[2]>10) &&
-        inv_mass_lep_pairs &&
-        inv_mass_Z &&
-        metLD &&
-        abs(_recolep_sel_charge[0]+_recolep_sel_charge[1]+_recolep_sel_charge[2]+_recotauh_sel_charge[0])==0 &&
-        (_n_recoPFJet>=2 && (_n_recoPFJet_btag_loose>=2 || _n_recoPFJet_btag_medium>=1)) &&
-        (*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[0]>0.5; //added last minute;
+      if (_n_recotauh>0){
 
-      bool sig_3l1tau_SR = 
-        sig_3l1tau_base &&
-        (_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1] && _recolep_sel_ismvasel[2]) &&
-        _isGenMatched;
+        sig_3l1tau_base = passTriggerMatch &&
+          (_n_recolep_fakeable>=3) &&
+          (_recolep_sel_conept[0]>25 && _recolep_sel_conept[1]>10 && _recolep_sel_conept[2]>10) &&
+          inv_mass_lep_pairs &&
+          inv_mass_Z &&
+          metLD &&
+          abs(_recolep_sel_charge[0]+_recolep_sel_charge[1]+_recolep_sel_charge[2]+_recotauh_sel_charge[0])==0 &&
+          (_n_recoPFJet>=2 && (_n_recoPFJet_btag_loose>=2 || _n_recoPFJet_btag_medium>=1)) &&
+          (*_recotauh_byLooseIsolationMVArun2017v2DBoldDMdR0p3wLT2017)[0]>0.5; //added last minute;
 
-      if (sig_3l1tau_SR) n_3l_1tau_SR = n_3l_1tau_SR + 1;
+        sig_3l1tau_SR = 
+          sig_3l1tau_base &&
+          (_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1] && _recolep_sel_ismvasel[2]) &&
+          _isGenMatched;
+
+        if (sig_3l1tau_SR) n_3l_1tau_SR = n_3l_1tau_SR + 1;
       
-      bool sig_3l1tau_fake = 
-        sig_3l1tau_base &&
-        !(_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1] && _recolep_sel_ismvasel[2]);
+        sig_3l1tau_fake = 
+          sig_3l1tau_base &&
+          !(_recolep_sel_ismvasel[0] && _recolep_sel_ismvasel[1] && _recolep_sel_ismvasel[2]);
 
-      if (sig_3l1tau_fake) n_3l_1tau_fake = n_3l_1tau_fake + 1;
+        if (sig_3l1tau_fake) n_3l_1tau_fake = n_3l_1tau_fake + 1;
+
+      }
 
       passTriggerMatch = false;
 
@@ -2595,7 +2603,7 @@ void split_tree(TString filename_in, TString filename_out,
       if(_n_recoPFJet_btag_medium>=2){
       
         if(_recolep_sel_charge[0]+_recolep_sel_charge[1]+_recolep_sel_charge[2]>0){
-          
+
           if(sig_3l_SR){
             _category = 12;
             tree_3l_SR->Fill();
