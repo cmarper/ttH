@@ -9,66 +9,68 @@
 float luminosity = 41298; //41.298 fb-1
 
 float XS_ttH = 0.2118;
-float XS_tHq = 0.07096*0.324; //X-SECTION*BR
+float XS_tHq = 0.07096; //X-section*BR
 float XS_tHW = 0.01561;
 float XS_ttW = 0.2043;
 float XS_ttZ = 0.2529;
 float XS_ttZ_lowmass = 0.0493;
 float XS_ttG = 3.697;
-float XS_WpWp = 0.03711;
+//float XS_WpWp = 0.03711;
 float XS_WZ = 4.42965;
 float XS_ZZ = 1.256;
 float XS_ZZZ = 0.01398;
 float XS_WZZ = 0.05565;
 float XS_WWZ = 0.1651;
 float XS_WWW = 0.2086;
-float XS_ttWW = 0.011500*0.2002; //FIXME
-
+//float XS_ttWW = 0.011500*0.2002; //FIXME
 float XS_tZq = 0.0758;
-float XS_TTTT = 0.008213; //FIXME
+float XS_TTTT = 0.008213; 
 float XS_ttbar_DL = 88.29;
 float XS_ttbar_SL = 365.34;
 
 
 vector<float> XS;
 
-
 TString antiEle_WP = "1";
-/*TString antiEle_WP = "recotauh_againstElectronVLooseMVA6[0]";
-TString antiEle_WP = "recotauh_againstElectronLooseMVA6[0]";
-TString antiEle_WP = "recotauh_againstElectronMediumMVA6[0]";
-TString antiEle_WP = "recotauh_againstElectronTightMVA6[0]";
-TString antiEle_WP = "recotauh_againstElectronVTightMVA6[0]";*/
+//TString antiEle_WP = "recotauh_againstElectronVLooseMVA6[0]";
+//TString antiEle_WP = "recotauh_againstElectronLooseMVA6[0]";
+//TString antiEle_WP = "recotauh_againstElectronMediumMVA6[0]";
+//TString antiEle_WP = "recotauh_againstElectronTightMVA6[0]";
+//TString antiEle_WP = "recotauh_againstElectronVTightMVA6[0]";
 
 
 //MC
 
-TString filename_ttH = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttH/HTauTauTree_ttH_Hnonbb_split_BDT.root";
-TString filename_tHq = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttH/HTauTauTree_tHq_split_BDT.root";
+TString filename_ttH = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttH/HTauTauTree_ttH_Hnonbb_split_BDT_tauSF_fakelep.root";
+TString filename_tHq = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttH/HTauTauTree_THQ_split_BDT_tauSF_fakelep.root";
+TString filename_tHW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttH/HTauTauTree_THW_split_BDT_tauSF_fakelep.root";
 
-TString filename_ttW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttW_split_BDT.root";
-TString filename_ttZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttZ_split_BDT.root";
-TString filename_ttZ_lowmass = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttZ_lowmass_split_BDT.root";
-TString filename_ttG = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttG_split_BDT.root";
+TString filename_ttW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttW_split_BDT_tauSF_fakelep.root";
+TString filename_ttZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttZ_split_BDT_tauSF_fakelep.root";
+TString filename_ttZ_lowmass = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttZ_lowmass_split_BDT_tauSF_fakelep.root";
+TString filename_ttG = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/ttV/HTauTauTree_ttG_split_BDT_tauSF_fakelep.root";
 
-TString filename_WZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/EWK/HTauTauTree_WZ_split_BDT.root";
-TString filename_ZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/EWK/HTauTauTree_ZZ_split_BDT.root";
+TString filename_WZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/EWK/HTauTauTree_WZ_split_BDT_tauSF_fakelep.root";
+TString filename_ZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/EWK/HTauTauTree_ZZ_split_BDT_tauSF_fakelep.root";
 
-TString filename_WWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WWW_split_BDT.root";
-TString filename_WWZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WWZ_split_BDT.root";
-TString filename_WZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WZZ_split_BDT.root";
-TString filename_ZZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_ZZZ_split_BDT.root";
-TString filename_tZq = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_tZq_split_BDT.root";
-TString filename_WpWp = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WpWp_split_BDT.root";
-TString filename_TTTT = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_TTTT_split_BDT.root";
-TString filename_ttWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_ttWW_split_BDT.root";
+TString filename_WWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WWW_split_BDT_tauSF_fakelep.root";
+TString filename_WWZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WWZ_split_BDT_tauSF_fakelep.root";
+TString filename_WZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WZZ_split_BDT_tauSF_fakelep.root";
+TString filename_ZZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_ZZZ_split_BDT_tauSF_fakelep.root";
+TString filename_tZq = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_tZq_split_BDT_tauSF_fakelep.root";
+//TString filename_WpWp = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_WpWp_split_BDT_tauSF_fakelep.root";
+TString filename_TTTT = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_TTTT_split_BDT_tauSF_fakelep.root";
+//TString filename_ttWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Rares/HTauTauTree_ttWW_split_BDT_tauSF_fakelep.root";
 
 TString filename_ttbar_DL = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/TT/HTauTauTree_TTLeptons_split_BDT.root";
 TString filename_ttbar_SL = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/TT/HTauTauTree_TTSemileptonic_split_BDT.root";
 
+
+
 // NORMALIZATION FILES
 TString filename_norm_ttH = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttH/ntuple_PU_ttH_Hnonbb.root";
-TString filename_norm_tHq = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttH/ntuple_PU_tHq.root";
+TString filename_norm_tHq = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttH/ntuple_PU_THQ.root";
+TString filename_norm_tHW = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttH/ntuple_PU_THW.root";
 
 TString filename_norm_ttW = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttV/ntuple_PU_ttW.root";
 TString filename_norm_ttZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/ttV/ntuple_PU_ttZ.root";
@@ -83,9 +85,9 @@ TString filename_norm_WWZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nom
 TString filename_norm_WZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_WZZ.root";
 TString filename_norm_ZZZ = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_ZZZ.root";
 TString filename_norm_tZq = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_tZq.root";
-TString filename_norm_WpWp = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_WpWp.root";
+//TString filename_norm_WpWp = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_WpWp.root";
 TString filename_norm_TTTT = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_TTTT.root";
-TString filename_norm_ttWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_ttWW.root";
+//TString filename_norm_ttWW = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/Rares/ntuple_PU_ttWW.root";
 
 TString filename_norm_ttbar_DL = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/TT/ntuple_PU_TTLeptons.root";
 TString filename_norm_ttbar_SL = "/data_CMS/cms/mperez/ttH_2017/ntuples_converted/nominal/TT/ntuple_PU_TTSemileptonic.root";
@@ -95,37 +97,37 @@ vector<TString> filename_norm_MC;
 
 
 //Data
-/*
-TString filename_SingleMu_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleMu_2017B_split_noDoubleCount.root";
-TString filename_SingleEle_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleEle_2017B_split_noDoubleCount.root";
-TString filename_DoubleMu_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleMu_2017B_split_noDoubleCount.root";
-TString filename_DoubleEG_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleEG_2017B_split_noDoubleCount.root";
-TString filename_MuonEG_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_MuonEG_2017B_split_noDoubleCount.root";
 
-TString filename_SingleMu_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleMu_2017C_split_noDoubleCount.root"; //FIXME
-TString filename_SingleEle_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleEle_2017C_split_noDoubleCount.root";
-TString filename_DoubleMu_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleMu_2017C_split_noDoubleCount.root";
-TString filename_DoubleEG_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleEG_2017C_split_noDoubleCount.root"; //FIXME
-TString filename_MuonEG_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_MuonEG_2017C_split_noDoubleCount.root";
+TString filename_SingleMu_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleMu_2017B_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_SingleEle_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleEle_2017B_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleMu_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleMu_2017B_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleEG_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleEG_2017B_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_MuonEG_2017B = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_MuonEG_2017B_split_BDT_noDatasetOverlap_fakelep.root";
 
-TString filename_SingleMu_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleMu_2017D_split_noDoubleCount.root";
-TString filename_SingleEle_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleEle_2017D_split_noDoubleCount.root";
-TString filename_DoubleMu_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleMu_2017D_split_noDoubleCount.root";
-TString filename_DoubleEG_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleEG_2017D_split_noDoubleCount.root";
-TString filename_MuonEG_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_MuonEG_2017D_split_noDoubleCount.root";
+TString filename_SingleMu_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleMu_2017C_split_BDT_noDatasetOverlap_fakelep.root"; 
+TString filename_SingleEle_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleEle_2017C_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleMu_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleMu_2017C_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleEG_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleEG_2017C_split_BDT_noDatasetOverlap_fakelep.root"; 
+TString filename_MuonEG_2017C = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_MuonEG_2017C_split_BDT_noDatasetOverlap_fakelep.root";
 
-TString filename_SingleMu_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleMu_2017E_split_noDoubleCount.root";
-TString filename_SingleEle_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleEle_2017E_split_noDoubleCount.root";
-TString filename_DoubleMu_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleMu_2017E_split_noDoubleCount.root";
-TString filename_DoubleEG_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleEG_2017E_split_noDoubleCount.root"; //FIXME
-TString filename_MuonEG_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_MuonEG_2017E_split_noDoubleCount.root";
+TString filename_SingleMu_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleMu_2017D_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_SingleEle_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleEle_2017D_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleMu_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleMu_2017D_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleEG_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleEG_2017D_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_MuonEG_2017D = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_MuonEG_2017D_split_BDT_noDatasetOverlap_fakelep.root";
 
-TString filename_SingleMu_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleMu_2017F_split_noDoubleCount.root";
-TString filename_SingleEle_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_SingleEle_2017F_split_noDoubleCount.root";
-TString filename_DoubleMu_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleMu_2017F_split_noDoubleCount.root";
-TString filename_DoubleEG_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_DoubleEG_2017F_split_noDoubleCount.root";
-TString filename_MuonEG_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/new_noDoubleCount/HTauTauTree_MuonEG_2017F_split_noDoubleCount.root";
-*/
+TString filename_SingleMu_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleMu_2017E_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_SingleEle_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleEle_2017E_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleMu_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleMu_2017E_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleEG_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleEG_2017E_split_BDT_noDatasetOverlap_fakelep.root"; 
+TString filename_MuonEG_2017E = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_MuonEG_2017E_split_BDT_noDatasetOverlap_fakelep.root";
+
+TString filename_SingleMu_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleMu_2017F_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_SingleEle_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_SingleEle_2017F_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleMu_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleMu_2017F_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_DoubleEG_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_DoubleEG_2017F_split_BDT_noDatasetOverlap_fakelep.root";
+TString filename_MuonEG_2017F = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/nominal/Data/HTauTauTree_MuonEG_2017F_split_BDT_noDatasetOverlap_fakelep.root";
+
 
 vector<TString> filename_data;
 
@@ -142,88 +144,91 @@ vector<TString> MC_sample_cut_thu_unc;
 
 // MC JEC + TES
 
-/*TString filename_ttH_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttH/HTauTauTree_ttH_Hnonbb_split_JECup.root";
-TString filename_ttH_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttH/HTauTauTree_ttH_Hnonbb_split_JECdown.root";
-TString filename_ttH_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttH/HTauTauTree_ttH_Hnonbb_split_TESup.root";
-TString filename_ttH_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttH/HTauTauTree_ttH_Hnonbb_split_TESdown.root";
+TString filename_ttH_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttH/HTauTauTree_ttH_Hnonbb_split_JECup_BDT.root";
+TString filename_ttH_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttH/HTauTauTree_ttH_Hnonbb_split_JECdown_BDT.root";
+TString filename_ttH_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttH/HTauTauTree_ttH_Hnonbb_split_TESup_BDT.root";
+TString filename_ttH_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttH/HTauTauTree_ttH_Hnonbb_split_TESdown_BDT.root";
 
-TString filename_tHq_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttH/HTauTauTree_tHq_split_JECup.root";
-TString filename_tHq_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttH/HTauTauTree_tHq_split_JECdown.root";
-TString filename_tHq_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttH/HTauTauTree_tHq_split_TESup.root";
-TString filename_tHq_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttH/HTauTauTree_tHq_split_TESdown.root";
+TString filename_tHq_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttH/HTauTauTree_THQ_split_JECup_BDT.root";
+TString filename_tHq_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttH/HTauTauTree_THQ_split_JECdown_BDT.root";
+TString filename_tHq_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttH/HTauTauTree_THQ_split_TESup_BDT.root";
+TString filename_tHq_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttH/HTauTauTree_THQ_split_TESdown_BDT.root";
 
-TString filename_ttZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttZ_split_JECup.root";
-TString filename_ttZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttZ_split_JECdown.root";
-TString filename_ttZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttZ_split_TESup.root";
-TString filename_ttZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttZ_split_TESdown.root";
+TString filename_tHW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttH/HTauTauTree_THW_split_JECup_BDT.root";
+TString filename_tHW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttH/HTauTauTree_THW_split_JECdown_BDT.root";
+TString filename_tHW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttH/HTauTauTree_THW_split_TESup_BDT.root";
+TString filename_tHW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttH/HTauTauTree_THW_split_TESdown_BDT.root";
 
-TString filename_ttW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttW_split_JECup.root";
-TString filename_ttW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttW_split_JECdown.root";
-TString filename_ttW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttW_split_TESup.root";
-TString filename_ttW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttW_split_TESdown.root";
+TString filename_ttZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttZ_split_JECup_BDT.root";
+TString filename_ttZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttZ_split_JECdown_BDT.root";
+TString filename_ttZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttZ_split_TESup_BDT.root";
+TString filename_ttZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttZ_split_TESdown_BDT.root";
 
-TString filename_ttG_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttW_split_JECup.root";
-TString filename_ttG_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttW_split_JECdown.root";
-TString filename_ttG_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttW_split_TESup.root";
-TString filename_ttG_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttW_split_TESdown.root";
+TString filename_ttW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttW_split_JECup_BDT.root";
+TString filename_ttW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttW_split_JECdown_BDT.root";
+TString filename_ttW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttW_split_TESup_BDT.root";
+TString filename_ttW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttW_split_TESdown_BDT.root";
 
-TString filename_WZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/EWK/HTauTauTree_WZ_split_JECup.root";
-TString filename_WZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/EWK/HTauTauTree_WZ_split_JECdown.root";
-TString filename_WZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/EWK/HTauTauTree_WZ_split_TESup.root";
-TString filename_WZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/EWK/HTauTauTree_WZ_split_TESdown.root";
+TString filename_ttG_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/ttV/HTauTauTree_ttW_split_JECup_BDT.root";
+TString filename_ttG_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/ttV/HTauTauTree_ttW_split_JECdown_BDT.root";
+TString filename_ttG_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/ttV/HTauTauTree_ttW_split_TESup_BDT.root";
+TString filename_ttG_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/ttV/HTauTauTree_ttW_split_TESdown_BDT.root";
 
-TString filename_ZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/EWK/HTauTauTree_ZZ_split_JECup.root";
-TString filename_ZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/EWK/HTauTauTree_ZZ_split_JECdown.root";
-TString filename_ZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/EWK/HTauTauTree_ZZ_split_TESup.root";
-TString filename_ZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/EWK/HTauTauTree_ZZ_split_TESdown.root";
+TString filename_WZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/EWK/HTauTauTree_WZ_split_JECup_BDT.root";
+TString filename_WZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/EWK/HTauTauTree_WZ_split_JECdown_BDT.root";
+TString filename_WZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/EWK/HTauTauTree_WZ_split_TESup_BDT.root";
+TString filename_WZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/EWK/HTauTauTree_WZ_split_TESdown_BDT.root";
 
-TString filename_WWW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WWW_split_JECup.root";
-TString filename_WWW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WWW_split_JECdown.root";
-TString filename_WWW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WWW_split_TESup.root";
-TString filename_WWW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WWW_split_TESdown.root";
+TString filename_ZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/EWK/HTauTauTree_ZZ_split_JECup_BDT.root";
+TString filename_ZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/EWK/HTauTauTree_ZZ_split_JECdown_BDT.root";
+TString filename_ZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/EWK/HTauTauTree_ZZ_split_TESup_BDT.root";
+TString filename_ZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/EWK/HTauTauTree_ZZ_split_TESdown_BDT.root";
 
-TString filename_WWZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WWZ_split_JECup.root";
-TString filename_WWZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WWZ_split_JECdown.root";
-TString filename_WWZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WWZ_split_TESup.root";
-TString filename_WWZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WWZ_split_TESdown.root";
+TString filename_WWW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WWW_split_JECup_BDT.root";
+TString filename_WWW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WWW_split_JECdown_BDT.root";
+TString filename_WWW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WWW_split_TESup_BDT.root";
+TString filename_WWW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WWW_split_TESdown_BDT.root";
 
-TString filename_WZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WZZ_split_JECup.root";
-TString filename_WZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WZZ_split_JECdown.root";
-TString filename_WZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WZZ_split_TESup.root";
-TString filename_WZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WZZ_split_TESdown.root";
+TString filename_WWZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WWZ_split_JECup_BDT.root";
+TString filename_WWZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WWZ_split_JECdown_BDT.root";
+TString filename_WWZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WWZ_split_TESup_BDT.root";
+TString filename_WWZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WWZ_split_TESdown_BDT.root";
 
-TString filename_ZZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_ZZZ_split_JECup.root";
-TString filename_ZZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_ZZZ_split_JECdown.root";
-TString filename_ZZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_ZZZ_split_TESup.root";
-TString filename_ZZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_ZZZ_split_TESdown.root";
+TString filename_WZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WZZ_split_JECup_BDT.root";
+TString filename_WZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WZZ_split_JECdown_BDT.root";
+TString filename_WZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WZZ_split_TESup_BDT.root";
+TString filename_WZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WZZ_split_TESdown_BDT.root";
 
-TString filename_tZq_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_tZq_split_JECup.root";
-TString filename_tZq_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_tZq_split_JECdown.root";
-TString filename_tZq_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_tZq_split_TESup.root";
-TString filename_tZq_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_tZq_split_TESdown.root";
+TString filename_ZZZ_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_ZZZ_split_JECup_BDT.root";
+TString filename_ZZZ_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_ZZZ_split_JECdown_BDT.root";
+TString filename_ZZZ_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_ZZZ_split_TESup_BDT.root";
+TString filename_ZZZ_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_ZZZ_split_TESdown_BDT.root";
 
-TString filename_WpWp_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WpWp_split_JECup.root";
-TString filename_WpWp_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WpWp_split_JECdown.root";
-TString filename_WpWp_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WpWp_split_TESup.root";
-TString filename_WpWp_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WpWp_split_TESdown.root";
+TString filename_tZq_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_tZq_split_JECup_BDT.root";
+TString filename_tZq_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_tZq_split_JECdown_BDT.root";
+TString filename_tZq_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_tZq_split_TESup_BDT.root";
+TString filename_tZq_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_tZq_split_TESdown_BDT.root";
 
-TString filename_TTTT_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_TTTT_split_JECup.root";
-TString filename_TTTT_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_TTTT_split_JECdown.root";
-TString filename_TTTT_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_TTTT_split_TESup.root";
-TString filename_TTTT_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_TTTT_split_TESdown.root";
+/*TString filename_WpWp_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_WpWp_split_JECup_BDT.root";
+TString filename_WpWp_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_WpWp_split_JECdown_BDT.root";
+TString filename_WpWp_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_WpWp_split_TESup_BDT.root";
+TString filename_WpWp_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_WpWp_split_TESdown_BDT.root";*/
 
-TString filename_ttWW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_ttWW_split_JECup.root";
-TString filename_ttWW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_ttWW_split_JECdown.root";
-TString filename_ttWW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_ttWW_split_TESup.root";
-TString filename_ttWW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_ttWW_split_TESdown.root";
+TString filename_TTTT_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_TTTT_split_JECup_BDT.root";
+TString filename_TTTT_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_TTTT_split_JECdown_BDT.root";
+TString filename_TTTT_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_TTTT_split_TESup_BDT.root";
+TString filename_TTTT_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_TTTT_split_TESdown_BDT.root";
 
+/*TString filename_ttWW_JECup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECup/Rares/HTauTauTree_ttWW_split_JECup_BDT.root";
+TString filename_ttWW_JECdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/JECdown/Rares/HTauTauTree_ttWW_split_JECdown_BDT.root";
+TString filename_ttWW_TESup = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESup/Rares/HTauTauTree_ttWW_split_TESup_BDT.root";
+TString filename_ttWW_TESdown = "/data_CMS/cms/mperez/ttH_2017/ntuples_splitted/TESdown/Rares/HTauTauTree_ttWW_split_TESdown_BDT.root";*/
 
 
 vector<TString> filename_MC_JECup;
 vector<TString> filename_MC_JECdown;
 vector<TString> filename_MC_TESup;
-vector<TString> filename_MC_TESdown;*/
-
+vector<TString> filename_MC_TESdown;
 
 // Systematics
 vector<TString> bTag_syst_names;
@@ -239,10 +244,10 @@ void initialize(){
   MC_sample_cut.clear();
   filename_data.clear();
 
-  //filename_MC_JECup.clear();
-  //filename_MC_JECdown.clear();
-  //filename_MC_TESup.clear();
-  //filename_MC_TESdown.clear();
+  filename_MC_JECup.clear();
+  filename_MC_JECdown.clear();
+  filename_MC_TESup.clear();
+  filename_MC_TESdown.clear();
 
   filename_MC_thu_unc.clear();
   MC_sample_name_thu_unc.clear();
@@ -256,330 +261,360 @@ void initialize(){
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_gentau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_faketau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_htt");
   MC_sample_cut.push_back("genH_decayMode[1]<=5 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_htt_gentau");
   MC_sample_cut.push_back("genH_decayMode[1]<=5 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_htt_faketau");
-  MC_sample_cut.push_back("genH_decayMode[1]<=5 && !recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  MC_sample_cut.push_back("genH_decayMode[1]<=5 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hww");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genW==4 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hww_gentau");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genW==4 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hww_faketau");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genW==4 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hzz");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genZ==2 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hzz_gentau");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genZ==2 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_ttH);
   filename_MC.push_back(filename_ttH);
   filename_norm_MC.push_back(filename_norm_ttH);
   MC_sample_name.push_back("ttH_hzz_faketau");
   MC_sample_cut.push_back("genH_decayMode[1]>5 && n_genZ==2 && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttH_JECup);
-  //filename_MC_JECdown.push_back(filename_ttH_JECdown);
-  //filename_MC_TESup.push_back(filename_ttH_TESup);
-  //filename_MC_TESdown.push_back(filename_ttH_TESdown);
+  filename_MC_JECup.push_back(filename_ttH_JECup);
+  filename_MC_JECdown.push_back(filename_ttH_JECdown);
+  filename_MC_TESup.push_back(filename_ttH_TESup);
+  filename_MC_TESdown.push_back(filename_ttH_TESdown);
 
   XS.push_back(XS_tHq);
   filename_MC.push_back(filename_tHq);
   filename_norm_MC.push_back(filename_norm_tHq);
   MC_sample_name.push_back("tHq");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHq_JECup);
-  //filename_MC_JECdown.push_back(filename_tHq_JECdown);
-  //filename_MC_TESup.push_back(filename_tHq_TESup);
-  //filename_MC_TESdown.push_back(filename_tHq_TESdown);
+  filename_MC_JECup.push_back(filename_tHq_JECup);
+  filename_MC_JECdown.push_back(filename_tHq_JECdown);
+  filename_MC_TESup.push_back(filename_tHq_TESup);
+  filename_MC_TESdown.push_back(filename_tHq_TESdown);
 
   XS.push_back(XS_tHq);
   filename_MC.push_back(filename_tHq);
   filename_norm_MC.push_back(filename_norm_tHq);
   MC_sample_name.push_back("tHq_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHq_JECup);
-  //filename_MC_JECdown.push_back(filename_tHq_JECdown);
-  //filename_MC_TESup.push_back(filename_tHq_TESup);
-  //filename_MC_TESdown.push_back(filename_tHq_TESdown);
+  filename_MC_JECup.push_back(filename_tHq_JECup);
+  filename_MC_JECdown.push_back(filename_tHq_JECdown);
+  filename_MC_TESup.push_back(filename_tHq_TESup);
+  filename_MC_TESdown.push_back(filename_tHq_TESdown);
 
   XS.push_back(XS_tHq);
   filename_MC.push_back(filename_tHq);
   filename_norm_MC.push_back(filename_norm_tHq);
   MC_sample_name.push_back("tHq_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHq_JECup);
-  //filename_MC_JECdown.push_back(filename_tHq_JECdown);
-  //filename_MC_TESup.push_back(filename_tHq_TESup);
-  //filename_MC_TESdown.push_back(filename_tHq_TESdown);
+  filename_MC_JECup.push_back(filename_tHq_JECup);
+  filename_MC_JECdown.push_back(filename_tHq_JECdown);
+  filename_MC_TESup.push_back(filename_tHq_TESup);
+  filename_MC_TESdown.push_back(filename_tHq_TESdown);
+
+  XS.push_back(XS_tHW);
+  filename_MC.push_back(filename_tHW);
+  filename_norm_MC.push_back(filename_norm_tHW);
+  MC_sample_name.push_back("tHW");
+  MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
+  filename_MC_JECup.push_back(filename_tHW_JECup);
+  filename_MC_JECdown.push_back(filename_tHW_JECdown);
+  filename_MC_TESup.push_back(filename_tHW_TESup);
+  filename_MC_TESdown.push_back(filename_tHW_TESdown);
+
+  XS.push_back(XS_tHW);
+  filename_MC.push_back(filename_tHW);
+  filename_norm_MC.push_back(filename_norm_tHW);
+  MC_sample_name.push_back("tHW_gentau");
+  MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
+  filename_MC_JECup.push_back(filename_tHW_JECup);
+  filename_MC_JECdown.push_back(filename_tHW_JECdown);
+  filename_MC_TESup.push_back(filename_tHW_TESup);
+  filename_MC_TESdown.push_back(filename_tHW_TESdown);
+
+  XS.push_back(XS_tHW);
+  filename_MC.push_back(filename_tHW);
+  filename_norm_MC.push_back(filename_norm_tHW);
+  MC_sample_name.push_back("tHW_faketau");
+  MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
+  filename_MC_JECup.push_back(filename_tHW_JECup);
+  filename_MC_JECdown.push_back(filename_tHW_JECdown);
+  filename_MC_TESup.push_back(filename_tHW_TESup);
+  filename_MC_TESdown.push_back(filename_tHW_TESdown);
 
   XS.push_back(XS_ttW);
   filename_MC.push_back(filename_ttW);
   filename_norm_MC.push_back(filename_norm_ttW);
   MC_sample_name.push_back("ttW");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttW_TESdown);
+  filename_MC_JECup.push_back(filename_ttW_JECup);
+  filename_MC_JECdown.push_back(filename_ttW_JECdown);
+  filename_MC_TESup.push_back(filename_ttW_TESup);
+  filename_MC_TESdown.push_back(filename_ttW_TESdown);
 
   XS.push_back(XS_ttW);
   filename_MC.push_back(filename_ttW);
   filename_norm_MC.push_back(filename_norm_ttW);
   MC_sample_name.push_back("ttW_gentau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttW_TESdown);
+  filename_MC_JECup.push_back(filename_ttW_JECup);
+  filename_MC_JECdown.push_back(filename_ttW_JECdown);
+  filename_MC_TESup.push_back(filename_ttW_TESup);
+  filename_MC_TESdown.push_back(filename_ttW_TESdown);
 
   XS.push_back(XS_ttW);
   filename_MC.push_back(filename_ttW);
   filename_norm_MC.push_back(filename_norm_ttW);
   MC_sample_name.push_back("ttW_faketau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttW_TESdown);
+  filename_MC_JECup.push_back(filename_ttW_JECup);
+  filename_MC_JECdown.push_back(filename_ttW_JECdown);
+  filename_MC_TESup.push_back(filename_ttW_TESup);
+  filename_MC_TESdown.push_back(filename_ttW_TESdown);
 
   XS.push_back(XS_ttZ);
   filename_MC.push_back(filename_ttZ);
   filename_norm_MC.push_back(filename_norm_ttZ);
   MC_sample_name.push_back("ttZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ttZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ttZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ttZ_TESdown);
+  filename_MC_JECup.push_back(filename_ttZ_JECup);
+  filename_MC_JECdown.push_back(filename_ttZ_JECdown);
+  filename_MC_TESup.push_back(filename_ttZ_TESup);
+  filename_MC_TESdown.push_back(filename_ttZ_TESdown);
 
   XS.push_back(XS_ttZ);
   filename_MC.push_back(filename_ttZ);
   filename_norm_MC.push_back(filename_norm_ttZ);
   MC_sample_name.push_back("ttZ_gentau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ttZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ttZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ttZ_TESdown);
+  filename_MC_JECup.push_back(filename_ttZ_JECup);
+  filename_MC_JECdown.push_back(filename_ttZ_JECdown);
+  filename_MC_TESup.push_back(filename_ttZ_TESup);
+  filename_MC_TESdown.push_back(filename_ttZ_TESdown);
 
   XS.push_back(XS_ttZ);
   filename_MC.push_back(filename_ttZ);
   filename_norm_MC.push_back(filename_norm_ttZ);
   MC_sample_name.push_back("ttZ_faketau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ttZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ttZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ttZ_TESdown);
+  filename_MC_JECup.push_back(filename_ttZ_JECup);
+  filename_MC_JECdown.push_back(filename_ttZ_JECdown);
+  filename_MC_TESup.push_back(filename_ttZ_TESup);
+  filename_MC_TESdown.push_back(filename_ttZ_TESdown);
 
   XS.push_back(XS_ttG);
   filename_MC.push_back(filename_ttG);
   filename_norm_MC.push_back(filename_norm_ttG);
   MC_sample_name.push_back("Convs");
   MC_sample_cut.push_back("1");
-  //filename_MC_JECup.push_back(filename_ttG_JECup);
-  //filename_MC_JECdown.push_back(filename_ttG_JECdown);
-  //filename_MC_TESup.push_back(filename_ttG_TESup);
-  //filename_MC_TESdown.push_back(filename_ttG_TESdown);
+  filename_MC_JECup.push_back(filename_ttG_JECup);
+  filename_MC_JECdown.push_back(filename_ttG_JECdown);
+  filename_MC_TESup.push_back(filename_ttG_TESup);
+  filename_MC_TESdown.push_back(filename_ttG_TESdown);
   
   XS.push_back(XS_ttG);
   filename_MC.push_back(filename_ttG);
   filename_norm_MC.push_back(filename_norm_ttG);
   MC_sample_name.push_back("Convs_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttG_JECup);
-  //filename_MC_JECdown.push_back(filename_ttG_JECdown);
-  //filename_MC_TESup.push_back(filename_ttG_TESup);
-  //filename_MC_TESdown.push_back(filename_ttG_TESdown);
+  filename_MC_JECup.push_back(filename_ttG_JECup);
+  filename_MC_JECdown.push_back(filename_ttG_JECdown);
+  filename_MC_TESup.push_back(filename_ttG_TESup);
+  filename_MC_TESdown.push_back(filename_ttG_TESdown);
 
   XS.push_back(XS_ttG);
   filename_MC.push_back(filename_ttG);
   filename_norm_MC.push_back(filename_norm_ttG);
   MC_sample_name.push_back("Convs_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ttG_JECup);
-  //filename_MC_JECdown.push_back(filename_ttG_JECdown);
-  //filename_MC_TESup.push_back(filename_ttG_TESup);
-  //filename_MC_TESdown.push_back(filename_ttG_TESdown);
+  filename_MC_JECup.push_back(filename_ttG_JECup);
+  filename_MC_JECdown.push_back(filename_ttG_JECdown);
+  filename_MC_TESup.push_back(filename_ttG_TESup);
+  filename_MC_TESdown.push_back(filename_ttG_TESdown);
 
   XS.push_back(XS_WZ);
   filename_MC.push_back(filename_WZ);
   filename_norm_MC.push_back(filename_norm_WZ);
   MC_sample_name.push_back("WZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZ_TESdown);
 
   XS.push_back(XS_WZ);
   filename_MC.push_back(filename_WZ);
   filename_norm_MC.push_back(filename_norm_WZ);
   MC_sample_name.push_back("WZ_gentau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_WZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZ_TESdown);
 
   XS.push_back(XS_WZ);
   filename_MC.push_back(filename_WZ);
   filename_norm_MC.push_back(filename_norm_WZ);
   MC_sample_name.push_back("WZ_faketau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_WZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZ_TESdown);
 
   XS.push_back(XS_ZZ);
   filename_MC.push_back(filename_ZZ);
   filename_norm_MC.push_back(filename_norm_ZZ);
   MC_sample_name.push_back("ZZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZ_TESdown);
 
   XS.push_back(XS_ZZ);
   filename_MC.push_back(filename_ZZ);
   filename_norm_MC.push_back(filename_norm_ZZ);
   MC_sample_name.push_back("ZZ_gentau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZ_TESdown);
 
   XS.push_back(XS_ZZ);
   filename_MC.push_back(filename_ZZ);
   filename_norm_MC.push_back(filename_norm_ZZ);
   MC_sample_name.push_back("ZZ_faketau");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && !recotauh_sel_isGenMatched[0]");
-  //filename_MC_JECup.push_back(filename_ZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZ_TESdown);
 
   XS.push_back(XS_WWW);
   filename_MC.push_back(filename_WWW);
   filename_norm_MC.push_back(filename_norm_WWW);
   MC_sample_name.push_back("WWW");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWW_JECup);
-  //filename_MC_JECdown.push_back(filename_WWW_JECdown);
-  //filename_MC_TESup.push_back(filename_WWW_TESup);
-  //filename_MC_TESdown.push_back(filename_WWW_TESdown);
+  filename_MC_JECup.push_back(filename_WWW_JECup);
+  filename_MC_JECdown.push_back(filename_WWW_JECdown);
+  filename_MC_TESup.push_back(filename_WWW_TESup);
+  filename_MC_TESdown.push_back(filename_WWW_TESdown);
 
   XS.push_back(XS_WWW);
   filename_MC.push_back(filename_WWW);
   filename_norm_MC.push_back(filename_norm_WWW);
   MC_sample_name.push_back("WWW_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWW_JECup);
-  //filename_MC_JECdown.push_back(filename_WWW_JECdown);
-  //filename_MC_TESup.push_back(filename_WWW_TESup);
-  //filename_MC_TESdown.push_back(filename_WWW_TESdown);
+  filename_MC_JECup.push_back(filename_WWW_JECup);
+  filename_MC_JECdown.push_back(filename_WWW_JECdown);
+  filename_MC_TESup.push_back(filename_WWW_TESup);
+  filename_MC_TESdown.push_back(filename_WWW_TESdown);
 
   XS.push_back(XS_WWW);
   filename_MC.push_back(filename_WWW);
   filename_norm_MC.push_back(filename_norm_WWW);
   MC_sample_name.push_back("WWW_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWW_JECup);
-  //filename_MC_JECdown.push_back(filename_WWW_JECdown);
-  //filename_MC_TESup.push_back(filename_WWW_TESup);
-  //filename_MC_TESdown.push_back(filename_WWW_TESdown);
+  filename_MC_JECup.push_back(filename_WWW_JECup);
+  filename_MC_JECdown.push_back(filename_WWW_JECdown);
+  filename_MC_TESup.push_back(filename_WWW_TESup);
+  filename_MC_TESdown.push_back(filename_WWW_TESdown);
 
 
   XS.push_back(XS_WWZ);
@@ -587,30 +622,30 @@ void initialize(){
   filename_norm_MC.push_back(filename_norm_WWZ);
   MC_sample_name.push_back("WWZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WWZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WWZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WWZ_TESdown);
+  filename_MC_JECup.push_back(filename_WWZ_JECup);
+  filename_MC_JECdown.push_back(filename_WWZ_JECdown);
+  filename_MC_TESup.push_back(filename_WWZ_TESup);
+  filename_MC_TESdown.push_back(filename_WWZ_TESdown);
 
   XS.push_back(XS_WWZ);
   filename_MC.push_back(filename_WWZ);
   filename_norm_MC.push_back(filename_norm_WWZ);
   MC_sample_name.push_back("WWZ_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WWZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WWZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WWZ_TESdown);
+  filename_MC_JECup.push_back(filename_WWZ_JECup);
+  filename_MC_JECdown.push_back(filename_WWZ_JECdown);
+  filename_MC_TESup.push_back(filename_WWZ_TESup);
+  filename_MC_TESdown.push_back(filename_WWZ_TESdown);
 
   XS.push_back(XS_WWZ);
   filename_MC.push_back(filename_WWZ);
   filename_norm_MC.push_back(filename_norm_WWZ);
   MC_sample_name.push_back("WWZ_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WWZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WWZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WWZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WWZ_TESdown);
+  filename_MC_JECup.push_back(filename_WWZ_JECup);
+  filename_MC_JECdown.push_back(filename_WWZ_JECdown);
+  filename_MC_TESup.push_back(filename_WWZ_TESup);
+  filename_MC_TESdown.push_back(filename_WWZ_TESdown);
   
   
   XS.push_back(XS_WZZ);
@@ -618,30 +653,30 @@ void initialize(){
   filename_norm_MC.push_back(filename_norm_WZZ);
   MC_sample_name.push_back("WZZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZZ_TESdown);
 
   XS.push_back(XS_WZZ);
   filename_MC.push_back(filename_WZZ);
   filename_norm_MC.push_back(filename_norm_WZZ);
   MC_sample_name.push_back("WZZ_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZZ_TESdown);
 
   XS.push_back(XS_WZZ);
   filename_MC.push_back(filename_WZZ);
   filename_norm_MC.push_back(filename_norm_WZZ);
   MC_sample_name.push_back("WZZ_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_WZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_WZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_WZZ_TESdown);
+  filename_MC_JECup.push_back(filename_WZZ_JECup);
+  filename_MC_JECdown.push_back(filename_WZZ_JECdown);
+  filename_MC_TESup.push_back(filename_WZZ_TESup);
+  filename_MC_TESdown.push_back(filename_WZZ_TESdown);
 
 
   XS.push_back(XS_ZZZ);
@@ -649,184 +684,152 @@ void initialize(){
   filename_norm_MC.push_back(filename_norm_ZZZ);
   MC_sample_name.push_back("ZZZ");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ZZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
 
   XS.push_back(XS_ZZZ);
   filename_MC.push_back(filename_ZZZ);
   filename_norm_MC.push_back(filename_norm_ZZZ);
   MC_sample_name.push_back("ZZZ_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ZZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
 
   XS.push_back(XS_ZZZ);
   filename_MC.push_back(filename_ZZZ);
   filename_norm_MC.push_back(filename_norm_ZZZ);
   MC_sample_name.push_back("ZZZ_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ZZZ_JECup);
-  //filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
-  //filename_MC_TESup.push_back(filename_ZZZ_TESup);
-  //filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
+  filename_MC_JECup.push_back(filename_ZZZ_JECup);
+  filename_MC_JECdown.push_back(filename_ZZZ_JECdown);
+  filename_MC_TESup.push_back(filename_ZZZ_TESup);
+  filename_MC_TESdown.push_back(filename_ZZZ_TESdown);
 
-
-  XS.push_back(XS_WpWp);
+  /*XS.push_back(XS_WpWp);
   filename_MC.push_back(filename_WpWp);
   filename_norm_MC.push_back(filename_norm_WpWp);
   MC_sample_name.push_back("WWss");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WpWp_JECup);
-  //filename_MC_JECdown.push_back(filename_WpWp_JECdown);
-  //filename_MC_TESup.push_back(filename_WpWp_TESup);
-  //filename_MC_TESdown.push_back(filename_WpWp_TESdown);
+  filename_MC_JECup.push_back(filename_WpWp_JECup);
+  filename_MC_JECdown.push_back(filename_WpWp_JECdown);
+  filename_MC_TESup.push_back(filename_WpWp_TESup);
+  filename_MC_TESdown.push_back(filename_WpWp_TESdown);
 
   XS.push_back(XS_WpWp);
   filename_MC.push_back(filename_WpWp);
   filename_norm_MC.push_back(filename_norm_WpWp);
   MC_sample_name.push_back("WWss_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WpWp_JECup);
-  //filename_MC_JECdown.push_back(filename_WpWp_JECdown);
-  //filename_MC_TESup.push_back(filename_WpWp_TESup);
-  //filename_MC_TESdown.push_back(filename_WpWp_TESdown);
+  filename_MC_JECup.push_back(filename_WpWp_JECup);
+  filename_MC_JECdown.push_back(filename_WpWp_JECdown);
+  filename_MC_TESup.push_back(filename_WpWp_TESup);
+  filename_MC_TESdown.push_back(filename_WpWp_TESdown);
 
   XS.push_back(XS_WpWp);
   filename_MC.push_back(filename_WpWp);
   filename_norm_MC.push_back(filename_norm_WpWp);
   MC_sample_name.push_back("WWss_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_WpWp_JECup);
-  //filename_MC_JECdown.push_back(filename_WpWp_JECdown);
-  //filename_MC_TESup.push_back(filename_WpWp_TESup);
-  //filename_MC_TESdown.push_back(filename_WpWp_TESdown);
+  filename_MC_JECup.push_back(filename_WpWp_JECup);
+  filename_MC_JECdown.push_back(filename_WpWp_JECdown);
+  filename_MC_TESup.push_back(filename_WpWp_TESup);
+  filename_MC_TESdown.push_back(filename_WpWp_TESdown);*/
 
   XS.push_back(XS_tZq);
   filename_MC.push_back(filename_tZq);
   filename_norm_MC.push_back(filename_norm_tZq);
   MC_sample_name.push_back("tZq");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tZq_JECup);
-  //filename_MC_JECdown.push_back(filename_tZq_JECdown);
-  //filename_MC_TESup.push_back(filename_tZq_TESup);
-  //filename_MC_TESdown.push_back(filename_tZq_TESdown);
+  filename_MC_JECup.push_back(filename_tZq_JECup);
+  filename_MC_JECdown.push_back(filename_tZq_JECdown);
+  filename_MC_TESup.push_back(filename_tZq_TESup);
+  filename_MC_TESdown.push_back(filename_tZq_TESdown);
 
   XS.push_back(XS_tZq);
   filename_MC.push_back(filename_tZq);
   filename_norm_MC.push_back(filename_norm_tZq);
   MC_sample_name.push_back("tZq_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tZq_JECup);
-  //filename_MC_JECdown.push_back(filename_tZq_JECdown);
-  //filename_MC_TESup.push_back(filename_tZq_TESup);
-  //filename_MC_TESdown.push_back(filename_tZq_TESdown);
+  filename_MC_JECup.push_back(filename_tZq_JECup);
+  filename_MC_JECdown.push_back(filename_tZq_JECdown);
+  filename_MC_TESup.push_back(filename_tZq_TESup);
+  filename_MC_TESdown.push_back(filename_tZq_TESdown);
 
   XS.push_back(XS_tZq);
   filename_MC.push_back(filename_tZq);
   filename_norm_MC.push_back(filename_norm_tZq);
   MC_sample_name.push_back("tZq_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tZq_JECup);
-  //filename_MC_JECdown.push_back(filename_tZq_JECdown);
-  //filename_MC_TESup.push_back(filename_tZq_TESup);
-  //filename_MC_TESdown.push_back(filename_tZq_TESdown);
+  filename_MC_JECup.push_back(filename_tZq_JECup);
+  filename_MC_JECdown.push_back(filename_tZq_JECdown);
+  filename_MC_TESup.push_back(filename_tZq_TESup);
+  filename_MC_TESdown.push_back(filename_tZq_TESdown);
 
   XS.push_back(XS_TTTT);
   filename_MC.push_back(filename_TTTT);
   filename_norm_MC.push_back(filename_norm_TTTT);
   MC_sample_name.push_back("TTTT");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_TTTT_JECup);
-  //filename_MC_JECdown.push_back(filename_TTTT_JECdown);
-  //filename_MC_TESup.push_back(filename_TTTT_TESup);
-  //filename_MC_TESdown.push_back(filename_TTTT_TESdown);
+  filename_MC_JECup.push_back(filename_TTTT_JECup);
+  filename_MC_JECdown.push_back(filename_TTTT_JECdown);
+  filename_MC_TESup.push_back(filename_TTTT_TESup);
+  filename_MC_TESdown.push_back(filename_TTTT_TESdown);
 
   XS.push_back(XS_TTTT);
   filename_MC.push_back(filename_TTTT);
   filename_norm_MC.push_back(filename_norm_TTTT);
   MC_sample_name.push_back("TTTT_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_TTTT_JECup);
-  //filename_MC_JECdown.push_back(filename_TTTT_JECdown);
-  //filename_MC_TESup.push_back(filename_TTTT_TESup);
-  //filename_MC_TESdown.push_back(filename_TTTT_TESdown);
+  filename_MC_JECup.push_back(filename_TTTT_JECup);
+  filename_MC_JECdown.push_back(filename_TTTT_JECdown);
+  filename_MC_TESup.push_back(filename_TTTT_TESup);
+  filename_MC_TESdown.push_back(filename_TTTT_TESdown);
 
   XS.push_back(XS_TTTT);
   filename_MC.push_back(filename_TTTT);
   filename_norm_MC.push_back(filename_norm_TTTT);
   MC_sample_name.push_back("TTTT_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_TTTT_JECup);
-  //filename_MC_JECdown.push_back(filename_TTTT_JECdown);
-  //filename_MC_TESup.push_back(filename_TTTT_TESup);
-  //filename_MC_TESdown.push_back(filename_TTTT_TESdown);
+  filename_MC_JECup.push_back(filename_TTTT_JECup);
+  filename_MC_JECdown.push_back(filename_TTTT_JECdown);
+  filename_MC_TESup.push_back(filename_TTTT_TESup);
+  filename_MC_TESdown.push_back(filename_TTTT_TESdown);
 
-
-  /*XS.push_back(XS_tHW);
-  filename_MC.push_back(filename_tHW);
-  filename_norm_MC.push_back(filename_norm_tHW);
-  MC_sample_name.push_back("tHW");
-  MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHW_JECup);
-  //filename_MC_JECdown.push_back(filename_tHW_JECdown);
-  //filename_MC_TESup.push_back(filename_tHW_TESup);
-  //filename_MC_TESdown.push_back(filename_tHW_TESdown);
-
-  XS.push_back(XS_tHW);
-  filename_MC.push_back(filename_tHW);
-  filename_norm_MC.push_back(filename_norm_tHW);
-  MC_sample_name.push_back("tHW_gentau");
-  MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHW_JECup);
-  //filename_MC_JECdown.push_back(filename_tHW_JECdown);
-  //filename_MC_TESup.push_back(filename_tHW_TESup);
-  //filename_MC_TESdown.push_back(filename_tHW_TESdown);
-
-  XS.push_back(XS_tHW);
-  filename_MC.push_back(filename_tHW);
-  filename_norm_MC.push_back(filename_norm_tHW);
-  MC_sample_name.push_back("tHW_faketau");
-  MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_tHW_JECup);
-  //filename_MC_JECdown.push_back(filename_tHW_JECdown);
-  //filename_MC_TESup.push_back(filename_tHW_TESup);
-  //filename_MC_TESdown.push_back(filename_tHW_TESdown);*/
-
-  XS.push_back(XS_ttWW);
+  /*XS.push_back(XS_ttWW);
   filename_MC.push_back(filename_ttWW);
   filename_norm_MC.push_back(filename_norm_ttWW);
   MC_sample_name.push_back("ttWW");
   MC_sample_cut.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttWW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttWW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttWW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttWW_TESdown);
+  filename_MC_JECup.push_back(filename_ttWW_JECup);
+  filename_MC_JECdown.push_back(filename_ttWW_JECdown);
+  filename_MC_TESup.push_back(filename_ttWW_TESup);
+  filename_MC_TESdown.push_back(filename_ttWW_TESdown);
 
   XS.push_back(XS_ttWW);
   filename_MC.push_back(filename_ttWW);
   filename_norm_MC.push_back(filename_norm_ttWW);
   MC_sample_name.push_back("ttWW_gentau");
   MC_sample_cut.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttWW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttWW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttWW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttWW_TESdown);
+  filename_MC_JECup.push_back(filename_ttWW_JECup);
+  filename_MC_JECdown.push_back(filename_ttWW_JECdown);
+  filename_MC_TESup.push_back(filename_ttWW_TESup);
+  filename_MC_TESdown.push_back(filename_ttWW_TESdown);
 
   XS.push_back(XS_ttWW);
   filename_MC.push_back(filename_ttWW);
   filename_norm_MC.push_back(filename_norm_ttWW);
   MC_sample_name.push_back("ttWW_faketau");
   MC_sample_cut.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
-  //filename_MC_JECup.push_back(filename_ttWW_JECup);
-  //filename_MC_JECdown.push_back(filename_ttWW_JECdown);
-  //filename_MC_TESup.push_back(filename_ttWW_TESup);
-  //filename_MC_TESdown.push_back(filename_ttWW_TESdown);
+  filename_MC_JECup.push_back(filename_ttWW_JECup);
+  filename_MC_JECdown.push_back(filename_ttWW_JECdown);
+  filename_MC_TESup.push_back(filename_ttWW_TESup);
+  filename_MC_TESdown.push_back(filename_ttWW_TESdown);*/
  
-  XS.push_back(XS_ttbar_DL);
+  /*XS.push_back(XS_ttbar_DL);
   filename_MC.push_back(filename_ttbar_DL);
   filename_norm_MC.push_back(filename_norm_ttbar_DL);
   MC_sample_name.push_back("ttbar_DL");
@@ -836,9 +839,9 @@ void initialize(){
   filename_MC.push_back(filename_ttbar_SL);
   filename_norm_MC.push_back(filename_norm_ttbar_SL);
   MC_sample_name.push_back("ttbar_SL");
-  MC_sample_cut.push_back("1"); 
+  MC_sample_cut.push_back("1"); */
 
-  /*
+  
   filename_data.push_back(filename_DoubleEG_2017B);
   filename_data.push_back(filename_MuonEG_2017B);
   filename_data.push_back(filename_DoubleMu_2017B);
@@ -867,7 +870,7 @@ void initialize(){
   filename_data.push_back(filename_MuonEG_2017F);
   filename_data.push_back(filename_DoubleMu_2017F);
   filename_data.push_back(filename_SingleMu_2017F);
-  filename_data.push_back(filename_SingleEle_2017F);*/
+  filename_data.push_back(filename_SingleEle_2017F);
   
  
   filename_MC_thu_unc.push_back(filename_ttH);
@@ -911,23 +914,23 @@ void initialize(){
   MC_sample_cut_thu_unc.push_back("genH_decayMode[1]>5 && n_genZ==2 && !recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
 
   filename_MC_thu_unc.push_back(filename_ttW);
-  MC_sample_name_thu_unc.push_back("TTW");
+  MC_sample_name_thu_unc.push_back("ttW");
   MC_sample_cut_thu_unc.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
   filename_MC_thu_unc.push_back(filename_ttW);
-  MC_sample_name_thu_unc.push_back("TTW_gentau");
+  MC_sample_name_thu_unc.push_back("ttW_gentau");
   MC_sample_cut_thu_unc.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
   filename_MC_thu_unc.push_back(filename_ttW);
-  MC_sample_name_thu_unc.push_back("TTW_faketau");
+  MC_sample_name_thu_unc.push_back("ttW_faketau");
   MC_sample_cut_thu_unc.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
 
   filename_MC_thu_unc.push_back(filename_ttZ);
-  MC_sample_name_thu_unc.push_back("TTZ");
+  MC_sample_name_thu_unc.push_back("ttZ");
   MC_sample_cut_thu_unc.push_back("recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
   filename_MC_thu_unc.push_back(filename_ttZ);
-  MC_sample_name_thu_unc.push_back("TTZ_gentau");
+  MC_sample_name_thu_unc.push_back("ttZ_gentau");
   MC_sample_cut_thu_unc.push_back("recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
   filename_MC_thu_unc.push_back(filename_ttZ);
-  MC_sample_name_thu_unc.push_back("TTZ_faketau");
+  MC_sample_name_thu_unc.push_back("ttZ_faketau");
   MC_sample_cut_thu_unc.push_back("!recotauh_sel_isGenMatched[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1]");
  
  
@@ -959,10 +962,10 @@ void initialize(){
   fake_syst_names.push_back("ele_down");
   fake_syst_names.push_back("ele_pt1");
   fake_syst_names.push_back("ele_pt2");
-  fake_syst_names.push_back("ele_b1");
+  /*fake_syst_names.push_back("ele_b1");
   fake_syst_names.push_back("ele_b2");
   fake_syst_names.push_back("ele_ec1");
-  fake_syst_names.push_back("ele_ec2");
+  fake_syst_names.push_back("ele_ec2");*/
   fake_syst_names.push_back("ele_be1");
   fake_syst_names.push_back("ele_be2");
 
@@ -970,10 +973,10 @@ void initialize(){
   fake_syst_names.push_back("mu_down");
   fake_syst_names.push_back("mu_pt1");
   fake_syst_names.push_back("mu_pt2");
-  fake_syst_names.push_back("mu_b1");
+  /*fake_syst_names.push_back("mu_b1");
   fake_syst_names.push_back("mu_b2");
   fake_syst_names.push_back("mu_ec1");
-  fake_syst_names.push_back("mu_ec2");
+  fake_syst_names.push_back("mu_ec2");*/
   fake_syst_names.push_back("mu_be1");
   fake_syst_names.push_back("mu_be2");
 
@@ -1077,7 +1080,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       
       TH1F* h_TTH = (TH1F*)f_new->Get("x_ttH"+bkg_type[i]);
       h_TTH->Add( (TH1F*)f_new->Get("x_tHq"+bkg_type[i]) );
-      //h_TTH->Add( (TH1F*)f_new->Get("x_tHW"+bkg_type[i]) );
+      h_TTH->Add( (TH1F*)f_new->Get("x_tHW"+bkg_type[i]) );
       h_TTH->SetNameTitle("x_TTH"+bkg_type[i],"x_TTH"+bkg_type[i]);
       h_TTH->Write();
       
@@ -1095,10 +1098,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_Rares->Add( (TH1F*)f_new->Get("x_WWZ"+bkg_type[i]) );
       h_Rares->Add( (TH1F*)f_new->Get("x_WZZ"+bkg_type[i]) );
       h_Rares->Add( (TH1F*)f_new->Get("x_ZZZ"+bkg_type[i]) );
-      h_Rares->Add( (TH1F*)f_new->Get("x_WWss"+bkg_type[i]) );
+      //h_Rares->Add( (TH1F*)f_new->Get("x_WWss"+bkg_type[i]) );
       h_Rares->Add( (TH1F*)f_new->Get("x_tZq"+bkg_type[i]) );
       h_Rares->Add( (TH1F*)f_new->Get("x_TTTT"+bkg_type[i]) );
-      h_Rares->Add( (TH1F*)f_new->Get("x_ttWW"+bkg_type[i]) );
+      //h_Rares->Add( (TH1F*)f_new->Get("x_ttWW"+bkg_type[i]) );
       h_Rares->SetNameTitle("x_Rares"+bkg_type[i],"x_Rares"+bkg_type[i]);
       h_Rares->Write();
 
@@ -1109,17 +1112,17 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
  
     //FAKES FROM DATA
 
-    /*cout<<"Fakes"<<endl;
+    cout<<"Fakes"<<endl;
     TH1F* h_fakes =single_plot(filename_data,
 			"HTauTauTree_2lSS_1tau_fake",
 			var,
 			"event_weight_ttH*(" + cut_cat + ")",
 			nbin,xmin,xmax);
     
-    h_fakes->Scale(luminosity/41298.); //Data files for 35.9 fb-1
+    h_fakes->Scale(luminosity/41298.); 
     h_fakes->SetNameTitle("x_fakes_data","x_fakes_data");
     makeBinContentsPositive(h_fakes,true);
-    h_fakes->Write();*/
+    h_fakes->Write();
     
 
 
@@ -1162,21 +1165,21 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
     //FLIPS FROM DATA
 
-    /*TH1F* h_flips =single_plot(filename_data,
+    TH1F* h_flips =single_plot(filename_data,
 			       "HTauTauTree_2lSS_1tau_flip",
 			       var,
 			       "event_weight_ttH*(" + cut_cat + ")",
 			       nbin,xmin,xmax);
     
-    h_flips->Scale(luminosity/41298.); //Data files for 36.8 fb-1
+    h_flips->Scale(luminosity/41298.); 
     h_flips->SetNameTitle("x_flips_data","x_flips_data");
     makeBinContentsPositive(h_flips,true);
-    h_flips->Write();*/
+    h_flips->Write();
     
 
     //DATA
 
-    /*TH1F* h_data_obs =single_plot(filename_data,
+    TH1F* h_data_obs =single_plot(filename_data,
 				  "HTauTauTree_2lSS_1tau_SR",
 				  var,
           		  Form("(category==%i && ",cat[i_cat]) + cut_cat + ")", 
@@ -1186,7 +1189,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       
     h_data_obs->SetNameTitle("x_data_obs","x_data_obs");
     makeBinContentsPositive(h_data_obs,true);
-    h_data_obs->Write();*/
+    h_data_obs->Write();
    
 
 
@@ -1208,38 +1211,39 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //////////////////////////////
     //////SYSTEMATICS B-TAG///////
     //////////////////////////////
-    
+
+    //runs
     
     for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
       for(unsigned int i_b=0;i_b<bTag_syst_names.size();i_b++){  
 	      	     	    
-	     TString cut = "MC_weight*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*tauSF_weight*bTagSF_CSVshape_weight_" + bTag_syst_names[i_b];
-	     cut+=Form("*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat +")";
+	    TString cut = "MC_weight*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*tauSF_weight*bTagSF_CSVshape_weight_" + bTag_syst_names[i_b];
+	    cut+=Form("*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat +")";
      
-     	 TH1F* h_MC_btag_syst = single_plot(filename_MC[i_MC],
-     	    				   "HTauTauTree_2lSS_1tau_SR",
-     	    				   var,
-     	    				   cut,
-     	    				   nbin,xmin,xmax);
+     	TH1F* h_MC_btag_syst = single_plot(filename_MC[i_MC],
+     	    	"HTauTauTree_2lSS_1tau_SR",
+     	    	var,
+     	    	cut,
+     	    	nbin,xmin,xmax);
     
-         h_MC_btag_syst->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
+        h_MC_btag_syst->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
     
-    	 TString h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-    	 if(bTag_syst_names[i_b].Contains("Stats"))
+    	TString h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+    	if(bTag_syst_names[i_b].Contains("Stats"))
     	   h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-    	 if(bTag_syst_names[i_b]=="CFErr1Up")
+    	if(bTag_syst_names[i_b]=="CFErr1Up")
     	   h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_cErr1Up";
-    	 else if(bTag_syst_names[i_b]=="CFErr1Down")
+    	else if(bTag_syst_names[i_b]=="CFErr1Down")
     	   h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_cErr1Down";
-    	 else if(bTag_syst_names[i_b]=="CFErr2Up")
+    	else if(bTag_syst_names[i_b]=="CFErr2Up")
     	   h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_cErr2Up";
-    	 else if(bTag_syst_names[i_b]=="CFErr2Down")
+    	else if(bTag_syst_names[i_b]=="CFErr2Down")
     	   h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_btag_cErr2Down";	
     
-    	 h_MC_btag_syst->SetNameTitle(h_name,h_name);
+    	h_MC_btag_syst->SetNameTitle(h_name,h_name);
                makeBinContentsPositive(h_MC_btag_syst);
-    	 h_MC_btag_syst->Write();
+    	h_MC_btag_syst->Write();
     
        }
 
@@ -1300,7 +1304,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 	    TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
 	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	    //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
 	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
 	    h_TTH->Write();
 
@@ -1315,15 +1319,15 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	      else if(bTag_syst_names[i_b]=="CFErr2Down")
 	    h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 	
-	    TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    TString h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b]=="CFErr1Up")
-	      h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
+	      h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
 	    else if(bTag_syst_names[i_b]=="CFErr1Down")
-	      h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
+	      h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
 	    else if(bTag_syst_names[i_b]=="CFErr2Up")
-	      h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
+	      h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
 	    else if(bTag_syst_names[i_b]=="CFErr2Down")
-	      h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
+	      h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 	
 	    TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b]=="CFErr1Up")
@@ -1454,7 +1458,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    else if(bTag_syst_names[i_b]=="CFErr2Down")
 	      h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 
-	    TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    /*TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
 	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b]=="CFErr1Up")
@@ -1464,9 +1468,9 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    else if(bTag_syst_names[i_b]=="CFErr2Up")
 	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
 	    else if(bTag_syst_names[i_b]=="CFErr2Down")
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
+	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";*/
 
-	    TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    /*TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
 	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b]=="CFErr1Up")
@@ -1476,7 +1480,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    else if(bTag_syst_names[i_b]=="CFErr2Up")
 	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
 	    else if(bTag_syst_names[i_b]=="CFErr2Down")
-	    h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
+	    h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";*/
 	
 	    TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
@@ -1494,10 +1498,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
 	    h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
 	    h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-	    h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
 	    h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
 	    h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-	    h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
+	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
 	    h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
 	    h_Rares->Write();
 	
@@ -1509,20 +1513,23 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     
 
     //////////////////////////////////
-    /////SYSTEMATICS THEORECTICAL/////
+    /////SYSTEMATICS THEORETICAL//////
     //////////////////////////////////
+
+    //runs
     
-    /*for(unsigned i_MC=0;i_MC<MC_sample_name_thu_unc.size();i_MC++){
+    for(unsigned i_MC=0;i_MC<MC_sample_name_thu_unc.size();i_MC++){
 
       //cout<<MC_sample_name_thu_unc[i_MC]<<endl;
 
       TString syst_names="CMS_ttHl_thu_shape_";
       if(MC_sample_name_thu_unc[i_MC].Contains("ttH"))
-	syst_names+="ttH1";
-      else if(MC_sample_name_thu_unc[i_MC].Contains("TTZ"))
-	syst_names+="ttZ1";
-      else if(MC_sample_name_thu_unc[i_MC].Contains("TTW"))
-	syst_names+="ttW1";
+		syst_names+="ttH1";
+      else if(MC_sample_name_thu_unc[i_MC].Contains("ttZ"))
+		syst_names+="ttZ1";
+      else if(MC_sample_name_thu_unc[i_MC].Contains("ttW"))
+		syst_names+="ttW1";
+
 
       TH1F* h_nomin = (TH1F*)f_new->Get("x_"+MC_sample_name_thu_unc[i_MC]);
       float norm = h_nomin->Integral();
@@ -1531,10 +1538,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       cut+=Form("*(category==%i && ",cat[i_cat]) + MC_sample_cut_thu_unc[i_MC] + " && " + cut_cat + ")";
 
       TH1F* h_MC_x1_up = single_plot(filename_MC_thu_unc[i_MC],
-				     "HTauTauTree_2lSS",
-				     var,
-				     "MC_weight_scale_muR2*"+cut,
-				     nbin,xmin,xmax);
+				    "HTauTauTree_2lSS_1tau_SR",
+				    var,
+				    "MC_weight_scale_muR2*"+cut,
+				    nbin,xmin,xmax);
       
       //h_MC_x1_up->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
       h_MC_x1_up->Scale(norm/h_MC_x1_up->Integral());
@@ -1543,10 +1550,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_MC_x1_up->Write();
 
       TH1F* h_MC_x1_down = single_plot(filename_MC_thu_unc[i_MC],
-				       "HTauTauTree_2lSS",
-				       var,
-				       "MC_weight_scale_muR0p5*"+cut,
-				       nbin,xmin,xmax);
+				    "HTauTauTree_2lSS_1tau_SR",
+				    var,
+				    "MC_weight_scale_muR0p5*"+cut,
+				    nbin,xmin,xmax);
 
       //h_MC_x1_down->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
       h_MC_x1_down->Scale(norm/h_MC_x1_down->Integral());
@@ -1555,10 +1562,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_MC_x1_down->Write();
 
       TH1F* h_MC_y1_up = single_plot(filename_MC_thu_unc[i_MC],
-				     "HTauTauTree_2lSS",
-				     var,
-				     "MC_weight_scale_muF2*"+cut,
-				     nbin,xmin,xmax);
+				    "HTauTauTree_2lSS_1tau_SR",
+				    var,
+				    "MC_weight_scale_muF2*"+cut,
+				    nbin,xmin,xmax);
       
       //h_MC_y1_up->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
       h_MC_y1_up->Scale(norm/h_MC_y1_up->Integral());
@@ -1567,19 +1574,16 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_MC_y1_up->Write();
 
       TH1F* h_MC_y1_down = single_plot(filename_MC_thu_unc[i_MC],
-				       "HTauTauTree_2lSS",
-				       var,
-				       "MC_weight_scale_muF0p5*"+cut,
-				       nbin,xmin,xmax);
+				    "HTauTauTree_2lSS_1tau_SR",
+				    var,
+				    "MC_weight_scale_muF0p5*"+cut,
+				    nbin,xmin,xmax);
       
       //h_MC_y1_down->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
       h_MC_y1_down->Scale(norm/h_MC_y1_down->Integral());
       h_MC_y1_down->SetNameTitle("x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"_y1Down","x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"_y1Down");
       makeBinContentsPositive(h_MC_y1_down);      
       h_MC_y1_down->Write();
-
-
-
 
       TH1F* ratio_x1_up = (TH1F*)h_MC_x1_up->Clone();
       ratio_x1_up->Divide(h_nomin);
@@ -1611,33 +1615,29 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
       TH1F* h_MC_thu_shapeUp; 
       if(max_slope==0)
-	h_MC_thu_shapeUp = (TH1F*)h_MC_x1_up->Clone();
+		h_MC_thu_shapeUp = (TH1F*)h_MC_x1_up->Clone();
       else if(max_slope==1)
-	h_MC_thu_shapeUp = (TH1F*)h_MC_x1_down->Clone();
+		h_MC_thu_shapeUp = (TH1F*)h_MC_x1_down->Clone();
       else if(max_slope==2)
-	h_MC_thu_shapeUp = (TH1F*)h_MC_y1_up->Clone();
+		h_MC_thu_shapeUp = (TH1F*)h_MC_y1_up->Clone();
       else if(max_slope==3)
-	h_MC_thu_shapeUp = (TH1F*)h_MC_y1_down->Clone();      
+		h_MC_thu_shapeUp = (TH1F*)h_MC_y1_down->Clone();      
       h_MC_thu_shapeUp->SetNameTitle("x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"Up","x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"Up");
       h_MC_thu_shapeUp->Write();
 
-
       TH1F* h_MC_thu_shapeDown; 
       if(min_slope==0)
-	h_MC_thu_shapeDown = (TH1F*)h_MC_x1_up->Clone();
+		h_MC_thu_shapeDown = (TH1F*)h_MC_x1_up->Clone();
       else if(min_slope==1)
-	h_MC_thu_shapeDown = (TH1F*)h_MC_x1_down->Clone();
+		h_MC_thu_shapeDown = (TH1F*)h_MC_x1_down->Clone();
       else if(min_slope==2)
-	h_MC_thu_shapeDown = (TH1F*)h_MC_y1_up->Clone();
+		h_MC_thu_shapeDown = (TH1F*)h_MC_y1_up->Clone();
       else if(min_slope==3)
-	h_MC_thu_shapeDown = (TH1F*)h_MC_y1_down->Clone();      
+		h_MC_thu_shapeDown = (TH1F*)h_MC_y1_down->Clone();      
       h_MC_thu_shapeDown->SetNameTitle("x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"Down","x_"+MC_sample_name_thu_unc[i_MC]+"_"+syst_names+"Down");
-      h_MC_thu_shapeDown->Write();
-      
-      
+      h_MC_thu_shapeDown->Write();   
       
     }
-
 
     vector<TString> thu_uncert;
     thu_uncert.push_back("_x1Up");
@@ -1652,66 +1652,65 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
       for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
 
-	TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttH1"+thu_uncert[i];
-	//TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]; //Just take nominal for tHq
-	//TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]; //Just take nominal for tHW
-	TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttH1"+thu_uncert[i];
-	
-	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH)->Clone();
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-	h_TTH->Write();
+	    TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttH1"+thu_uncert[i];
+	    TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]; //Just take nominal for tHq
+	    TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]; //Just take nominal for tHW
+	    TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttH1"+thu_uncert[i];
+	    
+	    TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH)->Clone();
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+	    //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+	    h_TTH->Write();
 
-	TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttZ_"+thu_uncert[i];
-	TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttG_"+thu_uncert[i];
-	TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttZ_"+thu_uncert[i];
-	
-	
-	TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ)->Clone();
-	h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
-	h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
-	h_TTZ->Write();
+		//TS
+	    //TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttZ"+thu_uncert[i];
+	    //TString h_name_ttW = "x_ttW"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttW"+thu_uncert[i];
+	    //TString h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttG"+thu_uncert[i];
+	    //TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl_thu_shape_ttZ"+thu_uncert[i];
+	    //TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ)->Clone();
+	    //h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttW) );
+	    //h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
+	    //h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
+	    //h_TTZ->Write();
+    	
 
       }
 
     }
 
     cout<<"OK syst theoretical "<<endl;
-    */
+    
 
     //////////////////////////////////
     ////// SYSTEMATICS JEC/TES ///////
     //////////////////////////////////
 
-    /*for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+    //runs 
+    
+    for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
       
       TString MC_weight = "MC_weight";
  
-
       TString cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight";
       cut+=Form("*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC]  + " && " + cut_cat + ")";
       
       TH1F* h_MC_JEC_up = single_plot(filename_MC_JECup[i_MC],
-				      "HTauTauTree_2lSS",
-				      var,
-				      cut,
-				      nbin,xmin,xmax);
+				"HTauTauTree_2lSS_1tau_SR",
+				var,
+				cut,
+				nbin,xmin,xmax);
 
       h_MC_JEC_up->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
       h_MC_JEC_up->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_scale_jUp","x_"+MC_sample_name[i_MC]+"_CMS_scale_jUp");
       makeBinContentsPositive(h_MC_JEC_up);
-
       h_MC_JEC_up->Write();
-
-  
-
       
       TH1F* h_MC_JEC_down = single_plot(filename_MC_JECdown[i_MC],
-					"HTauTauTree_2lSS",
-					var,
-					cut,
-					nbin,xmin,xmax);
+			    "HTauTauTree_2lSS_1tau_SR",
+			    var,
+			    cut,
+			    nbin,xmin,xmax);
       
       h_MC_JEC_down->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
       h_MC_JEC_down->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_scale_jDown","x_"+MC_sample_name[i_MC]+"_CMS_scale_jDown");
@@ -1719,33 +1718,28 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_MC_JEC_down->Write();
 
       TH1F* h_MC_TES_up = single_plot(filename_MC_TESup[i_MC],
-				      "HTauTauTree_2lSS",
-				      var,
-				      cut,
-				      nbin,xmin,xmax);
+				"HTauTauTree_2lSS_1tau_SR",
+				var,
+				cut,
+				nbin,xmin,xmax);
 
       h_MC_TES_up->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
       h_MC_TES_up->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_scale_tUp","x_"+MC_sample_name[i_MC]+"_CMS_scale_tUp");
       makeBinContentsPositive(h_MC_TES_up);
       h_MC_TES_up->Write();
-
-      
+  
       TH1F* h_MC_TES_down = single_plot(filename_MC_TESdown[i_MC],
-					"HTauTauTree_2lSS",
-					var,
-					cut,
-					nbin,xmin,xmax);
+			    "HTauTauTree_2lSS_1tau_SR",
+			    var,
+			    cut,
+			    nbin,xmin,xmax);
 
       h_MC_TES_down->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
       h_MC_TES_down->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_scale_tDown","x_"+MC_sample_name[i_MC]+"_CMS_scale_tDown");
       makeBinContentsPositive(h_MC_TES_down);
-
-
       h_MC_TES_down->Write();
 
     }
-
-
   
     vector<TString> JES_TES_uncert;
     JES_TES_uncert.push_back("jUp");
@@ -1758,47 +1752,45 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
       for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
 
-	TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	//TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	//TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	
-	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-	h_TTH->Write();
+	    TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    
+	    TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+	    h_TTH->Write();
 
+	    TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    
+	    TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
+	    h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+	    h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+	    h_EWK->Write();
 
-	
-	TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	
-	TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
-	h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-	h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-	h_EWK->Write();
-
-	TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
-	
-	TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-	//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
-	h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-	h_Rares->Write();
+	    TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    //TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_scale_"+JES_TES_uncert[i];
+	    
+	    TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
+	    h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+	    h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+	    h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+	    h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
+	    h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
+	    h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+	    h_Rares->Write();
 	
       }
 
@@ -1806,46 +1798,47 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     
 
     cout<<"OK JEC/TES "<<endl;
-    */
+    
 
 
     ////////////////////////////////////
     //// SYSTEMATICS JET-TO-TAU FR /////
     ////////////////////////////////////
+
+    //runs
    
-    /*for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+    for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
       if(!MC_sample_name[i_MC].Contains("faketau")) continue;
 
       for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){       
 		    
-	TString MC_weight = "MC_weight";
+		TString MC_weight = "MC_weight";
  
+		TString cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight_"+ jetToTau_FR_syst_names[i_t];
+		cut+=Form("*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat +")";
 
-	TString cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight_"+ jetToTau_FR_syst_names[i_t] +"_v3";
-	cut+=Form("*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat +")";
-
-	TH1F* h_MC_FRjt_syst = single_plot(filename_MC[i_MC],
-						  "HTauTauTree_2lSS",
-						  var,
-						  cut,
-						  nbin,xmin,xmax);
+		TH1F* h_MC_FRjt_syst = single_plot(filename_MC[i_MC],
+			"HTauTauTree_2lSS_1tau_SR",
+			var,
+			cut,
+			nbin,xmin,xmax);
 	
       	h_MC_FRjt_syst->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
 
-	TString h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name+="shapeDown";
+	    TString h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_";
+	    if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	      h_name+="normUp";
+	    else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	      h_name+="normDown";
+	    else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	      h_name+="shapeUp";
+	    else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	      h_name+="shapeDown";
 
-	h_MC_FRjt_syst->SetNameTitle(h_name,h_name);
-	makeBinContentsPositive(h_MC_FRjt_syst);
-	h_MC_FRjt_syst->Write();
+	    h_MC_FRjt_syst->SetNameTitle(h_name,h_name);
+	    makeBinContentsPositive(h_MC_FRjt_syst);
+	    h_MC_FRjt_syst->Write();
 
       }
 
@@ -1858,230 +1851,233 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
       for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
 
-	if(!bkg_type[i_bkg].Contains("faketau")) continue;
+	  if(!bkg_type[i_bkg].Contains("faketau")) continue;
 
 
-	TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ttH+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ttH+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ttH+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_ttH+="shapeDown";
-	TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_tHq+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_tHq+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_tHq+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_tHq+="shapeDown";*/
-	/*TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_tHW+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_tHW+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_tHW+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_tHW+="shapeDown";
-	TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_TTH+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_TTH+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_TTH+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_TTH+="shapeDown";	
+	  TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ttH+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ttH+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ttH+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_ttH+="shapeDown";
+	  TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_tHq+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_tHq+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_tHq+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_tHq+="shapeDown";
+	  
+	  TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_tHW+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_tHW+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_tHW+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_tHW+="shapeDown";
+      
+	  TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_TTH+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_TTH+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_TTH+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_TTH+="shapeDown";	
 
-	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-	h_TTH->Write();
+	  TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
+	  h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+	  h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	  h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+	  h_TTH->Write();
 
 
+	  TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ttZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ttZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ttZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_ttZ+="shapeDown";
+	  TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ttG+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ttG+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ttG+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_ttG+="shapeDown";	
+	  TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_TTZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_TTZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_TTZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_TTZ+="shapeDown";	
 
-	TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ttZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ttZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ttZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_ttZ+="shapeDown";
-	TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ttG+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ttG+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ttG+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_ttG+="shapeDown";	
-	TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_TTZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_TTZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_TTZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_TTZ+="shapeDown";	
+	  TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
+	  h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
+	  h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
+	  h_TTZ->Write();
 
-	TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
-	h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
-	h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
-	h_TTZ->Write();
 	
-	TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_WZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_WZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_WZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_WZ+="shapeDown";	
-	TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ZZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ZZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ZZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_ZZ+="shapeDown";		
-	TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_EWK+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_EWK+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_EWK+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_EWK+="shapeDown";
+	  TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_WZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_WZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_WZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_WZ+="shapeDown";	
+	  TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ZZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ZZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ZZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_ZZ+="shapeDown";		
+	  TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_EWK+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_EWK+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_EWK+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_EWK+="shapeDown";
 		
-	TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
-	h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-	h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-	h_EWK->Write();
+	  TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
+	  h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+	  h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+	  h_EWK->Write();
 
 	
-	TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";	
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_WWW+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_WWW+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_WWW+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_WWW+="shapeDown";	
-	TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";		
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_WWZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_WWZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_WWZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_WWZ+="shapeDown";
-	TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_WZZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_WZZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_WZZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_WZZ+="shapeDown";		
-	TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ZZZ+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ZZZ+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ZZZ+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_ZZZ+="shapeDown";
-	TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_WWss+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_WWss+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_WWss+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_WWss+="shapeDown";
-	TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_tZq+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_tZq+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_tZq+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_tZq+="shapeDown";
-	TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_TTTT+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_TTTT+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_TTTT+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_TTTT+="shapeDown";
-	TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_ttWW+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ttWW+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_ttWW+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	h_name_ttWW+="shapeDown";
+	  TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";	
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_WWW+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_WWW+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_WWW+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_WWW+="shapeDown";	
+	  TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";		
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_WWZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_WWZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_WWZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_WWZ+="shapeDown";
+	  TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_WZZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_WZZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_WZZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_WZZ+="shapeDown";		
+	  TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ZZZ+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ZZZ+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ZZZ+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_ZZZ+="shapeDown";
+	  /*TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_WWss+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_WWss+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_WWss+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_WWss+="shapeDown";*/
+	  TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_tZq+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_tZq+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_tZq+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_tZq+="shapeDown";
+	  TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_TTTT+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_TTTT+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_TTTT+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_TTTT+="shapeDown";
+	  /*TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_ttWW+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_ttWW+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_ttWW+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	  h_name_ttWW+="shapeDown";*/
+	
+	  TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+	    h_name_Rares+="normUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+	    h_name_Rares+="normDown";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+	    h_name_Rares+="shapeUp";
+	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+	    h_name_Rares+="shapeDown";
 	
 
-	TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-	  h_name_Rares+="normUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_Rares+="normDown";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-	  h_name_Rares+="shapeUp";
-	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	  h_name_Rares+="shapeDown";
-	
-
-	TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-	//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
-	h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-	h_Rares->Write();
+	  TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
+	  h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+	  h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+	  h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+	  //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+	  h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
+	  h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+	  //h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
+	  h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+	  h_Rares->Write();
 	
       }
 
     }
 
     cout<<"OK syst jetToTau FR"<<endl;
-    */
+    
 
 
    /////////////////////////////////
    ///// SYSTEMATICS TAU-ID ////////
    /////////////////////////////////
 
-   /*for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+   //runs
+
+   for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
      if(MC_sample_name[i_MC].Contains("faketau") || MC_sample_name[i_MC].Contains("gentau")) continue;
 
@@ -2094,8 +2090,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
      h_MC_tauIDDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau"),0.95);
      h_MC_tauIDDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown", "x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown");
      h_MC_tauIDDown->Write();
-
-     
      
      TH1F* h_MC_FRjt_normUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
      h_MC_FRjt_normUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_normUp"));
@@ -2107,7 +2101,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
      h_MC_FRjt_normDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown", "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown");
      h_MC_FRjt_normDown->Write();
      
-
      TH1F* h_MC_FRjt_shapeUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
      h_MC_FRjt_shapeUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_shapeUp"));
      h_MC_FRjt_shapeUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp");
@@ -2129,19 +2122,19 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
    for(unsigned int i_syst=0;i_syst<2;i_syst++){
 
      TString h_name_ttH = "x_ttH_CMS_eff_t"+syst_type_tauID[i_syst];
-     //TString h_name_tHq = "x_tHq_CMS_eff_t"+syst_type_tauID[i_syst];
-     //TString h_name_tHW = "x_tHW_CMS_eff_t"+syst_type_tauID[i_syst];
+     TString h_name_tHq = "x_tHq_CMS_eff_t"+syst_type_tauID[i_syst];
+     TString h_name_tHW = "x_tHW_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_TTH = "x_TTH_CMS_eff_t"+syst_type_tauID[i_syst];
  
      TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-     //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-     //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+     h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+     h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
      h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
      h_TTH->Write();
 
 
      TString h_name_ttZ = "x_ttZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_ttG = "x_ttG_CMS_eff_t"+syst_type_tauID[i_syst];
+     TString h_name_ttG = "x_Convs_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_TTZ = "x_TTZ_CMS_eff_t"+syst_type_tauID[i_syst];
  
      TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
@@ -2162,7 +2155,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
      TString h_name_WWZ = "x_WWZ_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_WZZ = "x_WZZ_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_ZZZ = "x_ZZZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_WWss = "x_WWss_CMS_eff_t"+syst_type_tauID[i_syst];
+     //TString h_name_WWss = "x_WWss_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_tZq = "x_tZq_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_TTTT = "x_TTTT_CMS_eff_t"+syst_type_tauID[i_syst];
      TString h_name_Rares = "x_Rares_CMS_eff_t"+syst_type_tauID[i_syst];
@@ -2171,7 +2164,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
      h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
      h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
      h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+     //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
      h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );	     
      h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
      h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
@@ -2181,228 +2174,227 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 
    cout<<"OK syst tauID"<<endl;
-   */
+   
 
    ////////////////////////////////////
    /////// SYSTEMATICS TAU-FAKES //////
    ////////////////////////////////////
 
-   /*for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){  
+   //runs
+
+   for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){  
 
       for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
 
         if(bkg_type[i_bkg].Contains("faketau") || bkg_type[i_bkg].Contains("gentau")) continue;
 
-	TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ttH+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_ttH+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ttH+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_ttH+="shapeDown";
+	    TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+            h_name_ttH+="normUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+            h_name_ttH+="normDown";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+            h_name_ttH+="shapeUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+            h_name_ttH+="shapeDown";
         TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_tHq+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_tHq+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_tHq+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_tHq+="shapeDown";
-	TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_tHW+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_tHW+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_tHW+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_tHW+="shapeDown";
-	TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_TTH+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_TTH+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_TTH+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_TTH+="shapeDown";
+          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+            h_name_tHq+="normUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+            h_name_tHq+="normDown";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+            h_name_tHq+="shapeUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+            h_name_tHq+="shapeDown";
+	    TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+            h_name_tHW+="normUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+            h_name_tHW+="normDown";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+            h_name_tHW+="shapeUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+            h_name_tHW+="shapeDown";
+	    TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+            h_name_TTH+="normUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+            h_name_TTH+="normDown";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+            h_name_TTH+="shapeUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+            h_name_TTH+="shapeDown";
 
 		
-	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	//h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-	h_TTH->Write();
+	    TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+	    h_TTH->Write();
 
-
-	TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ttZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_ttZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ttZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_ttZ+="shapeDown";
+	    //TS
+	    /*TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+              h_name_ttZ+="normUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+              h_name_ttZ+="normDown";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+              h_name_ttZ+="shapeUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+              h_name_ttZ+="shapeDown";
         TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ttG+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_ttG+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ttG+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_ttG+="shapeDown";
-	TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_TTZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_TTZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_TTZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_TTZ+="shapeDown";
+            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+              h_name_ttG+="normUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+              h_name_ttG+="normDown";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+              h_name_ttG+="shapeUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+              h_name_ttG+="shapeDown";
+	    TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+              h_name_TTZ+="normUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+              h_name_TTZ+="normDown";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+              h_name_TTZ+="shapeUp";
+            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+              h_name_TTZ+="shapeDown";
 
 		
-	TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
-	h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
-	h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
-	h_TTZ->Write();*/
+	    TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
+	    h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
+	    h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
+	    h_TTZ->Write();*/
+
+
+   		TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_WZ+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_WZ+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_WZ+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_WZ+="shapeDown";
+    	TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_ZZ+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_ZZ+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_ZZ+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_ZZ+="shapeDown";
+    	TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_EWK+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_EWK+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_EWK+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_EWK+="shapeDown";
+
+
+		TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
+		h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+		h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+		h_EWK->Write();
 	
-   	/*TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_WZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_WZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_WZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_WZ+="shapeDown";
-        TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ZZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_ZZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ZZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_ZZ+="shapeDown";
-         TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_EWK+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_EWK+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_EWK+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_EWK+="shapeDown";
 
-
-	TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
-	h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-	h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-	h_EWK->Write();
-	
-
-	TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_WWW+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_WWW+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_WWW+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_WWW+="shapeDown";
-        TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_WWZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_WWZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_WWZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_WWZ+="shapeDown";
-        TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_WZZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_WZZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-      h_name_WZZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_WZZ+="shapeDown";
-        TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ZZZ+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_ZZZ+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ZZZ+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_ZZZ+="shapeDown";
-    TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_WWss+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_WWss+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_WWss+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_WWss+="shapeDown";
-        TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_tZq+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_tZq+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_tZq+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_tZq+="shapeDown";
-        TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_TTTT+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_TTTT+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_TTTT+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_TTTT+="shapeDown";
-	TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_ttWW+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-	  h_name_ttWW+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_ttWW+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-	h_name_ttWW+="shapeDown";
-
-
+		TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_WWW+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_WWW+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_WWW+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_WWW+="shapeDown";
+    	TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_WWZ+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_WWZ+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_WWZ+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_WWZ+="shapeDown";
+    	TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_WZZ+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_WZZ+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_WZZ+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_WZZ+="shapeDown";
+    	TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_ZZZ+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_ZZZ+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_ZZZ+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_ZZZ+="shapeDown";
+    	/*TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_WWss+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_WWss+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_WWss+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_WWss+="shapeDown";*/
+    	TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_tZq+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    	    h_name_tZq+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_tZq+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_tZq+="shapeDown";
+    	TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_TTTT+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+		    h_name_TTTT+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_TTTT+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    	    h_name_TTTT+="shapeDown";
+		/*TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    	    h_name_ttWW+="normUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+		    h_name_ttWW+="normDown";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    	    h_name_ttWW+="shapeUp";
+    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+		  h_name_ttWW+="shapeDown";*/
         TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-        if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-          h_name_Rares+="normUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-          h_name_Rares+="normDown";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-          h_name_Rares+="shapeUp";
-        else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-          h_name_Rares+="shapeDown";
+          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+            h_name_Rares+="normUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+            h_name_Rares+="normDown";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+            h_name_Rares+="shapeUp";
+          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+            h_name_Rares+="shapeDown";
 
-
-	
-	TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );	
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
-	h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-	//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
-	h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-	h_Rares->Write();
+		TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
+		h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+		h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+		h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+		//h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );	
+		h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
+		h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+		//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
+		h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+		h_Rares->Write();
 	
       }
 
@@ -2410,31 +2402,30 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 
     cout<<"OK syst tau fakes"<<endl;
-    */
+    
 
 
-    ////////////////////////////
-    //// CLOSURE SYSTEMATICS ///
-    ////////////////////////////
+    //////////////////////////////////
+    //// FAKES CLOSURE SYSTEMATICS ///
+    //////////////////////////////////
+
+    //runs
     
-    //Fakes closure
-    
-    /*TH1F* h_TT_DL_clos_ele_diff = single_plot(filename_ttbar_DL,
-					    "HTauTauTree_2lSS_lepMVA_CR",
-					    var,
-					    Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_ele_FR_TT_MC-event_weight_ttH_ele_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
-					    nbin,xmin,xmax);
+    TH1F* h_TT_DL_clos_ele_diff = single_plot(filename_ttbar_DL,
+		"HTauTauTree_2lSS_1tau_fake",
+		var,
+		Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_ele_FR_TT_MC-event_weight_ttH_ele_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
+		nbin,xmin,xmax);
     
     h_TT_DL_clos_ele_diff->Scale(luminosity*XS_ttbar_DL/h_ttbar_DL_norm->Integral());
 
     TH1F* h_TT_SL_clos_ele_diff = single_plot(filename_ttbar_SL,
-                                            "HTauTauTree_2lSS_lepMVA_CR",
-                                            var,
-                                            Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_ele_FR_TT_MC-event_weight_ttH_ele_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
-                                            nbin,xmin,xmax);
+        "HTauTauTree_2lSS_1tau_fake",
+        var,
+        Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_ele_FR_TT_MC-event_weight_ttH_ele_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
+        nbin,xmin,xmax);
 
     h_TT_SL_clos_ele_diff->Scale(luminosity*XS_ttbar_SL/h_ttbar_SL_norm->Integral());
-
 
     TH1F* h_fakes_clos_ele_Up = (TH1F*)h_fakes->Clone();
     h_fakes_clos_ele_Up->Add(h_TT_DL_clos_ele_diff,+1);  
@@ -2443,7 +2434,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     h_fakes_clos_ele_Up->SetNameTitle("x_fakes_data_CMS_ttHl16_Clos_e_shapeUp","x_fakes_data_CMS_ttHl16_Clos_e_shapeUp");
     makeBinContentsPositive(h_fakes_clos_ele_Up);
     h_fakes_clos_ele_Up->Write();
-
 
     TH1F* h_fakes_clos_ele_Down = (TH1F*)h_fakes->Clone();
     h_fakes_clos_ele_Down->Add(h_TT_DL_clos_ele_diff,-1);  
@@ -2455,18 +2445,18 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 
    TH1F* h_TT_DL_clos_mu_diff = single_plot(filename_ttbar_DL,
-					    "HTauTauTree_2lSS_lepMVA_CR",
-					    var,
-					    Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC_v2-event_weight_ttH_mu_FR_QCD_MC_v2)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
-					    nbin,xmin,xmax);
+		"HTauTauTree_2lSS_1tau_fake",
+		var,
+		Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
+		nbin,xmin,xmax);
     
     h_TT_DL_clos_mu_diff->Scale(luminosity*XS_ttbar_DL/h_ttbar_DL_norm->Integral());
 
    TH1F* h_TT_SL_clos_mu_diff = single_plot(filename_ttbar_SL,
-                                            "HTauTauTree_2lSS_lepMVA_CR",
-                                            var,
-                                            Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC_v2-event_weight_ttH_mu_FR_QCD_MC_v2)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",                                   
-                                            nbin,xmin,xmax);
+        "HTauTauTree_2lSS_1tau_fake",
+        var,
+        Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",                                   
+        nbin,xmin,xmax);
 
     h_TT_SL_clos_mu_diff->Scale(luminosity*XS_ttbar_SL/h_ttbar_SL_norm->Integral());
 
@@ -2488,116 +2478,117 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     makeBinContentsPositive(h_fakes_clos_mu_Down);
     h_fakes_clos_mu_Down->Write();
 
-
     cout<<"OK closure syst"<<endl;
-    */  
+    
 
 
     /////////////////////////////
     ///// FAKES SYSTEMATICS /////
     /////////////////////////////
 
-    //Fakes systematics
+    //runs
 
-    /*for(unsigned int i_f=0;i_f<fake_syst_names.size();i_f++){
+    for(unsigned int i_f=0;i_f<fake_syst_names.size();i_f++){
     
-      TString weight = "event_weight_ttH_"+ fake_syst_names[i_f] +"_v2";
-      TString cut = weight + Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")";
+        TString weight = "event_weight_ttH_"+ fake_syst_names[i_f];
+        TString cut = weight + Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")";
 
     
         TH1F* h_fakes_syst =single_plot(filename_data,
-                                        "HTauTauTree_2lSS_lepMVA_CR",
-                                         var,
-                                         cut,
-                                         nbin,xmin,xmax); 
+            "HTauTauTree_2lSS_1tau_fake",
+            var,
+            cut,
+            nbin,xmin,xmax);
+
         h_fakes_syst->Scale(luminosity/41298.); //Data files for 35.9 fb-1
 
-	cout<<weight<<endl;
-	cout<<h_fakes_syst->Integral()<<endl;
-											for(unsigned int i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+	    //cout<<weight<<endl;
+	    //cout<<h_fakes_syst->Integral()<<endl;
+											
+		for(unsigned int i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 	
-	if(MC_sample_name[i_MC]=="ttH" || MC_sample_name[i_MC].Contains("ttbar")) continue;      	
+			if(MC_sample_name[i_MC]=="ttH" || MC_sample_name[i_MC].Contains("ttbar")) continue;      	
 	
-	TString MC_weight = "MC_weight";
+			TString MC_weight = "MC_weight";
 	
-        TString MC_cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*"+weight+Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recolep_sel_isGenMatched[2] &&",cat_fakes[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat + ")";
+        	TString MC_cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*"+weight+Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recolep_sel_isGenMatched[2] &&",cat_fakes[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat + ")";
 
-	TH1F* h_MC_genmatch = single_plot(filename_MC[i_MC],
-                                          "HTauTauTree_2lSS_lepMVA_CR",
-					  var,
-					  MC_cut,
-					  nbin,xmin,xmax);
+			TH1F* h_MC_genmatch = single_plot(filename_MC[i_MC],
+                "HTauTauTree_2lSS_1tau_fake",
+				var,
+				MC_cut,
+				nbin,xmin,xmax);
 
-        h_MC_genmatch->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
-        h_fakes_syst->Add(h_MC_genmatch,-1);
-      }
+        	h_MC_genmatch->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
+        	h_fakes_syst->Add(h_MC_genmatch,-1);
+     		
+     	}
 
-											cout<<h_fakes_syst->Integral()<<endl;
+		//cout<<h_fakes_syst->Integral()<<endl;
+			
+		TString h_name = "x_fakes_data";
+        if(fake_syst_names[i_f]=="ele_up")
+            h_name+="_CMS_ttHl16_FRe_normUp";
+        else if(fake_syst_names[i_f]=="ele_down")
+            h_name+="_CMS_ttHl16_FRe_normDown";
+        else if(fake_syst_names[i_f]=="ele_pt1")
+            h_name+="_CMS_ttHl16_FRe_ptUp";
+        else if(fake_syst_names[i_f]=="ele_pt2")
+            h_name+="_CMS_ttHl16_FRe_ptDown";
+        /*else if(fake_syst_names[i_f]=="ele_b1")
+            h_name+="_CMS_ttHl16_FRe_bUp";
+        else if(fake_syst_names[i_f]=="ele_b2")
+            h_name+="_CMS_ttHl16_FRe_bDown";
+        else if(fake_syst_names[i_f]=="ele_ec1")
+        	h_name+="_CMS_ttHl16_FRe_ecUp";
+        else if(fake_syst_names[i_f]=="ele_ec2")
+            h_name+="_CMS_ttHl16_FRe_ecDown";*/
+	 	else if(fake_syst_names[i_f]=="ele_be1")
+           	h_name+="_CMS_ttHl16_FRe_beUp";
+        else if(fake_syst_names[i_f]=="ele_be2")
+           	h_name+="_CMS_ttHl16_FRe_beDown";
+
+        else if(fake_syst_names[i_f]=="mu_up")
+            h_name+="_CMS_ttHl16_FRm_normUp";
+        else if(fake_syst_names[i_f]=="mu_down")
+            h_name+="_CMS_ttHl16_FRm_normDown";
+        else if(fake_syst_names[i_f]=="mu_pt1")
+            h_name+="_CMS_ttHl16_FRm_ptUp";
+        else if(fake_syst_names[i_f]=="mu_pt2")
+           h_name+="_CMS_ttHl16_FRm_ptDown";
+        /*else if(fake_syst_names[i_f]=="mu_b1")
+            h_name+="_CMS_ttHl16_FRm_bUp";
+        else if(fake_syst_names[i_f]=="mu_b2")
+            h_name+="_CMS_ttHl16_FRm_bDown";
+        else if(fake_syst_names[i_f]=="mu_ec1")
+            h_name+="_CMS_ttHl16_FRm_ecUp";
+        else if(fake_syst_names[i_f]=="mu_ec2")
+            h_name+="_CMS_ttHl16_FRm_ecDown";*/
+	 	else if(fake_syst_names[i_f]=="mu_be1")
+     	    h_name+="_CMS_ttHl16_FRm_beUp";
+     	else if(fake_syst_names[i_f]=="mu_be2")
+     	    h_name+="_CMS_ttHl16_FRm_beDown";
 
 
+        if(!fake_syst_names[i_f].Contains("up") && !fake_syst_names[i_f].Contains("down"))
+          	h_fakes_syst->Scale(h_fakes->Integral()/h_fakes_syst->Integral());
 
-         TString h_name = "x_fakes_data";
-         if(fake_syst_names[i_f]=="ele_up")
-             h_name+="_CMS_ttHl16_FRe_normUp";
-         else if(fake_syst_names[i_f]=="ele_down")
-             h_name+="_CMS_ttHl16_FRe_normDown";
-         else if(fake_syst_names[i_f]=="ele_pt1")
-             h_name+="_CMS_ttHl16_FRe_ptUp";
-         else if(fake_syst_names[i_f]=="ele_pt2")
-             h_name+="_CMS_ttHl16_FRe_ptDown";
-         else if(fake_syst_names[i_f]=="ele_b1")
-             h_name+="_CMS_ttHl16_FRe_bUp";
-         else if(fake_syst_names[i_f]=="ele_b2")
-             h_name+="_CMS_ttHl16_FRe_bDown";
-         else if(fake_syst_names[i_f]=="ele_ec1")
-             h_name+="_CMS_ttHl16_FRe_ecUp";
-         else if(fake_syst_names[i_f]=="ele_ec2")
-             h_name+="_CMS_ttHl16_FRe_ecDown";
-	 else if(fake_syst_names[i_f]=="ele_be1")
-             h_name+="_CMS_ttHl16_FRe_beUp";
-         else if(fake_syst_names[i_f]=="ele_be2")
-             h_name+="_CMS_ttHl16_FRe_beDown";
-
-         else if(fake_syst_names[i_f]=="mu_up")
-             h_name+="_CMS_ttHl16_FRm_normUp";
-         else if(fake_syst_names[i_f]=="mu_down")
-             h_name+="_CMS_ttHl16_FRm_normDown";
-         else if(fake_syst_names[i_f]=="mu_pt1")
-             h_name+="_CMS_ttHl16_FRm_ptUp";
-         else if(fake_syst_names[i_f]=="mu_pt2")
-            h_name+="_CMS_ttHl16_FRm_ptDown";
-         else if(fake_syst_names[i_f]=="mu_b1")
-             h_name+="_CMS_ttHl16_FRm_bUp";
-         else if(fake_syst_names[i_f]=="mu_b2")
-             h_name+="_CMS_ttHl16_FRm_bDown";
-         else if(fake_syst_names[i_f]=="mu_ec1")
-             h_name+="_CMS_ttHl16_FRm_ecUp";
-         else if(fake_syst_names[i_f]=="mu_ec2")
-             h_name+="_CMS_ttHl16_FRm_ecDown";
-	 else if(fake_syst_names[i_f]=="mu_be1")
-             h_name+="_CMS_ttHl16_FRm_beUp";
-         else if(fake_syst_names[i_f]=="mu_be2")
-             h_name+="_CMS_ttHl16_FRm_beDown";
-
-
-         if(!fake_syst_names[i_f].Contains("up") && !fake_syst_names[i_f].Contains("down"))
-            h_fakes_syst->Scale(h_fakes->Integral()/h_fakes_syst->Integral());
-
-         h_fakes_syst->SetNameTitle(h_name,h_name);
-         makeBinContentsPositive(h_fakes_syst);
-         h_fakes_syst->Write();
+        h_fakes_syst->SetNameTitle(h_name,h_name);
+        makeBinContentsPositive(h_fakes_syst);
+        h_fakes_syst->Write();
 
     }
 
 
     cout<<"OK fake lep syst"<<endl;
-    */
+    
 
     ///////////////////////////////////////////
     ////// SYSTEMATICS LEPTON EFF. TIGHT /////
     //////////////////////////////////////////
    
-   /* for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+    //runs 
+    for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
       TString MC_weight = "MC_weight";
  
@@ -2605,28 +2596,28 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       TString cut = MC_weight + Form("*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat;
 
       TH1F* h_MC_mmm = single_plot(filename_MC[i_MC],
-			       "HTauTauTree_2lSS",
-			       var,
-			       cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==39)",
-			       nbin,xmin,xmax);
+			"HTauTauTree_2lSS_1tau_SR",
+			var,
+			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==39)",
+			nbin,xmin,xmax);
 
       TH1F* h_MC_emm = single_plot(filename_MC[i_MC],
-			       "HTauTauTree_2lSS",
-			       var,
-			       cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==37)",
-			       nbin,xmin,xmax);
+			"HTauTauTree_2lSS_1tau_SR",
+			var,
+			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==37)",
+			nbin,xmin,xmax);
 
       TH1F* h_MC_eem = single_plot(filename_MC[i_MC],
-			       "HTauTauTree_2lSS",
-			       var,
-			       cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==35)",
-			       nbin,xmin,xmax);
+			"HTauTauTree_2lSS_1tau_SR",
+			var,
+			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==35)",
+			nbin,xmin,xmax);
 
       TH1F* h_MC_eee = single_plot(filename_MC[i_MC],
-			       "HTauTauTree_2lSS",
-			       var,
-			       cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==33)",
-			       nbin,xmin,xmax);
+			"HTauTauTree_2lSS_1tau_SR",
+			var,
+			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==33)",
+			nbin,xmin,xmax);
 
       h_MC_mmm->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
       h_MC_emm->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
@@ -2716,13 +2707,13 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     for(unsigned int i=0;i<lepEff_syst.size();i++){
 
       TString h_name_ttH = "x_ttH_CMS_ttHl16_"+lepEff_syst[i];
-      //TString h_name_tHq = "x_tHq_CMS_ttHl16_"+lepEff_syst[i];
-      //TString h_name_tHW = "x_tHW_CMS_ttHl16_"+lepEff_syst[i];
+      TString h_name_tHq = "x_tHq_CMS_ttHl16_"+lepEff_syst[i];
+      TString h_name_tHW = "x_tHW_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_TTH = "x_TTH_CMS_ttHl16_"+lepEff_syst[i];
 
       TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH)->Clone();
-      //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-      //h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+      h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+      h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
       h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
       h_TTH->Write();
             
@@ -2736,14 +2727,13 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
       h_EWK->Write();
       
-
       TString h_name_WWW = "x_WWW_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_WWZ = "x_WWZ_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_WZZ = "x_WZZ_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_ZZZ = "x_ZZZ_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_tZq = "x_tZq_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_TTTT = "x_TTTT_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_WWss = "x_WWss_CMS_ttHl16_"+lepEff_syst[i];
+      //TString h_name_WWss = "x_WWss_CMS_ttHl16_"+lepEff_syst[i];
       TString h_name_Rares = "x_Rares_CMS_ttHl16_"+lepEff_syst[i];
 
       TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW)->Clone();
@@ -2752,7 +2742,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
       h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
       h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
       h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+      //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
       h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
       h_Rares->Write();
 
@@ -2760,7 +2750,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 
     cout<<"OK syst lepEff tight"<<endl;
-    */
+    
 
   }
 
@@ -2787,7 +2777,7 @@ void datacard_maker_mvis_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_mvis_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_mvis_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file,true);
@@ -2806,7 +2796,7 @@ void datacard_maker_n_fakelep_2lss1tau(){
 
   TString cut="1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_fakelep_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_fakelep_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2828,7 +2818,7 @@ void datacard_maker_n_fakeele_2lss1tau(){
 
   TString cut="1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_fakeele_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_fakeele_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2849,7 +2839,7 @@ void datacard_maker_n_fakemu_2lss1tau(){
 
   TString cut="1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_fakemu_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_fakemu_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2872,7 +2862,7 @@ void datacard_maker_n_faketau_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_faketau_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_faketau_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2894,7 +2884,7 @@ void datacard_maker_n_jet_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_jet_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_jet_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2918,7 +2908,7 @@ void datacard_maker_n_jet_CSVloose_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_jet_CSVloose_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_jet_CSVloose_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2942,7 +2932,7 @@ void datacard_maker_n_jet_CSVmedium_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_n_jet_CSVmedium_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_n_jet_CSVmedium_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2965,7 +2955,7 @@ void datacard_maker_ETmiss_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_ETmiss_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_ETmiss_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -2990,7 +2980,7 @@ void datacard_maker_pT_lep_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_lep_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_lep_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3013,7 +3003,7 @@ void datacard_maker_pT_mu_2lss1tau(){
   TString cut="abs(recolep_pdg[0])==13";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_mu_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_mu_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3036,7 +3026,7 @@ void datacard_maker_pT_ele_2lss1tau(){
   TString cut="abs(recolep_pdg[0])==11";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_ele_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_ele_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3060,7 +3050,7 @@ void datacard_maker_pT_tau1_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_tau1_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_tau1_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3080,7 +3070,7 @@ void datacard_maker_DM_tau1_2lss1tau(){
 
   TString cut = "1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_DM_tau1_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_DM_tau1_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3099,7 +3089,7 @@ void datacard_maker_pT_jet1_2lss1tau(){
 
   TString cut="1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_jet1_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_jet1_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3120,7 +3110,7 @@ void datacard_maker_pT_jet2_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_jet2_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_jet2_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3144,7 +3134,7 @@ void datacard_maker_pT_bjet1_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_bjet1_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_bjet1_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3165,7 +3155,7 @@ void datacard_maker_pT_bjet2_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_pT_bjet2_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_pT_bjet2_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3189,7 +3179,7 @@ void datacard_maker_CSV_jet1_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_DeepCSV_jet1_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_DeepCSV_jet1_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3210,7 +3200,7 @@ void datacard_maker_CSV_jet2_2lss1tau(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_DeepCSV_jet2_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_DeepCSV_jet2_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3232,7 +3222,7 @@ void datacard_maker_mltau_2lss1tau(){
 
   TString cut="1";
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_mltau_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_mltau_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file);
@@ -3256,7 +3246,7 @@ void datacard_maker_nvtx_2lss1tau_syst(){
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_nvtx_2lss1tau_"+antiEle_WP+"5Oct18.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_nvtx_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file,true);
@@ -3267,17 +3257,24 @@ void datacard_maker_nvtx_2lss1tau_syst(){
 
 void datacard_maker_BDT_2lss1tau(){
 
-  TString var="MVA_2lss1tau";
+  //[0.0, 0.14, 0.18, 0.22, 0.28, 0.32, 0.35, 0.38, 0.43, 0.47, 0.53, 1.0]
 
+  TString var="1*(MVA_2lss1tau>=0 && MVA_2lss1tau<0.14)+2*(MVA_2lss1tau>=0.14 && MVA_2lss1tau<0.18)+3*(MVA_2lss1tau>=0.18 && MVA_2lss1tau<0.22)+4*(MVA_2lss1tau>=0.22 && MVA_2lss1tau<0.28)+5*(MVA_2lss1tau>=0.28 && MVA_2lss1tau<0.32)+6*(MVA_2lss1tau>=0.32 && MVA_2lss1tau<0.35)+7*(MVA_2lss1tau>=0.35 && MVA_2lss1tau<0.38)+8*(MVA_2lss1tau>=0.38 && MVA_2lss1tau<0.43)+9*(MVA_2lss1tau>=0.43 && MVA_2lss1tau<0.47)+10*(MVA_2lss1tau>=0.47 && MVA_2lss1tau<0.53)+11*(MVA_2lss1tau>=0.53 && MVA_2lss1tau<=1.0) ";
+ 
 
-  int nbin = 7;
+  int nbin = 11;
+  float xmin = 1.;
+  float xmax = 12.;
+ /* int nbin = 100;
   float xmin = 0.;
-  float xmax = 1.;
+  float xmax = 1.;*/
+
+  //TString var="MVA_2lss1tau";
 
   TString cut="1";
 
 
-  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/antiEleWPs/datacard_BDT_2lss1tau_"+antiEle_WP+"26Sep18_syst.root";
+  TString file="/data_CMS/cms/mperez/ttH_2017/datacards/2lss1tau/datacard_BDT_2lss1tau_"+antiEle_WP+"_24oct18.root";
 
 
   datacard_maker(var,nbin,xmin,xmax,cut,file,true);
