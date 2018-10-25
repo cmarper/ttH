@@ -452,6 +452,9 @@ int main(int argc, char** argv){
     float _met;
     float _metphi;
 
+    float _PFMET;
+    float _PFMET_phi;
+
     tree->SetBranchAddress("recotauh_px",&_recotauh_px);
     tree->SetBranchAddress("recotauh_py",&_recotauh_py);
     tree->SetBranchAddress("recotauh_pz",&_recotauh_pz);
@@ -515,6 +518,9 @@ int main(int argc, char** argv){
     tree->SetBranchAddress("HTmiss",&_HTmiss);
     tree->SetBranchAddress("met",&_met);
     tree->SetBranchAddress("metphi",&_metphi);
+
+    tree->SetBranchAddress("PFMET",&_PFMET);
+    tree->SetBranchAddress("PFMET_phi",&_PFMET_phi);
 
     tree->SetBranchAddress("category",&_category);
 
@@ -734,6 +740,8 @@ int main(int argc, char** argv){
       _HTmiss = 0;
       _met = 0;
 
+      _PFMET = 0;
+      _PFMET_phi = 0;
 
       tree->GetEntry(i);
 
@@ -748,9 +756,9 @@ int main(int argc, char** argv){
         TLorentzVector lep1((*_recolep_sel_px)[0],(*_recolep_sel_py)[0],(*_recolep_sel_pz)[0],(*_recolep_sel_e)[0]);
 
         _dr_taus_1l2tau = tau1.DeltaR(tau2);
-        _ptmiss_1l2tau = _met;
+        _ptmiss_1l2tau = _PFMET;
         _lep_conePt_1l2tau = (*_recolep_sel_conept)[0];
-        _mT_lep_1l2tau = sqrt(2*((*_recolep_sel_conept)[0])*_met*(1-cos(((*_recolep_sel_phi)[0])-_metphi)));
+        _mT_lep_1l2tau = sqrt(2*((*_recolep_sel_conept)[0])*_PFMET*(1-cos(((*_recolep_sel_phi)[0])-_PFMET_phi)));
         _mTauTauVis_1l2tau = (tau1+tau2).M();
 
         float _mindR = 999.;
@@ -915,8 +923,8 @@ int main(int argc, char** argv){
         _dr_lep2_tau_2lss1tau = tau1.DeltaR(lep2);
         _dr_leps_2lss1tau = lep1.DeltaR(lep2);
         _lep2_conePt_2lss1tau = (*_recolep_sel_conept)[1];
-        _mT_lep1_2lss1tau = sqrt(2*((*_recolep_sel_conept)[0])*_met*(1-cos(((*_recolep_sel_phi)[0])-_metphi)));
-        _mT_lep2_2lss1tau = sqrt(2*((*_recolep_sel_conept)[1])*_met*(1-cos(((*_recolep_sel_phi)[1])-_metphi)));
+        _mT_lep1_2lss1tau = sqrt(2*((*_recolep_sel_conept)[0])*_PFMET*(1-cos(((*_recolep_sel_phi)[0])-_PFMET_phi)));
+        _mT_lep2_2lss1tau = sqrt(2*((*_recolep_sel_conept)[1])*_PFMET*(1-cos(((*_recolep_sel_phi)[1])-_PFMET_phi)));
         _mTauTauVis2_2lss1tau = (tau1+lep2).M();
 
         float _maxEta = -999.;
@@ -966,7 +974,7 @@ int main(int argc, char** argv){
 
         _mindr_tau_jet_2lss1tau = _mindR;
         _nJet_2lss1tau = _n_recoPFJet;
-        _ptmiss_2lss1tau = _met;
+        _ptmiss_2lss1tau = _PFMET;
         _tau_pt_2lss1tau = tau1.Pt();
         
         vector< pair<int,TLorentzVector> > reco_jets;
@@ -1167,7 +1175,7 @@ int main(int argc, char** argv){
         _tau2_pt_2l2tau = tau2.Pt();
         _lep2_conePt_2l2tau = (*_recolep_sel_conept)[1];
         _mindr_lep1_jet_2l2tau = _mindR_lep1_recoPFjet;
-        _mT_lep1_2l2tau = sqrt(2*((*_recolep_sel_conept)[0])*_met*(1-cos(((*_recolep_sel_phi)[0])-_metphi)));
+        _mT_lep1_2l2tau = sqrt(2*((*_recolep_sel_conept)[0])*_PFMET*(1-cos(((*_recolep_sel_phi)[0])-_PFMET_phi)));
 
         float _mindR = 999.;
         for(unsigned int i_jet=0;i_jet<(*_recoPFJet_pt).size();i_jet++){
@@ -1331,7 +1339,7 @@ int main(int argc, char** argv){
         _max_lep_eta_3l1tau = _maxEta;
 
         _max_lep_eta_3l1tau = _maxEta;
-        _ptmiss_3l1tau = _met;
+        _ptmiss_3l1tau = _PFMET;
         _tau_pt_3l1tau = tau1.Pt();
         _dr_leps_3l1tau = lep1.DeltaR(lep2);
 
