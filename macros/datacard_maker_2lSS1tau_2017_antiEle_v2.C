@@ -962,10 +962,6 @@ void initialize(){
   fake_syst_names.push_back("ele_down");
   fake_syst_names.push_back("ele_pt1");
   fake_syst_names.push_back("ele_pt2");
-  /*fake_syst_names.push_back("ele_b1");
-  fake_syst_names.push_back("ele_b2");
-  fake_syst_names.push_back("ele_ec1");
-  fake_syst_names.push_back("ele_ec2");*/
   fake_syst_names.push_back("ele_be1");
   fake_syst_names.push_back("ele_be2");
 
@@ -973,10 +969,6 @@ void initialize(){
   fake_syst_names.push_back("mu_down");
   fake_syst_names.push_back("mu_pt1");
   fake_syst_names.push_back("mu_pt2");
-  /*fake_syst_names.push_back("mu_b1");
-  fake_syst_names.push_back("mu_b2");
-  fake_syst_names.push_back("mu_ec1");
-  fake_syst_names.push_back("mu_ec2");*/
   fake_syst_names.push_back("mu_be1");
   fake_syst_names.push_back("mu_be2");
 
@@ -1077,15 +1069,16 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
 
     for(unsigned int i=0;i<bkg_type.size();i++){
-      
+  
       TH1F* h_TTH = (TH1F*)f_new->Get("x_ttH"+bkg_type[i]);
       h_TTH->Add( (TH1F*)f_new->Get("x_tHq"+bkg_type[i]) );
       h_TTH->Add( (TH1F*)f_new->Get("x_tHW"+bkg_type[i]) );
       h_TTH->SetNameTitle("x_TTH"+bkg_type[i],"x_TTH"+bkg_type[i]);
       h_TTH->Write();
       
+      // TS
       //TH1F* h_TTZ = (TH1F*)f_new->Get("x_ttZ"+bkg_type[i]);
-      //h_TTZ->Add( (TH1F*)f_new->Get("x_ttG"+bkg_type[i]) );
+      //h_TTZ->Add( (TH1F*)f_new->Get("x_Convs"+bkg_type[i]) );
       //h_TTZ->SetNameTitle("x_TTZ"+bkg_type[i],"x_TTZ"+bkg_type[i]);
       //h_TTZ->Write();
       
@@ -1166,10 +1159,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //FLIPS FROM DATA
 
     TH1F* h_flips =single_plot(filename_data,
-			       "HTauTauTree_2lSS_1tau_flip",
-			       var,
-			       "event_weight_ttH*(" + cut_cat + ")",
-			       nbin,xmin,xmax);
+			"HTauTauTree_2lSS_1tau_flip",
+			var,
+			"event_weight_ttH*(" + cut_cat + ")",
+			nbin,xmin,xmax);
     
     h_flips->Scale(luminosity/41298.); 
     h_flips->SetNameTitle("x_flips_data","x_flips_data");
@@ -1180,10 +1173,10 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //DATA
 
     TH1F* h_data_obs =single_plot(filename_data,
-				  "HTauTauTree_2lSS_1tau_SR",
-				  var,
-          		  Form("(category==%i && ",cat[i_cat]) + cut_cat + ")", 
-          		  nbin,xmin,xmax);
+		    "HTauTauTree_2lSS_1tau_SR",
+		    var,
+            Form("(category==%i && ",cat[i_cat]) + cut_cat + ")", 
+            nbin,xmin,xmax);
       
     h_data_obs->Scale(luminosity/41298.); //Data files for 36.8 fb-1
       
@@ -1212,8 +1205,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //////SYSTEMATICS B-TAG///////
     //////////////////////////////
 
-    //runs
-    
     for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
       for(unsigned int i_b=0;i_b<bTag_syst_names.size();i_b++){  
@@ -1308,7 +1299,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
 	    h_TTH->Write();
 
-
         TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	      if(bTag_syst_names[i_b]=="CFErr1Up")
 	    h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
@@ -1343,7 +1333,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
 	    h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
 	    h_TTZ->Write();
-	
 
 	    TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
@@ -1385,6 +1374,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
 	    h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
 	    h_EWK->Write();
+
 
 	    TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
@@ -1458,29 +1448,29 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    else if(bTag_syst_names[i_b]=="CFErr2Down")
 	      h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 
-	    /*TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-	    if(bTag_syst_names[i_b].Contains("Stats"))
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-	    if(bTag_syst_names[i_b]=="CFErr1Up")
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
-	    else if(bTag_syst_names[i_b]=="CFErr1Down")
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
-	    else if(bTag_syst_names[i_b]=="CFErr2Up")
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
-	    else if(bTag_syst_names[i_b]=="CFErr2Down")
-	      h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";*/
+	    //TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    //if(bTag_syst_names[i_b].Contains("Stats"))
+	    //  h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    //if(bTag_syst_names[i_b]=="CFErr1Up")
+	    //  h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
+	    //else if(bTag_syst_names[i_b]=="CFErr1Down")
+	    //  h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
+	    //else if(bTag_syst_names[i_b]=="CFErr2Up")
+	    //  h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
+	    //else if(bTag_syst_names[i_b]=="CFErr2Down")
+	    //  h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 
-	    /*TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-	    if(bTag_syst_names[i_b].Contains("Stats"))
-	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
-	    if(bTag_syst_names[i_b]=="CFErr1Up")
-	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
-	    else if(bTag_syst_names[i_b]=="CFErr1Down")
-	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
-	    else if(bTag_syst_names[i_b]=="CFErr2Up")
-	      h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
-	    else if(bTag_syst_names[i_b]=="CFErr2Down")
-	    h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";*/
+	    //TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    //if(bTag_syst_names[i_b].Contains("Stats"))
+	    //  h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
+	    //if(bTag_syst_names[i_b]=="CFErr1Up")
+	    //  h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Up";
+	    //else if(bTag_syst_names[i_b]=="CFErr1Down")
+	    //  h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr1Down";
+	    //else if(bTag_syst_names[i_b]=="CFErr2Up")
+	    //  h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Up";
+	    //else if(bTag_syst_names[i_b]=="CFErr2Down")
+	    //h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_cErr2Down";
 	
 	    TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_btag_"+bTag_syst_names[i_b];
 	    if(bTag_syst_names[i_b].Contains("Stats"))
@@ -1504,7 +1494,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
 	    h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
 	    h_Rares->Write();
-	
         }
 
     }
@@ -1516,11 +1505,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     /////SYSTEMATICS THEORETICAL//////
     //////////////////////////////////
 
-    //runs
-    
     for(unsigned i_MC=0;i_MC<MC_sample_name_thu_unc.size();i_MC++){
-
-      //cout<<MC_sample_name_thu_unc[i_MC]<<endl;
 
       TString syst_names="CMS_ttHl_thu_shape_";
       if(MC_sample_name_thu_unc[i_MC].Contains("ttH"))
@@ -1686,8 +1671,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     ////// SYSTEMATICS JEC/TES ///////
     //////////////////////////////////
 
-    //runs 
-    
     for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
       
       TString MC_weight = "MC_weight";
@@ -1791,26 +1774,22 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    //h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
 	    h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
 	    h_Rares->Write();
-	
       }
 
     }
     
 
     cout<<"OK JEC/TES "<<endl;
-    
 
 
     ////////////////////////////////////
     //// SYSTEMATICS JET-TO-TAU FR /////
     ////////////////////////////////////
-
-    //runs
-   
+      
     for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
-
+      
       if(!MC_sample_name[i_MC].Contains("faketau")) continue;
-
+      
       for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){       
 		    
 		TString MC_weight = "MC_weight";
@@ -1825,7 +1804,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 			nbin,xmin,xmax);
 	
       	h_MC_FRjt_syst->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);      
-
 	    TString h_name = "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_";
 	    if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
 	      h_name+="normUp";
@@ -1839,20 +1817,16 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_MC_FRjt_syst->SetNameTitle(h_name,h_name);
 	    makeBinContentsPositive(h_MC_FRjt_syst);
 	    h_MC_FRjt_syst->Write();
-
       }
 
     }
 
-   
-
 
     for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){  
-
-      for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
-
-	  if(!bkg_type[i_bkg].Contains("faketau")) continue;
-
+      
+      for(unsigned int i_bkg=0;i_bkg<bkg_type.size()+1;i_bkg++){
+	  
+          if(!bkg_type[i_bkg].Contains("faketau")) continue;
 
 	  TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
 	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
@@ -1899,7 +1873,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	  h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
 	  h_TTH->Write();
 
-
 	  TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
 	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
 	    h_name_ttZ+="normUp";
@@ -1909,7 +1882,7 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	    h_name_ttZ+="shapeUp";
 	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
 	    h_name_ttZ+="shapeDown";
-	  TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+	  TString h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
 	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
 	    h_name_ttG+="normUp";
 	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
@@ -1932,7 +1905,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	  h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
 	  h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
 	  h_TTZ->Write();
-
 	
 	  TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
 	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
@@ -1966,7 +1938,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 	  h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
 	  h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
 	  h_EWK->Write();
-
 	
 	  TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";	
 	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
@@ -2071,332 +2042,327 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     
 
 
-   /////////////////////////////////
-   ///// SYSTEMATICS TAU-ID ////////
-   /////////////////////////////////
+    /////////////////////////////////
+    ///// SYSTEMATICS TAU-ID ////////
+    /////////////////////////////////
 
-   //runs
+   
+    for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
-   for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
+        if(MC_sample_name[i_MC].Contains("faketau") || MC_sample_name[i_MC].Contains("gentau")) continue;
 
-     if(MC_sample_name[i_MC].Contains("faketau") || MC_sample_name[i_MC].Contains("gentau")) continue;
+        TH1F* h_MC_tauIDUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau");
+        h_MC_tauIDUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau"),1.05);
+        h_MC_tauIDUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_eff_tUp", "x_"+MC_sample_name[i_MC]+"_CMS_eff_tUp");
+        h_MC_tauIDUp->Write();
 
-     TH1F* h_MC_tauIDUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau");
-     h_MC_tauIDUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau"),1.05);
-     h_MC_tauIDUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_eff_tUp", "x_"+MC_sample_name[i_MC]+"_CMS_eff_tUp");
-     h_MC_tauIDUp->Write();
-
-     TH1F* h_MC_tauIDDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau");
-     h_MC_tauIDDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau"),0.95);
-     h_MC_tauIDDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown", "x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown");
-     h_MC_tauIDDown->Write();
+     	TH1F* h_MC_tauIDDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau");
+     	h_MC_tauIDDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau"),0.95);
+     	h_MC_tauIDDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown", "x_"+MC_sample_name[i_MC]+"_CMS_eff_tDown");
+     	h_MC_tauIDDown->Write();
      
-     TH1F* h_MC_FRjt_normUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
-     h_MC_FRjt_normUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_normUp"));
-     h_MC_FRjt_normUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normUp", "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normUp");
-     h_MC_FRjt_normUp->Write();
+     	TH1F* h_MC_FRjt_normUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
+     	h_MC_FRjt_normUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_normUp"));
+     	h_MC_FRjt_normUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normUp", "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normUp");
+     	h_MC_FRjt_normUp->Write();
      
-     TH1F* h_MC_FRjt_normDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
-     h_MC_FRjt_normDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_normDown"));
-     h_MC_FRjt_normDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown", "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown");
-     h_MC_FRjt_normDown->Write();
+     	TH1F* h_MC_FRjt_normDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
+     	h_MC_FRjt_normDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_normDown"));
+     	h_MC_FRjt_normDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown", "x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_normDown");
+     	h_MC_FRjt_normDown->Write();
      
-     TH1F* h_MC_FRjt_shapeUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
-     h_MC_FRjt_shapeUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_shapeUp"));
-     h_MC_FRjt_shapeUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp");
-     h_MC_FRjt_shapeUp->Write();
+     	TH1F* h_MC_FRjt_shapeUp = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
+     	h_MC_FRjt_shapeUp->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_shapeUp"));
+     	h_MC_FRjt_shapeUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeUp");
+     	h_MC_FRjt_shapeUp->Write();
      
-     TH1F* h_MC_FRjt_shapeDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
-     h_MC_FRjt_shapeDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_shapeDown"));
-     h_MC_FRjt_shapeDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeDown");
-     h_MC_FRjt_shapeDown->Write();
+     	TH1F* h_MC_FRjt_shapeDown = (TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_gentau");
+     	h_MC_FRjt_shapeDown->Add((TH1F*)f_new->Get("x_"+MC_sample_name[i_MC]+"_faketau_CMS_ttHl16_FRjt_shapeDown"));
+     	h_MC_FRjt_shapeDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_FRjt_shapeDown");
+     	h_MC_FRjt_shapeDown->Write();
 
 
-   }
+    }
 
 
-   vector<TString> syst_type_tauID;
-   syst_type_tauID.push_back("Up");
-   syst_type_tauID.push_back("Down");
+    vector<TString> syst_type_tauID;
+    syst_type_tauID.push_back("Up");
+    syst_type_tauID.push_back("Down");
 
-   for(unsigned int i_syst=0;i_syst<2;i_syst++){
+    for(unsigned int i_syst=0;i_syst<2;i_syst++){
 
-     TString h_name_ttH = "x_ttH_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_tHq = "x_tHq_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_tHW = "x_tHW_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_TTH = "x_TTH_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_ttH = "x_ttH_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_tHq = "x_tHq_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_tHW = "x_tHW_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_TTH = "x_TTH_CMS_eff_t"+syst_type_tauID[i_syst];
  
-     TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-     h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-     h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-     h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-     h_TTH->Write();
+     	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
+     	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+     	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+     	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+     	h_TTH->Write();
 
-
-     TString h_name_ttZ = "x_ttZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_ttG = "x_Convs_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_TTZ = "x_TTZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_ttZ = "x_ttZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_ttG = "x_Convs_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_TTZ = "x_TTZ_CMS_eff_t"+syst_type_tauID[i_syst];
  
-     TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
-     h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
-     h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
-     h_TTZ->Write();
+     	TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
+     	h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
+     	h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
+     	h_TTZ->Write();
 	
-     TString h_name_WZ = "x_WZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_ZZ = "x_ZZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_EWK = "x_EWK_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_WZ = "x_WZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_ZZ = "x_ZZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_EWK = "x_EWK_CMS_eff_t"+syst_type_tauID[i_syst];
 		
-     TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
-     h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-     h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-     h_EWK->Write();
+     	TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
+     	h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+     	h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+     	h_EWK->Write();
 
-     TString h_name_WWW = "x_WWW_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_WWZ = "x_WWZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_WZZ = "x_WZZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_ZZZ = "x_ZZZ_CMS_eff_t"+syst_type_tauID[i_syst];
-     //TString h_name_WWss = "x_WWss_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_tZq = "x_tZq_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_TTTT = "x_TTTT_CMS_eff_t"+syst_type_tauID[i_syst];
-     TString h_name_Rares = "x_Rares_CMS_eff_t"+syst_type_tauID[i_syst];
-		
-     TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-     //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );	     
-     h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-     h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-     h_Rares->Write();
+     	TString h_name_WWW = "x_WWW_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_WWZ = "x_WWZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_WZZ = "x_WZZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_ZZZ = "x_ZZZ_CMS_eff_t"+syst_type_tauID[i_syst];
+     	//TString h_name_WWss = "x_WWss_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_tZq = "x_tZq_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_TTTT = "x_TTTT_CMS_eff_t"+syst_type_tauID[i_syst];
+     	TString h_name_Rares = "x_Rares_CMS_eff_t"+syst_type_tauID[i_syst];	
+	
+     	TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
+     	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+     	h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+     	h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+     	//h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+     	h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );	     
+     	h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+     	h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+     	h_Rares->Write();
 
-   }
+    }
 
 
-   cout<<"OK syst tauID"<<endl;
+    cout<<"OK syst tauID"<<endl;
    
 
-   ////////////////////////////////////
-   /////// SYSTEMATICS TAU-FAKES //////
-   ////////////////////////////////////
+    ////////////////////////////////////
+    /////// SYSTEMATICS TAU-FAKES //////
+    ////////////////////////////////////
+ 
+   
+   
+    for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){  
 
-   //runs
+        for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
 
-   for(unsigned int i_t=0;i_t<jetToTau_FR_syst_names.size();i_t++){  
-
-      for(unsigned int i_bkg=0;i_bkg<bkg_type.size();i_bkg++){
-
-        if(bkg_type[i_bkg].Contains("faketau") || bkg_type[i_bkg].Contains("gentau")) continue;
-
-	    TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-            h_name_ttH+="normUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-            h_name_ttH+="normDown";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-            h_name_ttH+="shapeUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-            h_name_ttH+="shapeDown";
-        TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-            h_name_tHq+="normUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-            h_name_tHq+="normDown";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-            h_name_tHq+="shapeUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-            h_name_tHq+="shapeDown";
-	    TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-            h_name_tHW+="normUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-            h_name_tHW+="normDown";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-            h_name_tHW+="shapeUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-            h_name_tHW+="shapeDown";
-	    TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-            h_name_TTH+="normUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-            h_name_TTH+="normDown";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-            h_name_TTH+="shapeUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-            h_name_TTH+="shapeDown";
-
-		
-	    TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
-	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-	    h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-	    h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-	    h_TTH->Write();
-
-	    //TS
-	    /*TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-              h_name_ttZ+="normUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-              h_name_ttZ+="normDown";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-              h_name_ttZ+="shapeUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-              h_name_ttZ+="shapeDown";
-        TString h_name_ttG = "x_ttG"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-              h_name_ttG+="normUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-              h_name_ttG+="normDown";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-              h_name_ttG+="shapeUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-              h_name_ttG+="shapeDown";
-	    TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-            if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-              h_name_TTZ+="normUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-              h_name_TTZ+="normDown";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-              h_name_TTZ+="shapeUp";
-            else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-              h_name_TTZ+="shapeDown";
-
-		
-	    TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
-	    h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
-	    h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
-	    h_TTZ->Write();*/
-
-
-   		TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_WZ+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_WZ+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_WZ+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_WZ+="shapeDown";
-    	TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_ZZ+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_ZZ+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_ZZ+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_ZZ+="shapeDown";
-    	TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_EWK+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_EWK+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_EWK+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_EWK+="shapeDown";
-
-
-		TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
-		h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-		h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-		h_EWK->Write();
+        	if(bkg_type[i_bkg].Contains("faketau") || bkg_type[i_bkg].Contains("gentau")) continue;
 	
-
-		TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_WWW+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_WWW+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_WWW+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_WWW+="shapeDown";
-    	TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_WWZ+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_WWZ+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_WWZ+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_WWZ+="shapeDown";
-    	TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_WZZ+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_WZZ+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_WZZ+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_WZZ+="shapeDown";
-    	TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_ZZZ+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_ZZZ+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_ZZZ+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_ZZZ+="shapeDown";
-    	/*TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_WWss+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_WWss+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_WWss+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_WWss+="shapeDown";*/
-    	TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_tZq+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-    	    h_name_tZq+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_tZq+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_tZq+="shapeDown";
-    	TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_TTTT+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-		    h_name_TTTT+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_TTTT+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-    	    h_name_TTTT+="shapeDown";
-		/*TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-    	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-    	    h_name_ttWW+="normUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-		    h_name_ttWW+="normDown";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-    	    h_name_ttWW+="shapeUp";
-    	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-		  h_name_ttWW+="shapeDown";*/
-        TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
-          if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
-            h_name_Rares+="normUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
-            h_name_Rares+="normDown";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
-            h_name_Rares+="shapeUp";
-          else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
-            h_name_Rares+="shapeDown";
-
-		TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
-		h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-		h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-		h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-		//h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );	
-		h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
-		h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-		//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
-		h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-		h_Rares->Write();
+	    	TString h_name_ttH = "x_ttH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+          	if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+          	  h_name_ttH+="normUp";
+          	else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+          	  h_name_ttH+="normDown";
+          	else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+          	  h_name_ttH+="shapeUp";
+          	else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+          	  h_name_ttH+="shapeDown";
+        	TString h_name_tHq = "x_tHq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    h_name_tHq+="normUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    h_name_tHq+="normDown";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    h_name_tHq+="shapeUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    h_name_tHq+="shapeDown";
+	    	TString h_name_tHW = "x_tHW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    h_name_tHW+="normUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    h_name_tHW+="normDown";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    h_name_tHW+="shapeUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    h_name_tHW+="shapeDown";
+	    	TString h_name_TTH = "x_TTH"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    h_name_TTH+="normUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    h_name_TTH+="normDown";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    h_name_TTH+="shapeUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    h_name_TTH+="shapeDown";
 	
-      }
+				
+	    	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH);
+	    	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+	    	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+	    	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+	    	h_TTH->Write();
+
+	    	//TS
+	    	//TString h_name_ttZ = "x_ttZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	    //if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    //  h_name_ttZ+="normUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    //  h_name_ttZ+="normDown";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    //  h_name_ttZ+="shapeUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    //  h_name_ttZ+="shapeDown";
+        	//TString h_name_ttG = "x_Convs"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	    //if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    //  h_name_ttG+="normUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    //  h_name_ttG+="normDown";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    //  h_name_ttG+="shapeUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    //  h_name_ttG+="shapeDown";
+	    	//TString h_name_TTZ = "x_TTZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	    //if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    //  h_name_TTZ+="normUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    //  h_name_TTZ+="normDown";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    //  h_name_TTZ+="shapeUp";
+        	    //else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    //  h_name_TTZ+="shapeDown";
+	    	//TH1F* h_TTZ = (TH1F*)f_new->Get(h_name_ttZ);
+	    	//h_TTZ->Add( (TH1F*)f_new->Get(h_name_ttG) );
+	    	//h_TTZ->SetNameTitle(h_name_TTZ,h_name_TTZ);
+	    	//h_TTZ->Write();
+
+
+   			TString h_name_WZ = "x_WZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_WZ+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_WZ+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_WZ+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_WZ+="shapeDown";
+    		TString h_name_ZZ = "x_ZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_ZZ+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_ZZ+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_ZZ+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_ZZ+="shapeDown";
+    		TString h_name_EWK = "x_EWK"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_EWK+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_EWK+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_EWK+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_EWK+="shapeDown";
+
+
+			TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ);
+			h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+			h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+			h_EWK->Write();
+
+			TString h_name_WWW = "x_WWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_WWW+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_WWW+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_WWW+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_WWW+="shapeDown";
+    		TString h_name_WWZ = "x_WWZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_WWZ+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_WWZ+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_WWZ+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_WWZ+="shapeDown";
+    		TString h_name_WZZ = "x_WZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_WZZ+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_WZZ+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_WZZ+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_WZZ+="shapeDown";
+    		TString h_name_ZZZ = "x_ZZZ"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_ZZZ+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_ZZZ+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_ZZZ+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_ZZZ+="shapeDown";
+    		//TString h_name_WWss = "x_WWss"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		//  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		//    h_name_WWss+="normUp";
+    		//  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		//    h_name_WWss+="normDown";
+    		//  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		//    h_name_WWss+="shapeUp";
+    		//  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		//    h_name_WWss+="shapeDown";
+    		TString h_name_tZq = "x_tZq"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_tZq+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+    		    h_name_tZq+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_tZq+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_tZq+="shapeDown";
+    		TString h_name_TTTT = "x_TTTT"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		    h_name_TTTT+="normUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+			    h_name_TTTT+="normDown";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		    h_name_TTTT+="shapeUp";
+    		  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+    		    h_name_TTTT+="shapeDown";
+			//TString h_name_ttWW = "x_ttWW"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+    		  //if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+    		  //  h_name_ttWW+="normUp";
+    		  //else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+			//    h_name_ttWW+="normDown";
+    		  //else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+    		   // h_name_ttWW+="shapeUp";
+    		  //else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+			//	h_name_ttWW+="shapeDown";
+        	TString h_name_Rares = "x_Rares"+bkg_type[i_bkg]+"_CMS_ttHl16_FRjt_";
+        	  if(jetToTau_FR_syst_names[i_t]=="tauNormUp")
+        	    h_name_Rares+="normUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauNormDown")
+        	    h_name_Rares+="normDown";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeUp")
+        	    h_name_Rares+="shapeUp";
+        	  else if(jetToTau_FR_syst_names[i_t]=="tauShapeDown")
+        	    h_name_Rares+="shapeDown";
+
+			TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW);
+			h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+			h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+			h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+			//h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );	
+			h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
+			h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+			//h_Rares->Add( (TH1F*)f_new->Get(h_name_ttWW) );
+			h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+			h_Rares->Write();
+	
+      	}
 
     }
 
@@ -2408,8 +2374,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //////////////////////////////////
     //// FAKES CLOSURE SYSTEMATICS ///
     //////////////////////////////////
-
-    //runs
     
     TH1F* h_TT_DL_clos_ele_diff = single_plot(filename_ttbar_DL,
 		"HTauTauTree_2lSS_1tau_fake",
@@ -2443,22 +2407,21 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     makeBinContentsPositive(h_fakes_clos_ele_Down);
     h_fakes_clos_ele_Down->Write();
 
-
-   TH1F* h_TT_DL_clos_mu_diff = single_plot(filename_ttbar_DL,
-		"HTauTauTree_2lSS_1tau_fake",
-		var,
-		Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
-		nbin,xmin,xmax);
+   	TH1F* h_TT_DL_clos_mu_diff = single_plot(filename_ttbar_DL,
+			"HTauTauTree_2lSS_1tau_fake",
+			var,
+			Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",
+			nbin,xmin,xmax);
     
     h_TT_DL_clos_mu_diff->Scale(luminosity*XS_ttbar_DL/h_ttbar_DL_norm->Integral());
 
-   TH1F* h_TT_SL_clos_mu_diff = single_plot(filename_ttbar_SL,
-        "HTauTauTree_2lSS_1tau_fake",
-        var,
-        Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",                                   
-        nbin,xmin,xmax);
-
-    h_TT_SL_clos_mu_diff->Scale(luminosity*XS_ttbar_SL/h_ttbar_SL_norm->Integral());
+   	TH1F* h_TT_SL_clos_mu_diff = single_plot(filename_ttbar_SL,
+   	     "HTauTauTree_2lSS_1tau_fake",
+   	     var,
+   	     Form("MC_weight*PU_weight_ICHEP18*triggerSF_weight*bTagSF_CSVshape_weight*leptonSF_ttH_weight*tauSF_weight*(event_weight_ttH_mu_FR_TT_MC-event_weight_ttH_mu_FR_QCD_MC)*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")",                                   
+   	     nbin,xmin,xmax);
+	
+   	h_TT_SL_clos_mu_diff->Scale(luminosity*XS_ttbar_SL/h_ttbar_SL_norm->Integral());
 
 
     TH1F* h_fakes_clos_mu_Up = (TH1F*)h_fakes->Clone();
@@ -2481,19 +2444,15 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     cout<<"OK closure syst"<<endl;
     
 
-
     /////////////////////////////
     ///// FAKES SYSTEMATICS /////
     /////////////////////////////
-
-    //runs
-
+    
     for(unsigned int i_f=0;i_f<fake_syst_names.size();i_f++){
     
         TString weight = "event_weight_ttH_"+ fake_syst_names[i_f];
         TString cut = weight + Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && ",cat_fakes[i_cat]) + cut_cat + ")";
 
-    
         TH1F* h_fakes_syst =single_plot(filename_data,
             "HTauTauTree_2lSS_1tau_fake",
             var,
@@ -2501,30 +2460,24 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
             nbin,xmin,xmax);
 
         h_fakes_syst->Scale(luminosity/41298.); //Data files for 35.9 fb-1
-
-	    //cout<<weight<<endl;
-	    //cout<<h_fakes_syst->Integral()<<endl;
 											
 		for(unsigned int i_MC=0;i_MC<MC_sample_name.size();i_MC++){
-	
-			if(MC_sample_name[i_MC]=="ttH" || MC_sample_name[i_MC].Contains("ttbar")) continue;      	
-	
-			TString MC_weight = "MC_weight";
-	
-        	TString MC_cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*"+weight+Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] && recolep_sel_isGenMatched[2] &&",cat_fakes[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat + ")";
+	   		if(MC_sample_name[i_MC]=="ttH" || MC_sample_name[i_MC].Contains("ttbar")) continue;
+           	if(MC_sample_name[i_MC].Contains("tHq") || MC_sample_name[i_MC].Contains("tHW")) continue; //fix tH weights!      	
 
-			TH1F* h_MC_genmatch = single_plot(filename_MC[i_MC],
+	    	TString MC_weight = "MC_weight";
+            TString MC_cut = MC_weight + "*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*"+weight+Form("*(category==%i && recotauh_sel_byLooseIsolationMVArun2v2DBdR03oldDMwLT2017[0] && recolep_sel_isGenMatched[0] && recolep_sel_isGenMatched[1] &&",cat_fakes[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat + ")";
+
+	    	TH1F* h_MC_genmatch = single_plot(filename_MC[i_MC],
                 "HTauTauTree_2lSS_1tau_fake",
 				var,
 				MC_cut,
 				nbin,xmin,xmax);
 
-        	h_MC_genmatch->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
-        	h_fakes_syst->Add(h_MC_genmatch,-1);
-     		
+            h_MC_genmatch->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
+            h_fakes_syst->Add(h_MC_genmatch,-1);
      	}
 
-		//cout<<h_fakes_syst->Integral()<<endl;
 			
 		TString h_name = "x_fakes_data";
         if(fake_syst_names[i_f]=="ele_up")
@@ -2535,14 +2488,14 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
             h_name+="_CMS_ttHl16_FRe_ptUp";
         else if(fake_syst_names[i_f]=="ele_pt2")
             h_name+="_CMS_ttHl16_FRe_ptDown";
-        /*else if(fake_syst_names[i_f]=="ele_b1")
-            h_name+="_CMS_ttHl16_FRe_bUp";
-        else if(fake_syst_names[i_f]=="ele_b2")
-            h_name+="_CMS_ttHl16_FRe_bDown";
-        else if(fake_syst_names[i_f]=="ele_ec1")
-        	h_name+="_CMS_ttHl16_FRe_ecUp";
-        else if(fake_syst_names[i_f]=="ele_ec2")
-            h_name+="_CMS_ttHl16_FRe_ecDown";*/
+        //else if(fake_syst_names[i_f]=="ele_b1")
+        //    h_name+="_CMS_ttHl16_FRe_bUp";
+        //else if(fake_syst_names[i_f]=="ele_b2")
+        //    h_name+="_CMS_ttHl16_FRe_bDown";
+        //else if(fake_syst_names[i_f]=="ele_ec1")
+        //	h_name+="_CMS_ttHl16_FRe_ecUp";
+        //else if(fake_syst_names[i_f]=="ele_ec2")
+        //    h_name+="_CMS_ttHl16_FRe_ecDown";
 	 	else if(fake_syst_names[i_f]=="ele_be1")
            	h_name+="_CMS_ttHl16_FRe_beUp";
         else if(fake_syst_names[i_f]=="ele_be2")
@@ -2556,19 +2509,18 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
             h_name+="_CMS_ttHl16_FRm_ptUp";
         else if(fake_syst_names[i_f]=="mu_pt2")
            h_name+="_CMS_ttHl16_FRm_ptDown";
-        /*else if(fake_syst_names[i_f]=="mu_b1")
-            h_name+="_CMS_ttHl16_FRm_bUp";
-        else if(fake_syst_names[i_f]=="mu_b2")
-            h_name+="_CMS_ttHl16_FRm_bDown";
-        else if(fake_syst_names[i_f]=="mu_ec1")
-            h_name+="_CMS_ttHl16_FRm_ecUp";
-        else if(fake_syst_names[i_f]=="mu_ec2")
-            h_name+="_CMS_ttHl16_FRm_ecDown";*/
+        //else if(fake_syst_names[i_f]=="mu_b1")
+        //    h_name+="_CMS_ttHl16_FRm_bUp";
+        //else if(fake_syst_names[i_f]=="mu_b2")
+        //    h_name+="_CMS_ttHl16_FRm_bDown";
+        //else if(fake_syst_names[i_f]=="mu_ec1")
+        //    h_name+="_CMS_ttHl16_FRm_ecUp";
+        //else if(fake_syst_names[i_f]=="mu_ec2")
+        //    h_name+="_CMS_ttHl16_FRm_ecDown";
 	 	else if(fake_syst_names[i_f]=="mu_be1")
      	    h_name+="_CMS_ttHl16_FRm_beUp";
      	else if(fake_syst_names[i_f]=="mu_be2")
      	    h_name+="_CMS_ttHl16_FRm_beDown";
-
 
         if(!fake_syst_names[i_f].Contains("up") && !fake_syst_names[i_f].Contains("down"))
           	h_fakes_syst->Scale(h_fakes->Integral()/h_fakes_syst->Integral());
@@ -2590,106 +2542,87 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
     //runs 
     for(unsigned i_MC=0;i_MC<MC_sample_name.size();i_MC++){
 
-      TString MC_weight = "MC_weight";
- 
+      	TString MC_weight = "MC_weight";
 
-      TString cut = MC_weight + Form("*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat;
+      	TString cut = MC_weight + Form("*PU_weight_ICHEP18*triggerSF_weight*leptonSF_ttH_weight*bTagSF_CSVshape_weight*tauSF_weight*(category==%i &&",cat[i_cat]) + MC_sample_cut[i_MC] + " && " + cut_cat;
 
-      TH1F* h_MC_mmm = single_plot(filename_MC[i_MC],
+      	TH1F* h_MC_ee = single_plot(filename_MC[i_MC],
 			"HTauTauTree_2lSS_1tau_SR",
 			var,
-			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==39)",
+			cut + "&& (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1]))==22)",
 			nbin,xmin,xmax);
 
-      TH1F* h_MC_emm = single_plot(filename_MC[i_MC],
+      	TH1F* h_MC_em = single_plot(filename_MC[i_MC],
 			"HTauTauTree_2lSS_1tau_SR",
-			var,
-			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==37)",
+			var,			    
+			cut + "&& (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1]))==24)",
 			nbin,xmin,xmax);
 
-      TH1F* h_MC_eem = single_plot(filename_MC[i_MC],
+      	TH1F* h_MC_mm = single_plot(filename_MC[i_MC],
 			"HTauTauTree_2lSS_1tau_SR",
-			var,
-			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==35)",
-			nbin,xmin,xmax);
+			var,			    
+			cut + "&& (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1]))==26)",
+                        nbin,xmin,xmax);
 
-      TH1F* h_MC_eee = single_plot(filename_MC[i_MC],
-			"HTauTauTree_2lSS_1tau_SR",
-			var,
-			cut + " && (abs(recolep_sel_pdg[0])+abs(recolep_sel_pdg[1])+abs(recolep_sel_pdg[2]))==33)",
-			nbin,xmin,xmax);
+      	h_MC_mm->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
+      	h_MC_em->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
+      	h_MC_ee->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
 
-      h_MC_mmm->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
-      h_MC_emm->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
-      h_MC_eem->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
-      h_MC_eee->Scale(luminosity*XS[i_MC]/norm_MC[i_MC]);
+      	TH1F* h_MC_lepEff_eltightUp = (TH1F*) h_MC_mm->Clone();
+      	h_MC_lepEff_eltightUp->Add(h_MC_em,1.03);
+      	h_MC_lepEff_eltightUp->Add(h_MC_ee,1.06);
+      	h_MC_lepEff_eltightUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightUp");
+      	makeBinContentsPositive(h_MC_lepEff_eltightUp);
+      	h_MC_lepEff_eltightUp->Write();
 
-      TH1F* h_MC_lepEff_eltightUp = (TH1F*) h_MC_mmm->Clone();
-      h_MC_lepEff_eltightUp->Add(h_MC_emm,1.03);
-      h_MC_lepEff_eltightUp->Add(h_MC_eem,1.06);
-      h_MC_lepEff_eltightUp->Add(h_MC_eee,1.09);
-      h_MC_lepEff_eltightUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightUp");
-      makeBinContentsPositive(h_MC_lepEff_eltightUp);
-      h_MC_lepEff_eltightUp->Write();
+      	TH1F* h_MC_lepEff_eltightDown = (TH1F*) h_MC_mm->Clone();
+      	h_MC_lepEff_eltightDown->Add(h_MC_em,0.97);
+      	h_MC_lepEff_eltightDown->Add(h_MC_ee,0.94);
+      	h_MC_lepEff_eltightDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightDown");
+      	makeBinContentsPositive(h_MC_lepEff_eltightDown);
+      	h_MC_lepEff_eltightDown->Write();
 
-      TH1F* h_MC_lepEff_eltightDown = (TH1F*) h_MC_mmm->Clone();
-      h_MC_lepEff_eltightDown->Add(h_MC_emm,0.97);
-      h_MC_lepEff_eltightDown->Add(h_MC_eem,0.94);
-      h_MC_lepEff_eltightDown->Add(h_MC_eee,0.91);
-      h_MC_lepEff_eltightDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_eltightDown");
-      makeBinContentsPositive(h_MC_lepEff_eltightDown);
-      h_MC_lepEff_eltightDown->Write();
-      
-      TH1F* h_MC_lepEff_mutightUp = (TH1F*) h_MC_eee->Clone();
-      h_MC_lepEff_mutightUp->Add(h_MC_eem,1.03);
-      h_MC_lepEff_mutightUp->Add(h_MC_emm,1.06);
-      h_MC_lepEff_mutightUp->Add(h_MC_mmm,1.09);
-      h_MC_lepEff_mutightUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightUp");
-      makeBinContentsPositive(h_MC_lepEff_mutightUp);
-      h_MC_lepEff_mutightUp->Write();
+      	TH1F* h_MC_lepEff_mutightUp = (TH1F*) h_MC_ee->Clone();
+      	h_MC_lepEff_mutightUp->Add(h_MC_em,1.03);
+      	h_MC_lepEff_mutightUp->Add(h_MC_mm,1.06);
+      	h_MC_lepEff_mutightUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightUp");
+      	makeBinContentsPositive(h_MC_lepEff_mutightUp);
+      	h_MC_lepEff_mutightUp->Write();
 
-      TH1F* h_MC_lepEff_mutightDown = (TH1F*) h_MC_eee->Clone();
-      h_MC_lepEff_mutightDown->Add(h_MC_eem,0.97);
-      h_MC_lepEff_mutightDown->Add(h_MC_emm,0.94);
-      h_MC_lepEff_mutightDown->Add(h_MC_mmm,0.91);
-      h_MC_lepEff_mutightDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightDown");
-      makeBinContentsPositive(h_MC_lepEff_mutightDown);
-      h_MC_lepEff_mutightDown->Write();
+      	TH1F* h_MC_lepEff_mutightDown = (TH1F*) h_MC_ee->Clone();
+      	h_MC_lepEff_mutightDown->Add(h_MC_em,0.97);
+      	h_MC_lepEff_mutightDown->Add(h_MC_mm,0.94);
+      	h_MC_lepEff_mutightDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mutightDown");
+      	makeBinContentsPositive(h_MC_lepEff_mutightDown);
+      	h_MC_lepEff_mutightDown->Write();
 
-
-      TH1F* h_MC_lepEff_ellooseUp = (TH1F*) h_MC_mmm->Clone();
-      h_MC_lepEff_ellooseUp->Add(h_MC_emm,1.02);
-      h_MC_lepEff_ellooseUp->Add(h_MC_eem,1.04);
-      h_MC_lepEff_ellooseUp->Add(h_MC_eee,1.06);
-      h_MC_lepEff_ellooseUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseUp");
-      makeBinContentsPositive(h_MC_lepEff_ellooseUp);
-      h_MC_lepEff_ellooseUp->Write();
-
-      TH1F* h_MC_lepEff_ellooseDown = (TH1F*) h_MC_mmm->Clone();
-      h_MC_lepEff_ellooseDown->Add(h_MC_emm,0.98);
-      h_MC_lepEff_ellooseDown->Add(h_MC_eem,0.96);
-      h_MC_lepEff_ellooseDown->Add(h_MC_eee,0.94);
-      h_MC_lepEff_ellooseDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseDown");
-      makeBinContentsPositive(h_MC_lepEff_ellooseDown);
-      h_MC_lepEff_ellooseDown->Write();
-      
-      TH1F* h_MC_lepEff_mulooseUp = (TH1F*) h_MC_eee->Clone();
-      h_MC_lepEff_mulooseUp->Add(h_MC_eem,1.02);
-      h_MC_lepEff_mulooseUp->Add(h_MC_emm,1.04);
-      h_MC_lepEff_mulooseUp->Add(h_MC_mmm,1.06);
-      h_MC_lepEff_mulooseUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseUp");
-      makeBinContentsPositive(h_MC_lepEff_mulooseUp);
-      h_MC_lepEff_mulooseUp->Write();
-
-      TH1F* h_MC_lepEff_mulooseDown = (TH1F*) h_MC_eee->Clone();
-      h_MC_lepEff_mulooseDown->Add(h_MC_eem,0.98);
-      h_MC_lepEff_mulooseDown->Add(h_MC_emm,0.96);
-      h_MC_lepEff_mulooseDown->Add(h_MC_mmm,0.94);
-      h_MC_lepEff_mulooseDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseDown");
-      makeBinContentsPositive(h_MC_lepEff_mulooseDown);
-      h_MC_lepEff_mulooseDown->Write();
-
-
+      	TH1F* h_MC_lepEff_ellooseUp = (TH1F*) h_MC_mm->Clone();
+      	h_MC_lepEff_ellooseUp->Add(h_MC_em,1.02);
+      	h_MC_lepEff_ellooseUp->Add(h_MC_ee,1.04);
+      	h_MC_lepEff_ellooseUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseUp");
+      	makeBinContentsPositive(h_MC_lepEff_ellooseUp);
+      	h_MC_lepEff_ellooseUp->Write();
+	
+	    TH1F* h_MC_lepEff_ellooseDown = (TH1F*) h_MC_mm->Clone();
+	    h_MC_lepEff_ellooseDown->Add(h_MC_em,0.98);
+	    h_MC_lepEff_ellooseDown->Add(h_MC_ee,0.96);
+	    h_MC_lepEff_ellooseDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_ellooseDown");
+	    makeBinContentsPositive(h_MC_lepEff_ellooseDown);
+	    h_MC_lepEff_ellooseDown->Write();
+	
+	    TH1F* h_MC_lepEff_mulooseUp = (TH1F*) h_MC_ee->Clone();
+	    h_MC_lepEff_mulooseUp->Add(h_MC_em,1.02);
+	    h_MC_lepEff_mulooseUp->Add(h_MC_mm,1.04);
+	    h_MC_lepEff_mulooseUp->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseUp","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseUp");
+	    makeBinContentsPositive(h_MC_lepEff_mulooseUp);
+	    h_MC_lepEff_mulooseUp->Write();
+	
+	    TH1F* h_MC_lepEff_mulooseDown = (TH1F*) h_MC_ee->Clone();
+	    h_MC_lepEff_mulooseDown->Add(h_MC_em,0.98);
+	    h_MC_lepEff_mulooseDown->Add(h_MC_mm,0.96);
+	    h_MC_lepEff_mulooseDown->SetNameTitle("x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseDown","x_"+MC_sample_name[i_MC]+"_CMS_ttHl16_lepEff_mulooseDown");
+	    makeBinContentsPositive(h_MC_lepEff_mulooseDown);
+      	h_MC_lepEff_mulooseDown->Write();
 
     }
 
@@ -2706,46 +2639,44 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
 
     for(unsigned int i=0;i<lepEff_syst.size();i++){
 
-      TString h_name_ttH = "x_ttH_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_tHq = "x_tHq_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_tHW = "x_tHW_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_TTH = "x_TTH_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_ttH = "x_ttH_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_tHq = "x_tHq_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_tHW = "x_tHW_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_TTH = "x_TTH_CMS_ttHl16_"+lepEff_syst[i];
 
-      TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH)->Clone();
-      h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
-      h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
-      h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
-      h_TTH->Write();
-            
+      	TH1F* h_TTH = (TH1F*)f_new->Get(h_name_ttH)->Clone();
+      	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHq) );
+      	h_TTH->Add( (TH1F*)f_new->Get(h_name_tHW) );
+      	h_TTH->SetNameTitle(h_name_TTH,h_name_TTH);
+      	h_TTH->Write();
 
-      TString h_name_WZ = "x_WZ_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_ZZ = "x_ZZ_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_EWK = "x_EWK_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_WZ = "x_WZ_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_ZZ = "x_ZZ_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_EWK = "x_EWK_CMS_ttHl16_"+lepEff_syst[i];
       
-      TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ)->Clone();
-      h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
-      h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
-      h_EWK->Write();
-      
-      TString h_name_WWW = "x_WWW_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_WWZ = "x_WWZ_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_WZZ = "x_WZZ_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_ZZZ = "x_ZZZ_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_tZq = "x_tZq_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_TTTT = "x_TTTT_CMS_ttHl16_"+lepEff_syst[i];
-      //TString h_name_WWss = "x_WWss_CMS_ttHl16_"+lepEff_syst[i];
-      TString h_name_Rares = "x_Rares_CMS_ttHl16_"+lepEff_syst[i];
+      	TH1F* h_EWK = (TH1F*)f_new->Get(h_name_WZ)->Clone();
+      	h_EWK->Add( (TH1F*)f_new->Get(h_name_ZZ) );
+      	h_EWK->SetNameTitle(h_name_EWK,h_name_EWK);
+      	h_EWK->Write();
 
-      TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW)->Clone();
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
-      h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
-      //h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
-      h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
-      h_Rares->Write();
+      	TString h_name_WWW = "x_WWW_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_WWZ = "x_WWZ_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_WZZ = "x_WZZ_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_ZZZ = "x_ZZZ_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_tZq = "x_tZq_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_TTTT = "x_TTTT_CMS_ttHl16_"+lepEff_syst[i];
+      	//TString h_name_WWss = "x_WWss_CMS_ttHl16_"+lepEff_syst[i];
+      	TString h_name_Rares = "x_Rares_CMS_ttHl16_"+lepEff_syst[i];
 
+      	TH1F* h_Rares = (TH1F*)f_new->Get(h_name_WWW)->Clone();
+      	h_Rares->Add( (TH1F*)f_new->Get(h_name_WWZ) );
+      	h_Rares->Add( (TH1F*)f_new->Get(h_name_WZZ) );
+      	h_Rares->Add( (TH1F*)f_new->Get(h_name_ZZZ) );
+      	h_Rares->Add( (TH1F*)f_new->Get(h_name_tZq) );
+      	h_Rares->Add( (TH1F*)f_new->Get(h_name_TTTT) );
+      	//h_Rares->Add( (TH1F*)f_new->Get(h_name_WWss) );
+      	h_Rares->SetNameTitle(h_name_Rares,h_name_Rares);
+      	h_Rares->Write();
     }
 
 
@@ -2758,10 +2689,6 @@ void datacard_maker(TString var1, int nbin, float xmin, float xmax,
   return;
 
 }
-
-
-
-
 
 
 
