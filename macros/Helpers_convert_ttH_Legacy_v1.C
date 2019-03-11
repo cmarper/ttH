@@ -3001,9 +3001,9 @@ void convert_tree(
   tree_new->Branch("recoPFJet_DeepJetsort_DeepCSVscore",&_recoPFJet_DeepJetsort_DeepCSVscore);
   tree_new->Branch("recoPFJet_DeepJetsort_DeepJetscore",&_recoPFJet_DeepJetsort_DeepJetscore);
   tree_new->Branch("recoPFJet_DeepJetsort_jecUnc",&_recoPFJet_DeepJetsort_jecUnc);
-  tree_new->Branch("recoPFJet_DeepCSVsort_Flavour",&_recoPFJet_DeepCSVsort_Flavour);
-  tree_new->Branch("recoPFJet_DeepCSVsort_hadronFlavour",&_recoPFJet_DeepCSVsort_hadronFlavour);
-  tree_new->Branch("recoPFJet_DeepCSVsort_QGdiscr",&_recoPFJet_DeepCSVsort_QGdiscr);
+  tree_new->Branch("recoPFJet_DeepJetsort_Flavour",&_recoPFJet_DeepCSVsort_Flavour);
+  tree_new->Branch("recoPFJet_DeepJetsort_hadronFlavour",&_recoPFJet_DeepCSVsort_hadronFlavour);
+  tree_new->Branch("recoPFJet_DeepJetsort_QGdiscr",&_recoPFJet_DeepCSVsort_QGdiscr);
 
   tree_new->Branch("recoPFJet_CSVsort_i_closest_genb",&_recoPFJet_CSVsort_i_closest_genb);
   tree_new->Branch("recoPFJet_CSVsort_dR_closest_genb",&_recoPFJet_CSVsort_dR_closest_genb);
